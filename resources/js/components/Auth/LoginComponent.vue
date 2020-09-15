@@ -4,12 +4,12 @@
         <p><span class="ui huge text">Login </span></p>
     </div>
     <div class="ui container">
-        <form class="ui inverted form" >
+        <form class="ui inverted form" @submit.prevent="login">
             <div class="ui one column grid centered">
                 <div class="row">
                     <div class="field five wide column">
                         <label>Username</label>
-                        <input type="text" name="username" placeholder="Username">
+                        <input type="text" name="username" v-model="fields.username" placeholder="Username">
                     </div>
                 </div>
                 <div class="row">

@@ -1904,9 +1904,57 @@ module.exports = {
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Auth/LoginComponent.vue?vue&type=script&lang=js& ***!
   \******************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\WorkSite\\package.json: Error while parsing JSON - Unexpected token } in JSON at position 1248\n    at JSON.parse (<anonymous>)\n    at C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\files\\package.js:57:20\n    at C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\files\\utils.js:36:12\n    at Generator.next (<anonymous>)\n    at Function.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\gensync-utils\\async.js:26:3)\n    at Generator.next (<anonymous>)\n    at evaluateSync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:244:28)\n    at Function.sync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:84:14)\n    at sync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\gensync-utils\\async.js:66:25)\n    at sync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:177:19)\n    at onFirstPause (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:204:19)\n    at Generator.next (<anonymous>)\n    at cachedFunction (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\caching.js:68:46)\n    at cachedFunction.next (<anonymous>)\n    at findPackageData (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\files\\package.js:33:18)\n    at findPackageData.next (<anonymous>)\n    at buildRootChain (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\config-chain.js:112:92)\n    at buildRootChain.next (<anonymous>)\n    at loadPrivatePartialConfig (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\partial.js:99:62)\n    at loadPrivatePartialConfig.next (<anonymous>)\n    at Function.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\partial.js:125:25)\n    at Generator.next (<anonymous>)\n    at evaluateSync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:244:28)\n    at Function.sync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:84:14)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\index.js:43:61)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:151:26)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:3:103)\n    at _next (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:5:194)\n    at C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:5:364\n    at new Promise (<anonymous>)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:5:97)\n    at Object.loader (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:64:18)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:59:12)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      fields: {},
+      errors: {}
+    };
+  },
+  mounted: function mounted() {},
+  methods: {
+    login: function login() {
+      axios.post(this.$apiPath + 'login', this.fields).then(function (response) {
+        alert(response.data);
+      })["catch"](function (error) {
+        alert(error.response);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -1915,9 +1963,107 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Chat/ViewComponent.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\WorkSite\\package.json: Error while parsing JSON - Unexpected token } in JSON at position 1248\n    at JSON.parse (<anonymous>)\n    at C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\files\\package.js:57:20\n    at C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\files\\utils.js:36:12\n    at Generator.next (<anonymous>)\n    at Function.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\gensync-utils\\async.js:26:3)\n    at Generator.next (<anonymous>)\n    at evaluateSync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:244:28)\n    at Function.sync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:84:14)\n    at sync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\gensync-utils\\async.js:66:25)\n    at sync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:177:19)\n    at onFirstPause (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:204:19)\n    at Generator.next (<anonymous>)\n    at cachedFunction (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\caching.js:68:46)\n    at cachedFunction.next (<anonymous>)\n    at findPackageData (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\files\\package.js:33:18)\n    at findPackageData.next (<anonymous>)\n    at buildRootChain (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\config-chain.js:112:92)\n    at buildRootChain.next (<anonymous>)\n    at loadPrivatePartialConfig (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\partial.js:99:62)\n    at loadPrivatePartialConfig.next (<anonymous>)\n    at Function.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\partial.js:125:25)\n    at Generator.next (<anonymous>)\n    at evaluateSync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:244:28)\n    at Function.sync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:84:14)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\index.js:43:61)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:151:26)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:3:103)\n    at _next (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:5:194)\n    at C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:5:364\n    at new Promise (<anonymous>)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:5:97)\n    at Object.loader (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:64:18)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:59:12)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      fields: {},
+      errors: {}
+    };
+  },
+  mounted: function mounted() {},
+  methods: {
+    submit: function submit() {
+      var _this = this;
+
+      this.errors = {};
+      axios.post(this.$apiPath + 'sendMessage', this.fields).then(function (response) {
+        var status = response.data.status;
+        var message = response.data.message;
+
+        if (status == true) {
+          $('body').toast({
+            title: "Chat",
+            "class": "inverted",
+            position: 'bottom right',
+            message: "".concat(message),
+            showProgress: 'bottom',
+            classProgress: 'green'
+          });
+        }
+      })["catch"](function (error) {
+        console.log(error.response.status);
+
+        if (error.response.status === 422 || error.response.status === 401) {
+          _this.errors = error.response.data.errors || {};
+          $('body').toast({
+            title: "Chat",
+            "class": "inverted",
+            position: 'bottom right',
+            message: "You do not have access to this feature",
+            showProgress: 'bottom',
+            classProgress: 'red'
+          });
+        }
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -37569,50 +37715,55 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "ui segment center aligned inverted" }, [
-        _c("p", [
-          _c("span", { staticClass: "ui huge text" }, [_vm._v("Login ")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ui container" }, [
-        _c("form", { staticClass: "ui inverted form" }, [
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "ui container" }, [
+      _c(
+        "form",
+        {
+          staticClass: "ui inverted form",
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.login($event)
+            }
+          }
+        },
+        [
           _c("div", { staticClass: "ui one column grid centered" }, [
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "field five wide column" }, [
                 _c("label", [_vm._v("Username")]),
                 _vm._v(" "),
                 _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.fields.username,
+                      expression: "fields.username"
+                    }
+                  ],
                   attrs: {
                     type: "text",
                     name: "username",
                     placeholder: "Username"
+                  },
+                  domProps: { value: _vm.fields.username },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.fields, "username", $event.target.value)
+                    }
                   }
                 })
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "field five wide column" }, [
-                _c("label", [_vm._v("Password")]),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: {
-                    type: "password",
-                    name: "password",
-                    placeholder: "Password"
-                  }
-                })
-              ])
-            ]),
+            _vm._m(1),
             _vm._v(" "),
             _c("button", { staticClass: "ui inverted teal button" }, [
               _vm._v("Register")
@@ -37626,7 +37777,31 @@ var staticRenderFns = [
               [_vm._v("Login")]
             )
           ])
-        ])
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ui segment center aligned inverted" }, [
+      _c("p", [_c("span", { staticClass: "ui huge text" }, [_vm._v("Login ")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "field five wide column" }, [
+        _c("label", [_vm._v("Password")]),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "password", name: "password", placeholder: "Password" }
+        })
       ])
     ])
   }
