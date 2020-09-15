@@ -1899,102 +1899,25 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Auth/LoginComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Auth/LoginComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\WorkSite\\package.json: Error while parsing JSON - Unexpected token } in JSON at position 1248\n    at JSON.parse (<anonymous>)\n    at C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\files\\package.js:57:20\n    at C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\files\\utils.js:36:12\n    at Generator.next (<anonymous>)\n    at Function.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\gensync-utils\\async.js:26:3)\n    at Generator.next (<anonymous>)\n    at evaluateSync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:244:28)\n    at Function.sync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:84:14)\n    at sync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\gensync-utils\\async.js:66:25)\n    at sync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:177:19)\n    at onFirstPause (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:204:19)\n    at Generator.next (<anonymous>)\n    at cachedFunction (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\caching.js:68:46)\n    at cachedFunction.next (<anonymous>)\n    at findPackageData (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\files\\package.js:33:18)\n    at findPackageData.next (<anonymous>)\n    at buildRootChain (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\config-chain.js:112:92)\n    at buildRootChain.next (<anonymous>)\n    at loadPrivatePartialConfig (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\partial.js:99:62)\n    at loadPrivatePartialConfig.next (<anonymous>)\n    at Function.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\partial.js:125:25)\n    at Generator.next (<anonymous>)\n    at evaluateSync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:244:28)\n    at Function.sync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:84:14)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\index.js:43:61)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:151:26)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:3:103)\n    at _next (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:5:194)\n    at C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:5:364\n    at new Promise (<anonymous>)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:5:97)\n    at Object.loader (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:64:18)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:59:12)");
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Chat/ViewComponent.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Chat/ViewComponent.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      fields: {},
-      errors: {}
-    };
-  },
-  mounted: function mounted() {},
-  methods: {
-    submit: function submit() {
-      var _this = this;
-
-      this.errors = {};
-      axios.post(this.$apiPath + 'sendMessage', this.fields).then(function (response) {
-        var status = response.data.status;
-        var message = response.data.message;
-
-        if (status == true) {
-          $('body').toast({
-            title: "Chat",
-            "class": "inverted",
-            position: 'bottom right',
-            message: "".concat(message),
-            showProgress: 'bottom',
-            classProgress: 'green'
-          });
-        }
-      })["catch"](function (error) {
-        if (error.response.status === 422) {
-          _this.errors = error.response.data.errors || {};
-        }
-      });
-    }
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\WorkSite\\package.json: Error while parsing JSON - Unexpected token } in JSON at position 1248\n    at JSON.parse (<anonymous>)\n    at C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\files\\package.js:57:20\n    at C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\files\\utils.js:36:12\n    at Generator.next (<anonymous>)\n    at Function.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\gensync-utils\\async.js:26:3)\n    at Generator.next (<anonymous>)\n    at evaluateSync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:244:28)\n    at Function.sync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:84:14)\n    at sync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\gensync-utils\\async.js:66:25)\n    at sync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:177:19)\n    at onFirstPause (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:204:19)\n    at Generator.next (<anonymous>)\n    at cachedFunction (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\caching.js:68:46)\n    at cachedFunction.next (<anonymous>)\n    at findPackageData (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\files\\package.js:33:18)\n    at findPackageData.next (<anonymous>)\n    at buildRootChain (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\config-chain.js:112:92)\n    at buildRootChain.next (<anonymous>)\n    at loadPrivatePartialConfig (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\partial.js:99:62)\n    at loadPrivatePartialConfig.next (<anonymous>)\n    at Function.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\partial.js:125:25)\n    at Generator.next (<anonymous>)\n    at evaluateSync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:244:28)\n    at Function.sync (C:\\xampp\\htdocs\\WorkSite\\node_modules\\gensync\\index.js:84:14)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\@babel\\core\\lib\\config\\index.js:43:61)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:151:26)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:3:103)\n    at _next (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:5:194)\n    at C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:5:364\n    at new Promise (<anonymous>)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:5:97)\n    at Object.loader (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:64:18)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\WorkSite\\node_modules\\babel-loader\\lib\\index.js:59:12)");
 
 /***/ }),
 
@@ -37631,6 +37554,89 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Auth/LoginComponent.vue?vue&type=template&id=13ef6760&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Auth/LoginComponent.vue?vue&type=template&id=13ef6760& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "ui segment center aligned inverted" }, [
+        _c("p", [
+          _c("span", { staticClass: "ui huge text" }, [_vm._v("Login ")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ui container" }, [
+        _c("form", { staticClass: "ui inverted form" }, [
+          _c("div", { staticClass: "ui one column grid centered" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "field five wide column" }, [
+                _c("label", [_vm._v("Username")]),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "text",
+                    name: "username",
+                    placeholder: "Username"
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "field five wide column" }, [
+                _c("label", [_vm._v("Password")]),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "password",
+                    name: "password",
+                    placeholder: "Password"
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: "ui inverted teal button" }, [
+              _vm._v("Register")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "or" }),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "ui inverted button", attrs: { type: "submit" } },
+              [_vm._v("Login")]
+            )
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Chat/ViewComponent.vue?vue&type=template&id=64299a6c&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Chat/ViewComponent.vue?vue&type=template&id=64299a6c& ***!
@@ -50073,7 +50079,7 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.transition = __webpack_require__(/*! ../../resources/js/transition.js */ "./resources/js/transition.js");
-window.toast = __webpack_require__(/*! ../../resources/js/toasta.js */ "./resources/js/toasta.js");
+window.toast = __webpack_require__(/*! ../../resources/js/toast.js */ "./resources/js/toast.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.directive('toast', function (el, binding) {
   $(el).toast(binding.value);
@@ -50095,6 +50101,7 @@ Vue.prototype.$apiPath = "api/web/";
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 Vue.component('ChatViewComponent', __webpack_require__(/*! ./components/Chat/ViewComponent.vue */ "./resources/js/components/Chat/ViewComponent.vue")["default"]);
+Vue.component('LoginComponent', __webpack_require__(/*! ./components/Auth/LoginComponent.vue */ "./resources/js/components/Auth/LoginComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -50149,6 +50156,76 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/Auth/LoginComponent.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/Auth/LoginComponent.vue ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _LoginComponent_vue_vue_type_template_id_13ef6760___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoginComponent.vue?vue&type=template&id=13ef6760& */ "./resources/js/components/Auth/LoginComponent.vue?vue&type=template&id=13ef6760&");
+/* harmony import */ var _LoginComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LoginComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/Auth/LoginComponent.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _LoginComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _LoginComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _LoginComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LoginComponent_vue_vue_type_template_id_13ef6760___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _LoginComponent_vue_vue_type_template_id_13ef6760___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Auth/LoginComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Auth/LoginComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/Auth/LoginComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./LoginComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Auth/LoginComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Auth/LoginComponent.vue?vue&type=template&id=13ef6760&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/Auth/LoginComponent.vue?vue&type=template&id=13ef6760& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginComponent_vue_vue_type_template_id_13ef6760___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./LoginComponent.vue?vue&type=template&id=13ef6760& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Auth/LoginComponent.vue?vue&type=template&id=13ef6760&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginComponent_vue_vue_type_template_id_13ef6760___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginComponent_vue_vue_type_template_id_13ef6760___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -50290,10 +50367,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/toasta.js":
-/*!********************************!*\
-  !*** ./resources/js/toasta.js ***!
-  \********************************/
+/***/ "./resources/js/toast.js":
+/*!*******************************!*\
+  !*** ./resources/js/toast.js ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 

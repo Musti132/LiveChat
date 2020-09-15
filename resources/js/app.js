@@ -6,12 +6,13 @@
 
 require('./bootstrap');
 window.transition = require('../../resources/js/transition.js');
-window.toast = require('../../resources/js/toasta.js');
+window.toast = require('../../resources/js/toast.js');
 window.Vue = require('vue');
 
 Vue.directive('toast', function(el, binding) {
     $(el).toast(binding.value)
 })
+
 /**
  * Config variable
  */
@@ -30,6 +31,7 @@ Vue.prototype.$apiPath = "api/web/";
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('ChatViewComponent', require('./components/Chat/ViewComponent.vue').default);
+Vue.component('LoginComponent', require('./components/Auth/LoginComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

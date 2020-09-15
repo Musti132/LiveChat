@@ -24,7 +24,6 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "toast.js": "0.0.4",
-        "vue-semantic-ui-toastr": "^1.1.1"
+        "vue-router": "^3.4.3",
     }
 }

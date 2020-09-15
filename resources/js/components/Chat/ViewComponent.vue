@@ -5,7 +5,7 @@
         <div class="ui segment inverted">
             <p><span class="ui huge text">Chat</span></p>
         </div>
-    </div>
+    </div> 
     <div class="ui center container chat">
         <div class="ui one column grid">
             <div class="row">
@@ -78,8 +78,17 @@
                         });
                     }
                 }).catch((error) => {
-                    if(error.response.status === 422){
+                    console.log(error.response.status);
+                    if(error.response.status === 422 || error.response.status === 401){
                         this.errors = error.response.data.errors || {};
+                        $('body').toast({
+                            title: "Chat",
+                            class: "inverted",
+                            position: 'bottom right',
+                            message: `You do not have access to this feature`,
+                            showProgress: 'bottom',
+                            classProgress: 'red'
+                        });
                     }
                 });
             },
