@@ -2047,19 +2047,16 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
       })["catch"](function (error) {
-        console.log(error.response.status);
-
-        if (error.response.status === 422 || error.response.status === 401) {
-          _this.errors = error.response.data.errors || {};
-          $('body').toast({
-            title: "Chat",
-            "class": "inverted",
-            position: 'bottom right',
-            message: "You do not have access to this feature",
-            showProgress: 'bottom',
-            classProgress: 'red'
-          });
-        }
+        //console.log(error.response.status);
+        _this.errors = error.response.data.errors || {};
+        $('body').toast({
+          title: "Chat",
+          "class": "inverted",
+          position: 'bottom right',
+          message: "You do not have access to this feature",
+          showProgress: 'bottom',
+          classProgress: 'red'
+        });
       });
     }
   }
@@ -37763,7 +37760,36 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(1),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "field five wide column" }, [
+                _c("label", [_vm._v("Password")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.fields.password,
+                      expression: "fields.password"
+                    }
+                  ],
+                  attrs: {
+                    type: "password",
+                    name: "password",
+                    placeholder: "Password"
+                  },
+                  domProps: { value: _vm.fields.password },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.fields, "password", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
             _vm._v(" "),
             _c("button", { staticClass: "ui inverted teal button" }, [
               _vm._v("Register")
@@ -37789,20 +37815,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "ui segment center aligned inverted" }, [
       _c("p", [_c("span", { staticClass: "ui huge text" }, [_vm._v("Login ")])])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "field five wide column" }, [
-        _c("label", [_vm._v("Password")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "password", name: "password", placeholder: "Password" }
-        })
-      ])
     ])
   }
 ]
@@ -50338,15 +50350,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*!*********************************************************!*\
   !*** ./resources/js/components/Auth/LoginComponent.vue ***!
   \*********************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LoginComponent_vue_vue_type_template_id_13ef6760___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoginComponent.vue?vue&type=template&id=13ef6760& */ "./resources/js/components/Auth/LoginComponent.vue?vue&type=template&id=13ef6760&");
 /* harmony import */ var _LoginComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LoginComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/Auth/LoginComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _LoginComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _LoginComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -50376,7 +50387,7 @@ component.options.__file = "resources/js/components/Auth/LoginComponent.vue"
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/Auth/LoginComponent.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52328,7 +52339,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\WorkSite\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\LiveChat\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

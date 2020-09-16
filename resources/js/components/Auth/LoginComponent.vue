@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="field five wide column">
                         <label>Password</label>
-                        <input type="password" name="password" placeholder="Password">
+                        <input type="password" name="password" v-model="fields.password" placeholder="Password">
                     </div>
                 </div>
                     <button class="ui inverted teal button">Register</button>

@@ -78,18 +78,16 @@
                         });
                     }
                 }).catch((error) => {
-                    console.log(error.response.status);
-                    if(error.response.status === 422 || error.response.status === 401){
-                        this.errors = error.response.data.errors || {};
-                        $('body').toast({
-                            title: "Chat",
-                            class: "inverted",
-                            position: 'bottom right',
-                            message: `You do not have access to this feature`,
-                            showProgress: 'bottom',
-                            classProgress: 'red'
-                        });
-                    }
+                    //console.log(error.response.status);
+                    this.errors = error.response.data.errors || {};
+                    $('body').toast({
+                        title: "Chat",
+                        class: "inverted",
+                        position: 'bottom right',
+                        message: `You do not have access to this feature`,
+                        showProgress: 'bottom',
+                        classProgress: 'red'
+                    });
                 });
             },
         }
