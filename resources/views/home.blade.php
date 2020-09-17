@@ -12,12 +12,11 @@
 @endsection
 
 @section('content')
-    <example-component route="{{route('apiUsers')}}"></example-component>
+    
 @endsection
 
 @section('script')
 <script>
-
     $('#test_btn').on('click', () => {
         if($('#load_btn').hasClass('loading')){
             $('#load_btn').removeClass('double loading');

@@ -17,7 +17,7 @@
                 </div>
             </div>
         </a>
-        <a class="ui item">
+        <a class="ui item" href="">
             <div class="ui animated inverted red button" tabindex="0">
                 <div class="visible content">Logout</div>
                 <div class="hidden content">

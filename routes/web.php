@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
 Auth::routes();
-
+*/
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::resource('chat', 'ChatController');
-Route::resource('friends', 'FriendController');
+Route::get('/{any?}', function (){
+    return view('welcome');
+})->where('any', '^(?!api\/)[\/\w\.-]*');

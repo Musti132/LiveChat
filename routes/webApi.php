@@ -13,9 +13,3 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-
-Route::get('users', 'ChatController@showUsers')->name('apiUsers');
-Route::post('post', 'ChatController@post')->name('testing');
-Route::post('sendMessage', 'ChatController@sendMessage')->name('sendChatMessage');
-Route::post('login', 'AuthController@login')->name('api_login');

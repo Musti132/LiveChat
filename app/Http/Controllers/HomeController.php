@@ -8,15 +8,6 @@ use App\Events\SendMessage;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -26,7 +17,7 @@ class HomeController extends Controller
     public function index()
     {
         //event(new SendMessage("Hello", "testing", 3));
-        return view('home');
+        return view('welcome');
     }
 
     public function users(){

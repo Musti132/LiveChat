@@ -16,4 +16,8 @@ class Chat extends Model
         'read',
         'status',
     ];
+
+    public function user(){
+        $this->belongsTo(User::class);
+    }
 }
