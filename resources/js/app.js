@@ -1,5 +1,5 @@
 require('./bootstrap');
-import App from "./Layout/AppComponent.vue";
+import App from "./Layout/App.vue";
 import Vue from 'vue';
 import 'es6-promise/auto'
 import axios from 'axios'
@@ -30,4 +30,3 @@ const app = new Vue({
     el: '#app',
     router
 });
-

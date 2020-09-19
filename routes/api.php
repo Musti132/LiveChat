@@ -31,7 +31,7 @@ Route::group([
     Route::get('refresh', 'AuthController@refresh')->name('refresh');
 
     Route::post('login', 'AuthController@login')->name('login');
-    Route::post('register', 'AuthController@login')->name('register');
+    Route::post('register', 'AuthController@register')->name('register');
 
     Route::middleware('auth:api')->group(function(){
         Route::post('logout', 'AuthController@logout')->name('logout');

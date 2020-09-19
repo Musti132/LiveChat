@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Validator;
 use Auth;
+use Hash;
 
 class AuthController extends Controller
 {
@@ -45,6 +46,34 @@ class AuthController extends Controller
             'status' => 'failed',
             'error' => 'Wrong username/password',
         ], 401);
+    }
+
+    public function register(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+        ]);
+
+        if($validator->fails()){
+            return json_response([
+                'status' => 'error',
+                'errors' => $validator->messages(),
+            ], 400);
+        }
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return json_response([
+            'status' => 'success',
+            'message' => 'Successfully registered!',
+        ], 200);
+
+
     }
 
 

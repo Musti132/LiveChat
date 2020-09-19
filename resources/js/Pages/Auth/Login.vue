@@ -22,8 +22,6 @@
                         <input type="password" name="password" v-model="fields.password" placeholder="Password">
                     </div>
                 </div>
-                    <button class="ui inverted teal button">Register</button>
-                    <div class="or"></div>
                     <button type="submit" class="ui inverted button" v-bind:class="{ loading: loading}">Login</button>
             </div>
         </form>

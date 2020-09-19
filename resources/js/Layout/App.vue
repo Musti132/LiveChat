@@ -15,8 +15,10 @@
 
             }
         },
+        
         mounted(){
         },
+
         components: {
             Menu
         }

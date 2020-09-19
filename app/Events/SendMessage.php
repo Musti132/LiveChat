@@ -34,8 +34,12 @@ class SendMessage
      *
      * @return \Illuminate\Broadcasting\Channel|array
      */
-    /*
+    
     public function broadcastOn(){
         return new PrivateChannel('channel-name');
-    }*/
+    }
+
+    public function broadcastAs(){
+        return "test-channel"
+    }
 }

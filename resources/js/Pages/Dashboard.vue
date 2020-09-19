@@ -1,30 +1,43 @@
 
 <template>
 <div>
-    <div class="ui center container">
-        <div class="ui segment inverted">
-            <p><span class="ui centered huge text">Chat</span></p>
-        </div>
-    </div> 
-    <div class="ui center container chat">
-        <div class="ui one column grid">
+    <div class="ui center aligned container">
+        <div class="ui three column divided grid">
             <div class="row">
-                <div class="left aligned left floated six wide column chat-box">
-                    <div class="ui segment inverted">
-                        <p><span class="ui medium text">User 1</span></p>
-                    </div>
-                    <div class="ui inverted segment green inverted">
-                        <span>Send adjowid joiawd owadh uijawdhbui aw</span>
+                <div class="column">
+                    <div class="ui inverted cards">
+                        <div class="blue card">
+                            <div class="content">
+                                <a class="header">Friends online</a>
+                                <div class="description">
+                                    0
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="right floated right aligned six wide column chat-box">
-                    <div class="ui segment inverted">
-                        <p><span class="ui medium text">User 2</span></p>
+                <div class="column">
+                    <div class="ui inverted cards">
+                        <div class="green card">
+                            <div class="content">
+                                <a class="header">Friend requests</a>
+                                <div class="description">
+                                    0
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ui inverted segment blue">
-                        <span>Hello</span>
+                </div>
+                <div class="column">
+                    <div class="ui inverted cards">
+                        <div class="yellow card">
+                            <div class="content">
+                                <a class="header">Unread messages</a>
+                                <div class="description">
+                                    0
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
