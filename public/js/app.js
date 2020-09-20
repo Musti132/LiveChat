@@ -3468,11 +3468,7 @@ __webpack_require__.r(__webpack_exports__);
       errors: {}
     };
   },
-  mounted: function mounted() {
-    Echo["private"]('App.User.1').listen('SendMessage', function (e) {
-      console.log(e);
-    });
-  },
+  mounted: function mounted() {},
   methods: {
     submit: function submit() {
       var _this = this;
@@ -3583,65 +3579,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3680,12 +3617,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       fields: {},
-      errors: {}
+      errors: {},
+      myData: false
     };
   },
   mounted: function mounted() {
@@ -47515,7 +47452,7 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("div", { staticClass: "description" }, [
                     _vm._v(
-                      "\n\n                                    0\n\n                                "
+                      "\n                           0\n                        "
                     )
                   ])
                 ])
@@ -47533,7 +47470,7 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("div", { staticClass: "description" }, [
                     _vm._v(
-                      "\n\n                                    0\n\n                                "
+                      "\n                           0\n                        "
                     )
                   ])
                 ])
@@ -47551,7 +47488,7 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("div", { staticClass: "description" }, [
                     _vm._v(
-                      "\n\n                                    0\n\n                                "
+                      "\n                           0\n                        "
                     )
                   ])
                 ])
@@ -64735,20 +64672,21 @@ window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/d
 Pusher.logToConsole = true;
 var token = localStorage.getItem('auth_token_default');
 var user = JSON.parse(localStorage.getItem('user'));
-console.log(user);
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
-  authEndpoint: 'http://localhost:8000/broadcasting/auth',
+  authEndpoint: 'broadcast',
   key: "b4c4d95694eb10602ee8",
   cluster: "eu",
   forceTLS: true,
   auth: {
     headers: {
       Authorization: "Bearer ".concat(token),
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
+      Accept: 'application/json'
     }
   }
+});
+window.Echo.channel('chat.channel').listen('SendMessage', function (e) {
+  alert(JSON.stringify(e));
 });
 
 /***/ }),
@@ -64827,7 +64765,7 @@ topbar__WEBPACK_IMPORTED_MODULE_6___default.a.config({
   autoRun: true,
   barThickness: 2,
   barColors: {
-    '1': '#2ecc40'
+    '1': '#2ecc71'
   },
   shadowBlur: 10,
   shadowColor: 'rgba(0,   0,   0,   .6)'

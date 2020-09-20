@@ -29,7 +29,7 @@ topbar.config({
     autoRun: true,
     barThickness: 2,
     barColors: {
-        '1': '#2ecc40',
+        '1': '#2ecc71',
     },
     shadowBlur: 10,
     shadowColor: 'rgba(0,   0,   0,   .6)'

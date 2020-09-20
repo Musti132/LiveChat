@@ -94,7 +94,6 @@ class AuthController extends Controller
      * Get user details
      */
     public function user(Request $request){
-        event(new SendMessage("Hello", 1, 2));
         $user = User::find(Auth::user()->id);
         return response()->json([
             'status' => 'success',

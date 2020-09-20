@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Events\SendMessage;
+use Event;
 
 class HomeController extends Controller
 {
@@ -32,5 +33,10 @@ class HomeController extends Controller
         return response()->json([
             'request' => $request->all(),
         ]);
+    }
+    
+    public function notify(){
+        event(new SendMessage("Hello", 1, 2));
+        return Event::dispatch("Hello", 1, 2);
     }
 }

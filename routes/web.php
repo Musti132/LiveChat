@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 */
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::post('broadcast', function (Request $request){ 
+    $pusher = new Pusher\Pusher(env('PUSHER_APP_KEY'),env('PUSHER_APP_SECRET'), env('PUSHER_APP_ID'));
+    return $pusher->socket_auth($request->channel_name, $request->socket_id);
+}); 
+
+Route::get('notify', "HomeController@notify");
 
 Route::get('/{any?}', function (){
     return view('welcome');

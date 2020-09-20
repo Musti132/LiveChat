@@ -60,10 +60,6 @@
             }
         },
         mounted() {
-            Echo.private('App.User.1')
-                .listen('SendMessage', (e) => {
-                console.log(e);
-            });
         },
         methods: {
             submit(){

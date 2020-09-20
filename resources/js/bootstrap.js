@@ -36,11 +36,12 @@ window.Pusher = require('pusher-js');
 Pusher.logToConsole = true;
 
 var token = localStorage.getItem('auth_token_default');
+
 var user = JSON.parse(localStorage.getItem('user'));
-console.log(user);
+
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    authEndpoint: 'http://localhost:8000/broadcasting/auth',
+    authEndpoint: 'broadcast',
     key: process.env.MIX_PUSHER_APP_KEY,
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
     forceTLS: true,
@@ -48,8 +49,12 @@ window.Echo = new Echo({
         headers: {
             Authorization: `Bearer ${token}`,
             Accept: 'application/json',
-            'Content-Type': 'application/json',
 
         }
     }
 });
+
+window.Echo.channel('chat.channel')
+    .listen('SendMessage', (e) => {
+        alert(JSON.stringify(e));
+    });
