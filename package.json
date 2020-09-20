@@ -28,7 +28,9 @@
         "es6-promise": "^4.2.8",
         "laravel-echo": "^1.8.1",
         "pusher-js": "^7.0.0",
+        "topbar": "^0.1.4",
         "vue-axios": "^2.1.5",
-        "vue-router": "^3.4.3"
+        "vue-router": "^3.4.3",
+        "vuex": "^3.5.1"
     }
 }

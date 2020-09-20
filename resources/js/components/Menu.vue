@@ -2,9 +2,7 @@
     <div class="ui secondary inverted pointing menu">
         <router-link :to="{ name : routes.authenticated[0].path }" :key="0" class="item" exact>{{routes.authenticated[0].name}}</router-link>
         <router-link :to="{ name : routes.authenticated[1].path }" :key="1" class="item" exact>{{routes.authenticated[1].name}}</router-link>
-        <a class="item" href="">
-            Friends
-        </a>
+        <router-link :to="{ name : routes.authenticated[2].path }" :key="2" class="item" exact>{{routes.authenticated[2].name}}</router-link>
         <div class="right inverted menu" v-if="$auth.check()">
             <div class="item">
                 <div class="ui icon input">
@@ -58,6 +56,7 @@
                     authenticated: [
                         { name: 'Home', path: 'Home' },
                         { name: 'Chat', path: 'ChatHome' },
+                        { name: 'Friends', path: 'Friends' },
                     ],
                 public: [
                     { name: "Login", path: 'Login' },

@@ -33,14 +33,23 @@ import Echo from 'laravel-echo';
 
 window.Pusher = require('pusher-js');
 
+Pusher.logToConsole = true;
+
+var token = localStorage.getItem('auth_token_default');
+var user = JSON.parse(localStorage.getItem('user'));
+console.log(user);
 window.Echo = new Echo({
     broadcaster: 'pusher',
+    authEndpoint: 'http://localhost:8000/broadcasting/auth',
     key: process.env.MIX_PUSHER_APP_KEY,
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-    forceTLS: true
-});
+    forceTLS: true,
+    auth: {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
 
-var channel = window.Echo.channel('my-channel');
-channel.listen('.my-event', function(data) {
-    alert(JSON.stringify(data));
+        }
+    }
 });

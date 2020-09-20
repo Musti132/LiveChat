@@ -16,5 +16,7 @@
         <App></App>
     </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
 </html>

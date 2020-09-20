@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Broadcast;
 */
 
 Broadcast::channel('App.User.{id}', function ($user, $id) {
+    dd("trash");
     return (int) $user->id === (int) $id;
+});
+
+Broadcast::channel('chat.channel', function () {
+    return true; //Always return true or false
 });

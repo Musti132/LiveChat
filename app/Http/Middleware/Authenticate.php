@@ -40,6 +40,7 @@ class Authenticate extends Middleware
                 return $this->auth->shouldUse($guard);
             }
         }
+
         return 'authentication_failed';
     }
 }

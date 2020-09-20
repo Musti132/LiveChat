@@ -5,9 +5,11 @@ namespace App\Http\Controllers\WebApi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\Events\SendMessage;
 use Validator;
 use Auth;
 use Hash;
+use Event;
 
 class AuthController extends Controller
 {
@@ -92,6 +94,7 @@ class AuthController extends Controller
      * Get user details
      */
     public function user(Request $request){
+        event(new SendMessage("Hello", 1, 2));
         $user = User::find(Auth::user()->id);
         return response()->json([
             'status' => 'success',

@@ -6,6 +6,7 @@ use App\Events\SendMessage;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use App\Chat;
+
 class HandleMessage
 {
     /**
@@ -24,21 +25,10 @@ class HandleMessage
      * @return void
      */
     public function handle(SendMessage $message){
-        $chat = Chat::find(2);
-
-        if(!$chat){
-            dd("Helloi");
-        }else{
-            dd("trash");
-        }
-        
-        Chat::create([
-            'chat_id' => 8,
+        return json_response([
             'user_id' => $message->user_id,
-            'subject' => $message->message,
-            'message' => "test",
-            'read' => 0,
-            'status' => 0,
+            'message' => $message->message,
+            'chat_id' => $message->chat_id,
         ]);
     }
 }
