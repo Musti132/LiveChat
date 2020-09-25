@@ -6,10 +6,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Laravel\Scout\Searchable;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable;
+    use Notifiable, Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -44,6 +45,14 @@ class User extends Authenticatable implements JWTSubject
 
     public function replies(){
         return $this->hasMany(ChatReply::class);
+    }
+
+    public function friends(){
+        return $this->hasMany(Friends::class);
+    }
+
+    public function friendRequests(){
+        return $this->hasMany(FriendRequest::class, 'to_user_id');
     }
 
     public function getJWTIdentifier(){

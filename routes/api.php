@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('search', 'WebApi\SearchController@index');
 
 /**
  * Authentication routes
@@ -35,6 +36,19 @@ Route::group([
 
     Route::middleware('auth:api')->group(function(){
         Route::post('logout', 'AuthController@logout')->name('logout');
+    });
+});
+
+/**
+ * Friends routes
+ */
+Route::group([
+    'prefix' => 'web',
+    'namespace' => 'WebApi\\',
+    'middleware' => 'auth:api',
+], function(){;
+    Route::group(['as' => 'friends'], function(){
+        Route::get('friends', 'FriendController@get');
     });
 });
 

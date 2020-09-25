@@ -17,7 +17,7 @@ class CreateFriendRequestsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('to_user_id')->references('id')->on('users');
-            $table->boolean('read')->default(0);
+            $table->integer('status')->default(0)->nullable();
             $table->timestamps();
         });
     }
