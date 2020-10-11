@@ -37,8 +37,6 @@ Pusher.logToConsole = true;
 
 var token = localStorage.getItem('auth_token_default');
 
-var user = JSON.parse(localStorage.getItem('user'));
-
 window.Echo = new Echo({
     broadcaster: 'pusher',
     authEndpoint: 'broadcast',
@@ -53,8 +51,3 @@ window.Echo = new Echo({
         }
     }
 });
-
-window.Echo.channel('chat.channel')
-    .listen('SendMessage', (e) => {
-        alert(JSON.stringify(e));
-    });

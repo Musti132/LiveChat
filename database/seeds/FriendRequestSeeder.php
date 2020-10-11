@@ -11,6 +11,6 @@ class FriendRequestSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\FriendRequest::class, 50)->create();
+        factory(App\FriendRequest::class, 250)->create();
     }
 }

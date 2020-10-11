@@ -12,4 +12,8 @@ class ChatReply extends Model
         'user_id',
         'message',
     ];
+
+    public function chat(){
+        return $this->belongsTo(Chat::class);
+    }
 }

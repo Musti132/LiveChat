@@ -96,58 +96,58 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(global) {function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
+    if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+    }
 }
 
 function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
+    if (key in obj) {
+        Object.defineProperty(obj, key, {
+            value: value,
+            enumerable: true,
+            configurable: true,
+            writable: true
+        });
+    } else {
+        obj[key] = value;
+    }
 
-  return obj;
+    return obj;
 }
 
 function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
+    var keys = Object.keys(object);
 
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly) symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    });
-    keys.push.apply(keys, symbols);
-  }
+    if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        if (enumerableOnly) symbols = symbols.filter(function(sym) {
+            return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        });
+        keys.push.apply(keys, symbols);
+    }
 
-  return keys;
+    return keys;
 }
 
 function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
+    for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i] != null ? arguments[i] : {};
 
-    if (i % 2) {
-      ownKeys(Object(source), true).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
+        if (i % 2) {
+            ownKeys(Object(source), true).forEach(function(key) {
+                _defineProperty(target, key, source[key]);
+            });
+        } else if (Object.getOwnPropertyDescriptors) {
+            Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+        } else {
+            ownKeys(Object(source)).forEach(function(key) {
+                Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+            });
+        }
     }
-  }
 
-  return target;
+    return target;
 }
 
 // Polyfill for element.matches, to support Internet Explorer. It's a relatively
@@ -155,256 +155,256 @@ function _objectSpread2(target) {
 // include the polyfill themselves. Adapted from
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/matches#Polyfill
 var matches = function matches(element, selector) {
-  return element.matches ? element.matches(selector) : element.msMatchesSelector ? element.msMatchesSelector(selector) : element.webkitMatchesSelector ? element.webkitMatchesSelector(selector) : null;
+    return element.matches ? element.matches(selector) : element.msMatchesSelector ? element.msMatchesSelector(selector) : element.webkitMatchesSelector ? element.webkitMatchesSelector(selector) : null;
 };
 
 // Polyfill for element.closest, to support Internet Explorer. It's a relatively
 
 var closestPolyfill = function closestPolyfill(el, selector) {
-  var element = el;
+    var element = el;
 
-  while (element && element.nodeType === 1) {
-    if (matches(element, selector)) {
-      return element;
+    while (element && element.nodeType === 1) {
+        if (matches(element, selector)) {
+            return element;
+        }
+
+        element = element.parentNode;
     }
 
-    element = element.parentNode;
-  }
-
-  return null;
+    return null;
 };
 
 var closest = function closest(element, selector) {
-  return element.closest ? element.closest(selector) : closestPolyfill(element, selector);
+    return element.closest ? element.closest(selector) : closestPolyfill(element, selector);
 };
 
 // Returns true if the value has a "then" function. Adapted from
 // https://github.com/graphql/graphql-js/blob/499a75939f70c4863d44149371d6a99d57ff7c35/src/jsutils/isPromise.js
 var isPromise = function isPromise(value) {
-  return Boolean(value && typeof value.then === 'function');
+    return Boolean(value && typeof value.then === 'function');
 };
 
 var AutocompleteCore = function AutocompleteCore() {
-  var _this = this;
+    var _this = this;
 
-  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-      search = _ref.search,
-      _ref$autoSelect = _ref.autoSelect,
-      autoSelect = _ref$autoSelect === void 0 ? false : _ref$autoSelect,
-      _ref$setValue = _ref.setValue,
-      setValue = _ref$setValue === void 0 ? function () {} : _ref$setValue,
-      _ref$setAttribute = _ref.setAttribute,
-      setAttribute = _ref$setAttribute === void 0 ? function () {} : _ref$setAttribute,
-      _ref$onUpdate = _ref.onUpdate,
-      onUpdate = _ref$onUpdate === void 0 ? function () {} : _ref$onUpdate,
-      _ref$onSubmit = _ref.onSubmit,
-      onSubmit = _ref$onSubmit === void 0 ? function () {} : _ref$onSubmit,
-      _ref$onShow = _ref.onShow,
-      onShow = _ref$onShow === void 0 ? function () {} : _ref$onShow,
-      _ref$onHide = _ref.onHide,
-      onHide = _ref$onHide === void 0 ? function () {} : _ref$onHide,
-      _ref$onLoading = _ref.onLoading,
-      onLoading = _ref$onLoading === void 0 ? function () {} : _ref$onLoading,
-      _ref$onLoaded = _ref.onLoaded,
-      onLoaded = _ref$onLoaded === void 0 ? function () {} : _ref$onLoaded;
+    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+        search = _ref.search,
+        _ref$autoSelect = _ref.autoSelect,
+        autoSelect = _ref$autoSelect === void 0 ? false : _ref$autoSelect,
+        _ref$setValue = _ref.setValue,
+        setValue = _ref$setValue === void 0 ? function() {} : _ref$setValue,
+        _ref$setAttribute = _ref.setAttribute,
+        setAttribute = _ref$setAttribute === void 0 ? function() {} : _ref$setAttribute,
+        _ref$onUpdate = _ref.onUpdate,
+        onUpdate = _ref$onUpdate === void 0 ? function() {} : _ref$onUpdate,
+        _ref$onSubmit = _ref.onSubmit,
+        onSubmit = _ref$onSubmit === void 0 ? function() {} : _ref$onSubmit,
+        _ref$onShow = _ref.onShow,
+        onShow = _ref$onShow === void 0 ? function() {} : _ref$onShow,
+        _ref$onHide = _ref.onHide,
+        onHide = _ref$onHide === void 0 ? function() {} : _ref$onHide,
+        _ref$onLoading = _ref.onLoading,
+        onLoading = _ref$onLoading === void 0 ? function() {} : _ref$onLoading,
+        _ref$onLoaded = _ref.onLoaded,
+        onLoaded = _ref$onLoaded === void 0 ? function() {} : _ref$onLoaded;
 
-  _classCallCheck(this, AutocompleteCore);
+    _classCallCheck(this, AutocompleteCore);
 
-  _defineProperty(this, "value", '');
+    _defineProperty(this, "value", '');
 
-  _defineProperty(this, "searchCounter", 0);
+    _defineProperty(this, "searchCounter", 0);
 
-  _defineProperty(this, "results", []);
+    _defineProperty(this, "results", []);
 
-  _defineProperty(this, "selectedIndex", -1);
+    _defineProperty(this, "selectedIndex", -1);
 
-  _defineProperty(this, "handleInput", function (event) {
-    var value = event.target.value;
+    _defineProperty(this, "handleInput", function(event) {
+        var value = event.target.value;
 
-    _this.updateResults(value);
+        _this.updateResults(value);
 
-    _this.value = value;
-  });
-
-  _defineProperty(this, "handleKeyDown", function (event) {
-    var key = event.key;
-
-    switch (key) {
-      case 'Up': // IE/Edge
-
-      case 'Down': // IE/Edge
-
-      case 'ArrowUp':
-      case 'ArrowDown':
-        {
-          var selectedIndex = key === 'ArrowUp' || key === 'Up' ? _this.selectedIndex - 1 : _this.selectedIndex + 1;
-          event.preventDefault();
-
-          _this.handleArrows(selectedIndex);
-
-          break;
-        }
-
-      case 'Tab':
-        {
-          _this.selectResult();
-
-          break;
-        }
-
-      case 'Enter':
-        {
-          var selectedResult = _this.results[_this.selectedIndex];
-
-          _this.selectResult();
-
-          _this.onSubmit(selectedResult);
-
-          break;
-        }
-
-      case 'Esc': // IE/Edge
-
-      case 'Escape':
-        {
-          _this.hideResults();
-
-          _this.setValue();
-
-          break;
-        }
-
-      default:
-        return;
-    }
-  });
-
-  _defineProperty(this, "handleFocus", function (event) {
-    var value = event.target.value;
-
-    _this.updateResults(value);
-
-    _this.value = value;
-  });
-
-  _defineProperty(this, "handleBlur", function () {
-    _this.hideResults();
-  });
-
-  _defineProperty(this, "handleResultMouseDown", function (event) {
-    event.preventDefault();
-  });
-
-  _defineProperty(this, "handleResultClick", function (event) {
-    var target = event.target;
-    var result = closest(target, '[data-result-index]');
-
-    if (result) {
-      _this.selectedIndex = parseInt(result.dataset.resultIndex, 10);
-      var selectedResult = _this.results[_this.selectedIndex];
-
-      _this.selectResult();
-
-      _this.onSubmit(selectedResult);
-    }
-  });
-
-  _defineProperty(this, "handleArrows", function (selectedIndex) {
-    // Loop selectedIndex back to first or last result if out of bounds
-    var resultsCount = _this.results.length;
-    _this.selectedIndex = (selectedIndex % resultsCount + resultsCount) % resultsCount; // Update results and aria attributes
-
-    _this.onUpdate(_this.results, _this.selectedIndex);
-  });
-
-  _defineProperty(this, "selectResult", function () {
-    var selectedResult = _this.results[_this.selectedIndex];
-
-    if (selectedResult) {
-      _this.setValue(selectedResult);
-    }
-
-    _this.hideResults();
-  });
-
-  _defineProperty(this, "updateResults", function (value) {
-    var currentSearch = ++_this.searchCounter;
-
-    _this.onLoading();
-
-    _this.search(value).then(function (results) {
-      if (currentSearch !== _this.searchCounter) {
-        return;
-      }
-
-      _this.results = results;
-
-      _this.onLoaded();
-
-      if (_this.results.length === 0) {
-        _this.hideResults();
-
-        return;
-      }
-
-      _this.selectedIndex = _this.autoSelect ? 0 : -1;
-
-      _this.onUpdate(_this.results, _this.selectedIndex);
-
-      _this.showResults();
+        _this.value = value;
     });
-  });
 
-  _defineProperty(this, "showResults", function () {
-    _this.setAttribute('aria-expanded', true);
+    _defineProperty(this, "handleKeyDown", function(event) {
+        var key = event.key;
 
-    _this.onShow();
-  });
+        switch (key) {
+            case 'Up': // IE/Edge
 
-  _defineProperty(this, "hideResults", function () {
-    _this.selectedIndex = -1;
-    _this.results = [];
+            case 'Down': // IE/Edge
 
-    _this.setAttribute('aria-expanded', false);
+            case 'ArrowUp':
+            case 'ArrowDown':
+                {
+                    var selectedIndex = key === 'ArrowUp' || key === 'Up' ? _this.selectedIndex - 1 : _this.selectedIndex + 1;
+                    event.preventDefault();
 
-    _this.setAttribute('aria-activedescendant', '');
+                    _this.handleArrows(selectedIndex);
 
-    _this.onUpdate(_this.results, _this.selectedIndex);
+                    break;
+                }
 
-    _this.onHide();
-  });
+            case 'Tab':
+                {
+                    _this.selectResult();
 
-  _defineProperty(this, "checkSelectedResultVisible", function (resultsElement) {
-    var selectedResultElement = resultsElement.querySelector("[data-result-index=\"".concat(_this.selectedIndex, "\"]"));
+                    break;
+                }
 
-    if (!selectedResultElement) {
-      return;
-    }
+            case 'Enter':
+                {
+                    var selectedResult = _this.results[_this.selectedIndex];
 
-    var resultsPosition = resultsElement.getBoundingClientRect();
-    var selectedPosition = selectedResultElement.getBoundingClientRect();
+                    _this.selectResult();
 
-    if (selectedPosition.top < resultsPosition.top) {
-      // Element is above viewable area
-      resultsElement.scrollTop -= resultsPosition.top - selectedPosition.top;
-    } else if (selectedPosition.bottom > resultsPosition.bottom) {
-      // Element is below viewable area
-      resultsElement.scrollTop += selectedPosition.bottom - resultsPosition.bottom;
-    }
-  });
+                    _this.onSubmit(selectedResult);
 
-  this.search = isPromise(search) ? search : function (value) {
-    return Promise.resolve(search(value));
-  };
-  this.autoSelect = autoSelect;
-  this.setValue = setValue;
-  this.setAttribute = setAttribute;
-  this.onUpdate = onUpdate;
-  this.onSubmit = onSubmit;
-  this.onShow = onShow;
-  this.onHide = onHide;
-  this.onLoading = onLoading;
-  this.onLoaded = onLoaded;
+                    break;
+                }
+
+            case 'Esc': // IE/Edge
+
+            case 'Escape':
+                {
+                    _this.hideResults();
+
+                    _this.setValue();
+
+                    break;
+                }
+
+            default:
+                return;
+        }
+    });
+
+    _defineProperty(this, "handleFocus", function(event) {
+        var value = event.target.value;
+
+        _this.updateResults(value);
+
+        _this.value = value;
+    });
+
+    _defineProperty(this, "handleBlur", function() {
+        _this.hideResults();
+    });
+
+    _defineProperty(this, "handleResultMouseDown", function(event) {
+        event.preventDefault();
+    });
+
+    _defineProperty(this, "handleResultClick", function(event) {
+        var target = event.target;
+        var result = closest(target, '[data-result-index]');
+
+        if (result) {
+            _this.selectedIndex = parseInt(result.dataset.resultIndex, 10);
+            var selectedResult = _this.results[_this.selectedIndex];
+
+            _this.selectResult();
+
+            _this.onSubmit(selectedResult);
+        }
+    });
+
+    _defineProperty(this, "handleArrows", function(selectedIndex) {
+        // Loop selectedIndex back to first or last result if out of bounds
+        var resultsCount = _this.results.length;
+        _this.selectedIndex = (selectedIndex % resultsCount + resultsCount) % resultsCount; // Update results and aria attributes
+
+        _this.onUpdate(_this.results, _this.selectedIndex);
+    });
+
+    _defineProperty(this, "selectResult", function() {
+        var selectedResult = _this.results[_this.selectedIndex];
+
+        if (selectedResult) {
+            _this.setValue(selectedResult);
+        }
+
+        _this.hideResults();
+    });
+
+    _defineProperty(this, "updateResults", function(value) {
+        var currentSearch = ++_this.searchCounter;
+
+        _this.onLoading();
+
+        _this.search(value).then(function(results) {
+            if (currentSearch !== _this.searchCounter) {
+                return;
+            }
+
+            _this.results = results;
+
+            _this.onLoaded();
+
+            if (_this.results.length === 0) {
+                _this.hideResults();
+
+                return;
+            }
+
+            _this.selectedIndex = _this.autoSelect ? 0 : -1;
+
+            _this.onUpdate(_this.results, _this.selectedIndex);
+
+            _this.showResults();
+        });
+    });
+
+    _defineProperty(this, "showResults", function() {
+        _this.setAttribute('aria-expanded', true);
+
+        _this.onShow();
+    });
+
+    _defineProperty(this, "hideResults", function() {
+        _this.selectedIndex = -1;
+        _this.results = [];
+
+        _this.setAttribute('aria-expanded', false);
+
+        _this.setAttribute('aria-activedescendant', '');
+
+        _this.onUpdate(_this.results, _this.selectedIndex);
+
+        _this.onHide();
+    });
+
+    _defineProperty(this, "checkSelectedResultVisible", function(resultsElement) {
+        var selectedResultElement = resultsElement.querySelector("[data-result-index=\"".concat(_this.selectedIndex, "\"]"));
+
+        if (!selectedResultElement) {
+            return;
+        }
+
+        var resultsPosition = resultsElement.getBoundingClientRect();
+        var selectedPosition = selectedResultElement.getBoundingClientRect();
+
+        if (selectedPosition.top < resultsPosition.top) {
+            // Element is above viewable area
+            resultsElement.scrollTop -= resultsPosition.top - selectedPosition.top;
+        } else if (selectedPosition.bottom > resultsPosition.bottom) {
+            // Element is below viewable area
+            resultsElement.scrollTop += selectedPosition.bottom - resultsPosition.bottom;
+        }
+    });
+
+    this.search = isPromise(search) ? search : function(value) {
+        return Promise.resolve(search(value));
+    };
+    this.autoSelect = autoSelect;
+    this.setValue = setValue;
+    this.setAttribute = setAttribute;
+    this.onUpdate = onUpdate;
+    this.onSubmit = onSubmit;
+    this.onShow = onShow;
+    this.onHide = onHide;
+    this.onLoading = onLoading;
+    this.onLoaded = onLoaded;
 };
 
 // Generates a unique ID, with optional prefix. Adapted from
@@ -412,8 +412,8 @@ var AutocompleteCore = function AutocompleteCore() {
 var idCounter = 0;
 
 var uniqueId = function uniqueId() {
-  var prefix = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-  return "".concat(prefix).concat(++idCounter);
+    var prefix = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+    return "".concat(prefix).concat(++idCounter);
 };
 
 // Calculates whether element2 should be above or below element1. Always
@@ -422,16 +422,16 @@ var uniqueId = function uniqueId() {
 // 2. There is more room above element1 than there is below
 // 3. Placing elemen2 above 1 won't overflow window
 var getRelativePosition = function getRelativePosition(element1, element2) {
-  var position1 = element1.getBoundingClientRect();
-  var position2 = element2.getBoundingClientRect();
-  var positionAbove =
-  /* 1 */
-  position1.bottom + position2.height > window.innerHeight &&
-  /* 2 */
-  window.innerHeight - position1.bottom < position1.top &&
-  /* 3 */
-  window.pageYOffset + position1.top - position2.height > 0;
-  return positionAbove ? 'above' : 'below';
+    var position1 = element1.getBoundingClientRect();
+    var position2 = element2.getBoundingClientRect();
+    var positionAbove =
+        /* 1 */
+        position1.bottom + position2.height > window.innerHeight &&
+        /* 2 */
+        window.innerHeight - position1.bottom < position1.top &&
+        /* 3 */
+        window.pageYOffset + position1.top - position2.height > 0;
+    return positionAbove ? 'above' : 'below';
 };
 
 // Credit David Walsh (https://davidwalsh.name/javascript-debounce-function)
@@ -440,213 +440,213 @@ var getRelativePosition = function getRelativePosition(element1, element2) {
 // N milliseconds. If `immediate` is passed, trigger the function on the
 // leading edge, instead of the trailing.
 var debounce = function debounce(func, wait, immediate) {
-  var timeout;
-  return function executedFunction() {
-    var context = this;
-    var args = arguments;
+    var timeout;
+    return function executedFunction() {
+        var context = this;
+        var args = arguments;
 
-    var later = function later() {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
+        var later = function later() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
     };
-
-    var callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
 };
 
 var script = {
-  name: 'Autocomplete',
-  inheritAttrs: false,
-  props: {
-    search: {
-      type: Function,
-      required: true
-    },
-    baseClass: {
-      type: String,
-      "default": 'autocomplete'
-    },
-    autoSelect: {
-      type: Boolean,
-      "default": false
-    },
-    getResultValue: {
-      type: Function,
-      "default": function _default(result) {
-        return result;
-      }
-    },
-    defaultValue: {
-      type: String,
-      "default": ''
-    },
-    debounceTime: {
-      type: Number,
-      "default": 0
-    }
-  },
-  data: function data() {
-    var core = new AutocompleteCore({
-      search: this.search,
-      autoSelect: this.autoSelect,
-      setValue: this.setValue,
-      onUpdate: this.handleUpdate,
-      onSubmit: this.handleSubmit,
-      onShow: this.handleShow,
-      onHide: this.handleHide,
-      onLoading: this.handleLoading,
-      onLoaded: this.handleLoaded
-    });
-
-    if (this.debounceTime > 0) {
-      core.handleInput = debounce(core.handleInput, this.debounceTime);
-    }
-
-    return {
-      core: core,
-      value: this.defaultValue,
-      resultListId: uniqueId("".concat(this.baseClass, "-result-list-")),
-      results: [],
-      selectedIndex: -1,
-      expanded: false,
-      loading: false,
-      position: 'below',
-      resetPosition: true
-    };
-  },
-  computed: {
-    rootProps: function rootProps() {
-      return {
-        "class": this.baseClass,
-        style: {
-          position: 'relative'
+    name: 'Autocomplete',
+    inheritAttrs: false,
+    props: {
+        search: {
+            type: Function,
+            required: true
         },
-        'data-expanded': this.expanded,
-        'data-loading': this.loading,
-        'data-position': this.position
-      };
+        baseClass: {
+            type: String,
+            "default": 'autocomplete'
+        },
+        autoSelect: {
+            type: Boolean,
+            "default": false
+        },
+        getResultValue: {
+            type: Function,
+            "default": function _default(result) {
+                return result;
+            }
+        },
+        defaultValue: {
+            type: String,
+            "default": ''
+        },
+        debounceTime: {
+            type: Number,
+            "default": 0
+        }
     },
-    inputProps: function inputProps() {
-      return _objectSpread2({
-        "class": "".concat(this.baseClass, "-input"),
-        value: this.value,
-        role: 'combobox',
-        autocomplete: 'off',
-        autocapitalize: 'off',
-        autocorrect: 'off',
-        spellcheck: 'false',
-        'aria-autocomplete': 'list',
-        'aria-haspopup': 'listbox',
-        'aria-owns': this.resultListId,
-        'aria-expanded': this.expanded ? 'true' : 'false',
-        'aria-activedescendant': this.selectedIndex > -1 ? this.resultProps[this.selectedIndex].id : ''
-      }, this.$attrs);
-    },
-    inputListeners: function inputListeners() {
-      return {
-        input: this.handleInput,
-        keydown: this.core.handleKeyDown,
-        focus: this.core.handleFocus,
-        blur: this.core.handleBlur
-      };
-    },
-    resultListProps: function resultListProps() {
-      var yPosition = this.position === 'below' ? 'top' : 'bottom';
-      return {
-        id: this.resultListId,
-        "class": "".concat(this.baseClass, "-result-list"),
-        role: 'listbox',
-        style: _defineProperty({
-          position: 'absolute',
-          zIndex: 1,
-          width: '100%',
-          visibility: this.expanded ? 'visible' : 'hidden',
-          pointerEvents: this.expanded ? 'auto' : 'none'
-        }, yPosition, '100%')
-      };
-    },
-    resultListListeners: function resultListListeners() {
-      return {
-        mousedown: this.core.handleResultMouseDown,
-        click: this.core.handleResultClick
-      };
-    },
-    resultProps: function resultProps() {
-      var _this = this;
+    data: function data() {
+        var core = new AutocompleteCore({
+            search: this.search,
+            autoSelect: this.autoSelect,
+            setValue: this.setValue,
+            onUpdate: this.handleUpdate,
+            onSubmit: this.handleSubmit,
+            onShow: this.handleShow,
+            onHide: this.handleHide,
+            onLoading: this.handleLoading,
+            onLoaded: this.handleLoaded
+        });
 
-      return this.results.map(function (result, index) {
-        return _objectSpread2({
-          id: "".concat(_this.baseClass, "-result-").concat(index),
-          "class": "".concat(_this.baseClass, "-result"),
-          'data-result-index': index,
-          role: 'option'
-        }, _this.selectedIndex === index ? {
-          'aria-selected': 'true'
-        } : {});
-      });
-    }
-  },
-  mounted: function mounted() {
-    document.body.addEventListener('click', this.handleDocumentClick);
-  },
-  beforeDestroy: function beforeDestroy() {
-    document.body.removeEventListener('click', this.handleDocumentClick);
-  },
-  updated: function updated() {
-    if (!this.$refs.input || !this.$refs.resultList) {
-      return;
-    }
+        if (this.debounceTime > 0) {
+            core.handleInput = debounce(core.handleInput, this.debounceTime);
+        }
 
-    if (this.resetPosition && this.results.length > 0) {
-      this.resetPosition = false;
-      this.position = getRelativePosition(this.$refs.input, this.$refs.resultList);
-    }
+        return {
+            core: core,
+            value: this.defaultValue,
+            resultListId: uniqueId("".concat(this.baseClass, "-result-list-")),
+            results: [],
+            selectedIndex: -1,
+            expanded: false,
+            loading: false,
+            position: 'below',
+            resetPosition: true
+        };
+    },
+    computed: {
+        rootProps: function rootProps() {
+            return {
+                "class": this.baseClass,
+                style: {
+                    position: 'relative'
+                },
+                'data-expanded': this.expanded,
+                'data-loading': this.loading,
+                'data-position': this.position
+            };
+        },
+        inputProps: function inputProps() {
+            return _objectSpread2({
+                "class": "".concat(this.baseClass, "-input"),
+                value: this.value,
+                role: 'combobox',
+                autocomplete: 'off',
+                autocapitalize: 'off',
+                autocorrect: 'off',
+                spellcheck: 'false',
+                'aria-autocomplete': 'list',
+                'aria-haspopup': 'listbox',
+                'aria-owns': this.resultListId,
+                'aria-expanded': this.expanded ? 'true' : 'false',
+                'aria-activedescendant': this.selectedIndex > -1 ? this.resultProps[this.selectedIndex].id : ''
+            }, this.$attrs);
+        },
+        inputListeners: function inputListeners() {
+            return {
+                input: this.handleInput,
+                keydown: this.core.handleKeyDown,
+                focus: this.core.handleFocus,
+                blur: this.core.handleBlur
+            };
+        },
+        resultListProps: function resultListProps() {
+            var yPosition = this.position === 'below' ? 'top' : 'bottom';
+            return {
+                id: this.resultListId,
+                "class": "".concat(this.baseClass, "-result-list"),
+                role: 'listbox',
+                style: _defineProperty({
+                    position: 'absolute',
+                    zIndex: 1,
+                    width: '100%',
+                    visibility: this.expanded ? 'visible' : 'hidden',
+                    pointerEvents: this.expanded ? 'auto' : 'none'
+                }, yPosition, '100%')
+            };
+        },
+        resultListListeners: function resultListListeners() {
+            return {
+                mousedown: this.core.handleResultMouseDown,
+                click: this.core.handleResultClick
+            };
+        },
+        resultProps: function resultProps() {
+            var _this = this;
 
-    this.core.checkSelectedResultVisible(this.$refs.resultList);
-  },
-  methods: {
-    setValue: function setValue(result) {
-      this.value = result ? this.getResultValue(result) : '';
+            return this.results.map(function(result, index) {
+                return _objectSpread2({
+                    id: "".concat(_this.baseClass, "-result-").concat(index),
+                    "class": "".concat(_this.baseClass, "-result"),
+                    'data-result-index': index,
+                    role: 'option'
+                }, _this.selectedIndex === index ? {
+                    'aria-selected': 'true'
+                } : {});
+            });
+        }
     },
-    handleUpdate: function handleUpdate(results, selectedIndex) {
-      this.results = results;
-      this.selectedIndex = selectedIndex;
-      this.$emit('update', results, selectedIndex);
+    mounted: function mounted() {
+        document.body.addEventListener('click', this.handleDocumentClick);
     },
-    handleShow: function handleShow() {
-      this.expanded = true;
+    beforeDestroy: function beforeDestroy() {
+        document.body.removeEventListener('click', this.handleDocumentClick);
     },
-    handleHide: function handleHide() {
-      this.expanded = false;
-      this.resetPosition = true;
-    },
-    handleLoading: function handleLoading() {
-      this.loading = true;
-    },
-    handleLoaded: function handleLoaded() {
-      this.loading = false;
-    },
-    handleInput: function handleInput(event) {
-      this.value = event.target.value;
-      this.core.handleInput(event);
-    },
-    handleSubmit: function handleSubmit(selectedResult) {
-      this.$emit('submit', selectedResult);
-    },
-    handleDocumentClick: function handleDocumentClick(event) {
-      if (this.$refs.root.contains(event.target)) {
-        return;
-      }
+    updated: function updated() {
+        if (!this.$refs.input || !this.$refs.resultList) {
+            return;
+        }
 
-      this.core.hideResults();
+        if (this.resetPosition && this.results.length > 0) {
+            this.resetPosition = false;
+            this.position = getRelativePosition(this.$refs.input, this.$refs.resultList);
+        }
+
+        this.core.checkSelectedResultVisible(this.$refs.resultList);
+    },
+    methods: {
+        setValue: function setValue(result) {
+            this.value = result ? this.getResultValue(result) : '';
+        },
+        handleUpdate: function handleUpdate(results, selectedIndex) {
+            this.results = results;
+            this.selectedIndex = selectedIndex;
+            this.$emit('update', results, selectedIndex);
+        },
+        handleShow: function handleShow() {
+            this.expanded = true;
+        },
+        handleHide: function handleHide() {
+            this.expanded = false;
+            this.resetPosition = true;
+        },
+        handleLoading: function handleLoading() {
+            this.loading = true;
+        },
+        handleLoaded: function handleLoaded() {
+            this.loading = false;
+        },
+        handleInput: function handleInput(event) {
+            this.value = event.target.value;
+            this.core.handleInput(event);
+        },
+        handleSubmit: function handleSubmit(selectedResult) {
+            this.$emit('submit', selectedResult);
+        },
+        handleDocumentClick: function handleDocumentClick(event) {
+            if (this.$refs.root.contains(event.target)) {
+                return;
+            }
+
+            this.core.hideResults();
+        }
     }
-  }
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */ , shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
     if (typeof shadowMode !== 'boolean') {
         createInjectorSSR = createInjector;
         createInjector = shadowMode;
@@ -671,12 +671,12 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
     let hook;
     if (moduleIdentifier) {
         // server build
-        hook = function (context) {
+        hook = function(context) {
             // 2.3 injection
             context =
                 context || // cached call
-                    (this.$vnode && this.$vnode.ssrContext) || // stateful
-                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+                (this.$vnode && this.$vnode.ssrContext) || // stateful
+                (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
             // 2.2 with runInNewContext: true
             if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
                 context = __VUE_SSR_CONTEXT__;
@@ -693,13 +693,13 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
         // used by ssr in case component is cached and beforeCreate
         // never gets called
         options._ssrRegister = hook;
-    }
-    else if (style) {
-        hook = shadowMode
-            ? function (context) {
+    } else if (style) {
+        hook = shadowMode ?
+
+            function(context) {
                 style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
-            }
-            : function (context) {
+            } :
+            function(context) {
                 style.call(this, createInjector(context));
             };
     }
@@ -711,8 +711,7 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
                 hook.call(context);
                 return originalRender(h, context);
             };
-        }
-        else {
+        } else {
             // inject component registration as beforeCreate hook
             const existing = options.beforeCreate;
             options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
@@ -725,27 +724,26 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
 const __vue_script__ = script;
 
 /* template */
-var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"root"},[_vm._t("default",[_c('div',_vm._b({},'div',_vm.rootProps,false),[_c('input',_vm._g(_vm._b({ref:"input",on:{"input":_vm.handleInput,"keydown":_vm.core.handleKeyDown,"focus":_vm.core.handleFocus,"blur":_vm.core.handleBlur}},'input',_vm.inputProps,false),_vm.$listeners)),_vm._v(" "),_c('ul',_vm._g(_vm._b({ref:"resultList"},'ul',_vm.resultListProps,false),_vm.resultListListeners),[_vm._l((_vm.results),function(result,index){return [_vm._t("result",[_c('li',_vm._b({key:_vm.resultProps[index].id},'li',_vm.resultProps[index],false),[_vm._v("\n              "+_vm._s(_vm.getResultValue(result))+"\n            ")])],{"result":result,"props":_vm.resultProps[index]})]})],2)])],{"rootProps":_vm.rootProps,"inputProps":_vm.inputProps,"inputListeners":_vm.inputListeners,"resultListProps":_vm.resultListProps,"resultListListeners":_vm.resultListListeners,"results":_vm.results,"resultProps":_vm.resultProps})],2)};
+var __vue_render__ = function() { var _vm = this; var _h = _vm.$createElement; var _c = _vm._self._c || _h; return _c('div', { ref: "root" }, [_vm._t("default", [_c('div', _vm._b({}, 'div', _vm.rootProps, false), [_c('input', _vm._g(_vm._b({ ref: "input", on: { "input": _vm.handleInput, "keydown": _vm.core.handleKeyDown, "focus": _vm.core.handleFocus, "blur": _vm.core.handleBlur } }, 'input', _vm.inputProps, false), _vm.$listeners)), _vm._v(" "), _c('ul', _vm._g(_vm._b({ ref: "resultList" }, 'ul', _vm.resultListProps, false), _vm.resultListListeners), [_vm._l((_vm.results), function(result, index) { return [_vm._t("result", [_c('li', _vm._b({ key: _vm.resultProps[index].id }, 'li', _vm.resultProps[index], false), [_vm._v("\n              " + _vm._s(_vm.getResultValue(result)) + "\n            ")])], { "result": result, "props": _vm.resultProps[index] })] })], 2)])], { "rootProps": _vm.rootProps, "inputProps": _vm.inputProps, "inputListeners": _vm.inputListeners, "resultListProps": _vm.resultListProps, "resultListListeners": _vm.resultListListeners, "results": _vm.results, "resultProps": _vm.resultProps })], 2) };
 var __vue_staticRenderFns__ = [];
 
-  /* style */
-  const __vue_inject_styles__ = undefined;
-  /* scoped */
-  const __vue_scope_id__ = undefined;
-  /* module identifier */
-  const __vue_module_identifier__ = undefined;
-  /* functional template */
-  const __vue_is_functional_template__ = false;
-  /* style inject */
-  
-  /* style inject SSR */
-  
-  /* style inject shadow dom */
-  
+/* style */
+const __vue_inject_styles__ = undefined;
+/* scoped */
+const __vue_scope_id__ = undefined;
+/* module identifier */
+const __vue_module_identifier__ = undefined;
+/* functional template */
+const __vue_is_functional_template__ = false;
+/* style inject */
 
-  
-  const __vue_component__ = normalizeComponent(
-    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+
+
+const __vue_component__ = normalizeComponent({ render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
@@ -755,31 +753,31 @@ var __vue_staticRenderFns__ = [];
     undefined,
     undefined,
     undefined
-  );
+);
 
 function install(Vue) {
-  if (install.installed) {
-    return;
-  }
+    if (install.installed) {
+        return;
+    }
 
-  install.installed = true;
-  Vue.component('Autocomplete', __vue_component__);
+    install.installed = true;
+    Vue.component('Autocomplete', __vue_component__);
 }
 
 var plugin = {
-  install: install
+    install: install
 }; // Auto install if Vue is found
 
 var GlobalVue;
 
 if (typeof window !== 'undefined') {
-  GlobalVue = window.Vue;
+    GlobalVue = window.Vue;
 } else if (typeof global !== 'undefined') {
-  GlobalVue = global.Vue;
+    GlobalVue = global.Vue;
 }
 
 if (GlobalVue) {
-  GlobalVue.use(plugin);
+    GlobalVue.use(plugin);
 } // Inject install function into component. Allows component to be registered via
 // Vue.use() as well as Vue.component()
 
@@ -787,7 +785,6 @@ if (GlobalVue) {
 __vue_component__.install = install;
 
 /* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
-
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
 /***/ }),
@@ -3868,7 +3865,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
+var wikiUrl = 'https://en.wikipedia.org';
+var params = 'action=query&list=search&format=json&origin=*';
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3899,7 +3902,24 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {},
   methods: {
     search: function search(term) {
-      console.log(term);
+      var url = "".concat(wikiUrl, "/w/api.php?").concat(params, "&srsearch=").concat(encodeURI(term));
+      return new Promise(function (resolve) {
+        if (term.length < 3) {
+          return resolve([]);
+        }
+
+        fetch(url).then(function (response) {
+          return response.json();
+        }).then(function (data) {
+          resolve(data.query.search);
+        });
+      });
+    },
+    getResultValue: function getResultValue(result) {
+      return result.title;
+    },
+    handleSubmit: function handleSubmit(result) {
+      window.open("".concat(wikiUrl, "/wiki/").concat(encodeURI(result.title)));
     }
   }
 });
@@ -4382,13 +4402,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      fields: {},
       errors: {},
+      empty: false,
       loading: true,
-      myData: null
+      friendRequests: null
     };
   },
   mounted: function mounted() {
@@ -4400,14 +4424,16 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('friends').then(function (res) {
         _this.loading = false;
-        console.log(res.data);
-        _this.myData = res.data;
+
+        if (!res.data.length == 0) {
+          _this.friendRequests = res.data;
+        }
       })["catch"](function (error) {
         console.log(error);
       });
     },
     accept: function accept(request, key) {
-      Vue["delete"](this.myData, key);
+      Vue["delete"](this.friendRequests, key);
       $('body').toast({
         title: "Chat",
         "class": "inverted",
@@ -4416,16 +4442,25 @@ __webpack_require__.r(__webpack_exports__);
         showProgress: 'bottom',
         classProgress: 'green'
       });
+      axios.post('friends/accept', {
+        requestId: request.request_id
+      }).then(function (resp) {
+        console.log(resp);
+      });
     },
     decline: function decline(request, key) {
-      Vue["delete"](this.myData, key);
-      $('body').toast({
-        title: "Chat",
-        "class": "inverted",
-        position: 'bottom right',
-        message: "Declined request from ".concat(request.received_by, " <em data-emoji=\":broken_heart:\"></em>"),
-        showProgress: 'bottom',
-        classProgress: 'red'
+      Vue["delete"](this.friendRequests, key);
+      axios.post('friends/decline', {
+        requestId: request.request_id
+      }).then(function (resp) {
+        $('body').toast({
+          title: "Chat",
+          "class": "inverted",
+          position: 'bottom right',
+          message: "Declined request from ".concat(request.received_by, " <em data-emoji=\":broken_heart:\"></em>"),
+          showProgress: 'bottom',
+          classProgress: 'red'
+        });
       });
     }
   }
@@ -8865,7 +8900,7 @@ exports = module.exports = __webpack_require__(/*! ../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".autocomplete-input{border:1px solid #eee;border-radius:8px;width:100%;padding:12px 12px 12px 48px;box-sizing:border-box;position:relative;font-size:16px;line-height:1.5;flex:1;background-color:#eee;background-image:url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjY2IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxwYXRoIGQ9Ik0yMSAyMWwtNC00Ii8+PC9zdmc+\");background-repeat:no-repeat;background-position:12px}.autocomplete-input:focus,.autocomplete-input[aria-expanded=true]{border-color:rgba(0,0,0,.12);background-color:#fff;outline:none;box-shadow:0 2px 2px rgba(0,0,0,.16)}[data-position=below] .autocomplete-input[aria-expanded=true]{border-bottom-color:transparent;border-radius:8px 8px 0 0}[data-position=above] .autocomplete-input[aria-expanded=true]{border-top-color:transparent;border-radius:0 0 8px 8px;z-index:2}.autocomplete[data-loading=true]:after{content:\"\";border:3px solid rgba(0,0,0,.12);border-right-color:rgba(0,0,0,.48);border-radius:100%;width:20px;height:20px;position:absolute;right:12px;top:50%;transform:translateY(-50%);-webkit-animation:rotate 1s linear infinite;animation:rotate 1s linear infinite}.autocomplete-result-list{margin:0;border:1px solid rgba(0,0,0,.12);padding:0;box-sizing:border-box;max-height:296px;overflow-y:auto;background:#fff;list-style:none;box-shadow:0 2px 2px rgba(0,0,0,.16)}[data-position=below] .autocomplete-result-list{margin-top:-1px;border-top-color:transparent;border-radius:0 0 8px 8px;padding-bottom:8px}[data-position=above] .autocomplete-result-list{margin-bottom:-1px;border-bottom-color:transparent;border-radius:8px 8px 0 0;padding-top:8px}.autocomplete-result{cursor:default;padding:12px 12px 12px 48px;background-image:url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2NjIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxwYXRoIGQ9Ik0yMSAyMWwtNC00Ii8+PC9zdmc+\");background-repeat:no-repeat;background-position:12px}.autocomplete-result:hover,.autocomplete-result[aria-selected=true]{background-color:rgba(0,0,0,.06)}@-webkit-keyframes rotate{0%{transform:translateY(-50%) rotate(0deg)}to{transform:translateY(-50%) rotate(359deg)}}@keyframes rotate{0%{transform:translateY(-50%) rotate(0deg)}to{transform:translateY(-50%) rotate(359deg)}}", ""]);
+exports.push([module.i, ".autocomplete-input {\r\n    border: 1px solid #eee;\r\n    border-radius: 8px;\r\n    width: 100%;\r\n    padding: 12px 12px 12px 48px;\r\n    box-sizing: border-box;\r\n    position: relative;\r\n    font-size: 16px;\r\n    line-height: 1.5;\r\n    flex: 1;\r\n    background-color: #eee;\r\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjY2IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxwYXRoIGQ9Ik0yMSAyMWwtNC00Ii8+PC9zdmc+\");\r\n    background-repeat: no-repeat;\r\n    background-position: 12px\r\n}\r\n\r\n.autocomplete-input:focus,\r\n.autocomplete-input[aria-expanded=true] {\r\n    border-color: rgba(0, 0, 0, .12);\r\n    background-color: #fff;\r\n    outline: none;\r\n    box-shadow: 0 2px 2px rgba(0, 0, 0, .16)\r\n}\r\n\r\n[data-position=below] .autocomplete-input[aria-expanded=true] {\r\n    border-bottom-color: transparent;\r\n    border-radius: 8px 8px 0 0\r\n}\r\n\r\n[data-position=above] .autocomplete-input[aria-expanded=true] {\r\n    border-top-color: transparent;\r\n    border-radius: 0 0 8px 8px;\r\n    z-index: 2\r\n}\r\n\r\n.autocomplete[data-loading=true]:after {\r\n    content: \"\";\r\n    border: 3px solid rgba(0, 0, 0, .12);\r\n    border-right-color: rgba(0, 0, 0, .48);\r\n    border-radius: 100%;\r\n    width: 20px;\r\n    height: 20px;\r\n    position: absolute;\r\n    right: 12px;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n    -webkit-animation: rotate 1s linear infinite;\r\n            animation: rotate 1s linear infinite\r\n}\r\n\r\n.autocomplete-result-list {\r\n    margin: 0;\r\n    border: 1px solid rgba(0, 0, 0, .12);\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n    max-height: 296px;\r\n    color: black;\r\n    overflow-y: auto;\r\n    background: #fff;\r\n    list-style: none;\r\n    box-shadow: 0 2px 2px rgba(0, 0, 0, .16)\r\n}\r\n\r\n[data-position=below] .autocomplete-result-list {\r\n    margin-top: -1px;\r\n    border-top-color: transparent;\r\n    border-radius: 0 0 8px 8px;\r\n    padding-bottom: 8px\r\n}\r\n\r\n[data-position=above] .autocomplete-result-list {\r\n    margin-bottom: -1px;\r\n    border-bottom-color: transparent;\r\n    border-radius: 8px 8px 0 0;\r\n    padding-top: 8px\r\n}\r\n\r\n.autocomplete-result {\r\n    cursor: default;\r\n    padding: 12px 12px 12px 48px;\r\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2NjIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxwYXRoIGQ9Ik0yMSAyMWwtNC00Ii8+PC9zdmc+\");\r\n    background-repeat: no-repeat;\r\n    background-position: 12px\r\n}\r\n\r\n.autocomplete-result:hover,\r\n.autocomplete-result[aria-selected=true] {\r\n    background-color: rgba(0, 0, 0, .06)\r\n}\r\n\r\n@-webkit-keyframes rotate {\r\n    0% {\r\n        transform: translateY(-50%) rotate(0deg)\r\n    }\r\n    to {\r\n        transform: translateY(-50%) rotate(359deg)\r\n    }\r\n}\r\n\r\n@keyframes rotate {\r\n    0% {\r\n        transform: translateY(-50%) rotate(0deg)\r\n    }\r\n    to {\r\n        transform: translateY(-50%) rotate(359deg)\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -48107,7 +48142,15 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "item" },
-                  [_c("autocomplete", { attrs: { search: _vm.search } })],
+                  [
+                    _c("autocomplete", {
+                      attrs: {
+                        search: _vm.search,
+                        "get-result-value": _vm.getResultValue
+                      },
+                      on: { submit: _vm.handleSubmit }
+                    })
+                  ],
                   1
                 )
               ]),
@@ -48916,10 +48959,14 @@ var render = function() {
         ? _c("div", { staticClass: "ui active dimmer" }, [
             _c("div", { staticClass: "ui text loader" }, [_vm._v("Loading")])
           ])
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.friendRequests
+        ? _c("div", { staticClass: "ui inverted segment" }, [_vm._m(1)])
         : _c(
             "div",
             { staticClass: "ui centered inverted cards" },
-            _vm._l(_vm.myData, function(value, key) {
+            _vm._l(_vm.friendRequests, function(value, key) {
               return _c("div", { key: key, staticClass: "flat-green card" }, [
                 _c("div", { staticClass: "content" }, [
                   _c("img", {
@@ -48948,7 +48995,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("Cancel")]
+                      [_vm._v("Decline")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -48979,8 +49026,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "ui segment inverted" }, [
       _c("p", [
-        _c("span", { staticClass: "ui huge text" }, [_vm._v("Friends")])
+        _c("span", { staticClass: "ui huge text" }, [_vm._v("Friend requests")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "ui info large text" }, [
+      _vm._v("No friend requsts "),
+      _c("em", { attrs: { "data-emoji": ":broken_heart:" } })
     ])
   }
 ]
@@ -66116,7 +66172,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 Pusher.logToConsole = true;
 var token = localStorage.getItem('auth_token_default');
-var user = JSON.parse(localStorage.getItem('user'));
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
   authEndpoint: 'broadcast',
@@ -66129,9 +66184,6 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
       Accept: 'application/json'
     }
   }
-});
-window.Echo.channel('chat.channel').listen('SendMessage', function (e) {
-  alert(JSON.stringify(e));
 });
 
 /***/ }),

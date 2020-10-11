@@ -49,6 +49,8 @@ Route::group([
 ], function(){;
     Route::group(['as' => 'friends'], function(){
         Route::get('friends', 'FriendController@get');
+        Route::post('friends/decline', 'FriendController@decline');
+        Route::post('friends/accept', 'FriendController@accept');
     });
 });
 

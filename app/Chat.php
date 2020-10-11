@@ -17,7 +17,16 @@ class Chat extends Model
         'status',
     ];
 
-    public function user(){
+    public function receiver(){
         $this->belongsTo(User::class);
     }
+
+    public function sender(){
+        $this->belongsTo(User::class);
+    }
+
+    public function message(){
+        return $this->hasMany(ChatReply::class);
+    }
+
 }

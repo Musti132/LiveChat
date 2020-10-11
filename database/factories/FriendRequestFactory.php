@@ -9,6 +9,6 @@ use Faker\Generator as Faker;
 $factory->define(FriendRequest::class, function (Faker $faker) {
     return [
         'user_id' => User::all()->random()->id,
-        'to_user_id' => rand(1, 2),
+        'to_user_id' => 1,
     ];
 });

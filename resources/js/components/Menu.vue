@@ -4,11 +4,15 @@
         <router-link :to="{ name : routes.authenticated[1].path }" :key="1" class="item" exact>{{routes.authenticated[1].name}}</router-link>
         <router-link :to="{ name : routes.authenticated[2].path }" :key="2" class="item" exact>{{routes.authenticated[2].name}}</router-link>
         <div class="right inverted menu" v-if="$auth.check()">
-        <div class="ui search">
-            <div class="item">
-                <autocomplete :search="search"></autocomplete>
+            <div class="ui search">
+                <div class="item">
+                    <autocomplete 
+                        :search="search"
+                        :get-result-value="getResultValue"
+                        @submit="handleSubmit"
+                        ></autocomplete>
+                </div>
             </div>
-        </div>
             <router-link :to="{ name : routes.public[0].path }" :key="0" class="item">
                 <div class="ui animated button inverted">
                     <div class="visible content">Profile</div>
@@ -50,6 +54,9 @@
 <script>
     import Autocomplete from '@trevoreyre/autocomplete-vue'
 
+    const wikiUrl = 'https://en.wikipedia.org'
+    const params = 'action=query&list=search&format=json&origin=*'
+
     export default {
         data() {
             return {
@@ -73,7 +80,31 @@
         },
         methods: {
             search(term){
-                console.log(term);
+                const url = `${wikiUrl}/w/api.php?${
+                    params
+                    }&srsearch=${encodeURI(term)}`
+
+                return new Promise(resolve => {
+                    if (term.length < 3) {
+                      return resolve([])
+                    }
+
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                          resolve(data.query.search)
+                        })
+                })
+            },
+
+            getResultValue(result) {
+                return result.title
+            },
+
+            handleSubmit(result) {
+                window.open(`${wikiUrl}/wiki/${
+                encodeURI(result.title)
+                }`)
             },
         },
     }
