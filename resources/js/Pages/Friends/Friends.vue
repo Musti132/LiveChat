@@ -21,8 +21,7 @@
                 </div>
                 <div class="extra content">
                       <div class="ui two bottom attached buttons">
-                          <button v-on:click="decline(value, key)" class="ui button">Decline</button>
-                          <button v-on:click="accept(value, key)" class="ui friend-accept button">Save</button>
+                          <button v-on:click="decline(value, key)" class="ui red button">Decline</button>
                       </div>
                 </div>
            </div>
@@ -47,45 +46,10 @@
         },
         methods: {
             getFriends(){
-                axios.get('friends').then( (res) => {
-                    this.loading = false;
-                    if(!res.data.length == 0){
-                        this.friendRequests = res.data; 
-                    }
-                }).catch((error) => {
-                    console.log(error);
-                });
-            },
-
-            accept(request, key){
-                Vue.delete(this.friendRequests, key);
-                $('body').toast({
-                    title: "Chat",
-                    class: "inverted",
-                    position: 'bottom right',
-                    message: `Accepted request from ${request.received_by} <em data-emoji=":clap:"></em>`,
-                    showProgress: 'bottom',
-                    classProgress: 'green'
-                });
-                axios.post('friends/accept', { requestId: request.request_id }).then( (resp) => {
+                axios.get('friends').then( (resp) => {
                     console.log(resp);
                 })
-            },
-
-            decline(request, key){
-                Vue.delete(this.friendRequests, key);
-                axios.post('friends/decline', { requestId: request.request_id }).then( (resp) => {
-                    $('body').toast({
-                        title: "Chat",
-                        class: "inverted",
-                        position: 'bottom right',
-                        message: `Declined request from ${request.received_by} <em data-emoji=":broken_heart:"></em>`,
-                        showProgress: 'bottom',
-                        classProgress: 'red'
-                    });
-                })
-                
-            },
+            }
         },
     }
 </script>

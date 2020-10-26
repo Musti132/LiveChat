@@ -15,8 +15,9 @@ import '@trevoreyre/autocomplete-vue/dist/style.css'
 window.transition = require('../../resources/js/transition.js');
 window.toast = require('../../resources/js/toast.js');
 window.Vue = Vue;
-//window.Vue = Vue
+
 Vue.router = router;
+
 Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.use(VueAxios, axios);

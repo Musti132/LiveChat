@@ -6,19 +6,20 @@ use App\FriendRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\FriendRequestResource;
+use App\Http\Resources\FriendsResource;
 use App\User;
 use App\Friends;
-use DB;
 
 class FriendController extends Controller
 {
     function get(){
-        $data = FriendRequestResource::collection(FriendRequest::where('to_user_id', \Auth::user()->id)->with('sendBy')->where('status', 0)->paginate(15));
-        return json_response($data);
+        $friends = \Auth::user()->with('friends')->paginate(15);
+        return json_response(FriendsResource::collection($friends));
     }
 
-    function getFriendRequest($id){
-        return FriendRequest::where('to_user_id', \Auth::user()->id)->get();
+    function getFriendRequest(){
+        $data = FriendRequestResource::collection(FriendRequest::where('to_user_id', \Auth::user()->id)->with('sendBy')->where('status', 0)->paginate(15));
+        return json_response($data);
     }
 
     function accept(Request $request){

@@ -28,13 +28,13 @@ Route::group([
     'namespace' => 'WebApi\\',
     'as' => 'auth.',
 ], function(){;
-    Route::get('user', 'AuthController@user')->name('user');
-    Route::get('refresh', 'AuthController@refresh')->name('refresh');
 
     Route::post('login', 'AuthController@login')->name('login');
     Route::post('register', 'AuthController@register')->name('register');
 
     Route::middleware('auth:api')->group(function(){
+        Route::get('user', 'AuthController@user')->name('user');
+        Route::get('refresh', 'AuthController@refresh')->name('refresh');
         Route::post('logout', 'AuthController@logout')->name('logout');
     });
 });
@@ -49,6 +49,7 @@ Route::group([
 ], function(){;
     Route::group(['as' => 'friends'], function(){
         Route::get('friends', 'FriendController@get');
+        Route::get('friends/requests', 'FriendController@getFriendRequest');
         Route::post('friends/decline', 'FriendController@decline');
         Route::post('friends/accept', 'FriendController@accept');
     });

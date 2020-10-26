@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from './Pages/Dashboard.vue'
 import ChatHome from './Pages/Chat/Chat.vue'
 import Friends from './Pages/Friends/Friends.vue'
+import FriendRequests from './Pages/Friends/FriendsRequest.vue'
 import Login from './Pages/Auth/Login.vue'
 import Register from './Pages/Auth/Register.vue'
 import topbar from 'topbar'
@@ -13,6 +14,7 @@ const routes = [
     { path: '/login', name: 'Login', component: Login, meta: { auth: false } },
     { path: '/register', name: 'Register', component: Register, meta: { auth: false } },
     { path: '/friends', name: 'Friends', component: Friends, meta: { auth: true } },
+    { path: '/friends/request', name: 'FriendRequests', component: FriendRequests, meta: { auth: true } },
 ]
 
 const router = new VueRouter({

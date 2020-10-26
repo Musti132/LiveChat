@@ -51,8 +51,32 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Friends::class);
     }
 
+    /**
+     * Friendship user was invited to.
+     */
+
+    public function friendsOf(){
+        return $this->belongsToMany(User::class, Friends::class, 'friend_id', 'user_id');
+    }
+
+    /**
+     * Friendship user asked for
+     */
+    public function friendsOfMine(){
+        return $this->belongsToMany(User::class, Friends::class, 'user_id', 'friend_id');
+    }
+
     public function friendRequests(){
         return $this->hasMany(FriendRequest::class, 'to_user_id');
+    }
+
+    public function getFriendsAttribute()
+    {
+        return $this->friendsOfMine->merge($this->friendsOf);
+    }
+
+    public function getFriendsPaginatedAttribute(){
+        return $this->friends()->paginate(10);
     }
 
     public function getJWTIdentifier(){
