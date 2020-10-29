@@ -4237,6 +4237,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -48995,6 +48998,10 @@ var staticRenderFns = [
                     _vm._v("User 1")
                   ])
                 ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ui inverted segment green inverted" }, [
+                _c("span", [_vm._v("Send adjowid joiawd owadh uijawdhbui aw")])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "ui inverted segment green inverted" }, [
