@@ -1,0 +1,24 @@
+.container {
+    margin-top: 5px;
+}
+
+body {
+    background-color: $base-color;
+}
+
+.dimmer {
+    background: none !important;
+}
+
+.friend-accept {
+    background-color: #2ecc71 !important;
+}
+
+.icon.input {
+    border: none !important;
+}
+
+.flat-green {
+    webkit-box-shadow: 0 1px 3px 0 #555, 0 2px 0 0 #2ecc71, 0 0 0 1px #555 !important;
+    box-shadow: 0 1px 3px 0 #555, 0 2px 0 0 #2ecc71, 0 0 0 1px #555 !important;
+}

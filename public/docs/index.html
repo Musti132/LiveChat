@@ -1,0 +1,4741 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/style.css" media="screen" />
+        <link rel="stylesheet" href="css/print.css" media="print" />
+        <script src="js/all.js"></script>
+
+        <link rel="stylesheet" href="css/highlight-darcula.css" media="" />
+        <script src="js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="" data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+<a href="#" id="nav-button">
+      <span>
+        NAV
+            <img src="images/navbar.png" alt="-image" class=""/>
+      </span>
+</a>
+<div class="tocify-wrapper">
+                <div class="lang-selector">
+                            <a href="#" data-language-name="bash">bash</a>
+                            <a href="#" data-language-name="javascript">javascript</a>
+                    </div>
+        <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+    <ul class="search-results"></ul>
+
+    <ul id="toc">
+    </ul>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="./collection.json">View Postman Collection</a></li>
+                            <li><a href="./openapi.yaml">View OpenAPI (Swagger) Spec</a></li>
+                            <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
+                    </ul>
+            <ul class="toc-footer" id="last-updated">
+            <li>Last updated: September 28 2020</li>
+        </ul>
+</div>
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1>Introduction</h1>
+<p>Welcome to our API documentation!</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile), and you can switch the programming language of the examples with the tabs in the top right (or from the nav menu at the top left on mobile).</aside><h1>Authenticating requests</h1>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {your-token}"</code></strong>.</p>
+<p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p><h1>Endpoints</h1>
+<h2>_debugbar/open</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/_debugbar/open" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/_debugbar/open"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php",
+    "line": 1064,
+    "trace": [
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php",
+            "line": 44,
+            "function": "abort",
+            "class": "Illuminate\\Foundation\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\DebugbarEnabled.php",
+            "line": 38,
+            "function": "abort"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\DebugbarEnabled",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 687,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 662,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 628,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 617,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 165,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php",
+            "line": 60,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\InjectDebugbar",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php",
+            "line": 63,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
+            "line": 37,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fruitcake\\Cors\\HandleCors",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 140,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 109,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 322,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 304,
+            "function": "callLaravelOrLumenRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 76,
+            "function": "makeApiCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 51,
+            "function": "makeResponseCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 41,
+            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 229,
+            "function": "__invoke",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 167,
+            "function": "iterateThroughStrategies",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 125,
+            "function": "fetchResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 118,
+            "function": "processRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 73,
+            "function": "processRoutes",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "function": "handle",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 37,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+            "line": 37,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 95,
+            "function": "unwrapIfClosure",
+            "class": "Illuminate\\Container\\Util",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 39,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+            "line": 596,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 134,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Command\\Command.php",
+            "line": 258,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 121,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 911,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 264,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 140,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
+            "line": 93,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+            "line": 129,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "-&gt;"
+        }
+    ]
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>_debugbar/open</code></strong></p>
+<h2>Return Clockwork output</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/_debugbar/clockwork/{id}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/_debugbar/clockwork/{id}"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php",
+    "line": 1064,
+    "trace": [
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php",
+            "line": 44,
+            "function": "abort",
+            "class": "Illuminate\\Foundation\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\DebugbarEnabled.php",
+            "line": 38,
+            "function": "abort"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\DebugbarEnabled",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 687,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 662,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 628,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 617,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 165,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php",
+            "line": 60,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\InjectDebugbar",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php",
+            "line": 63,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
+            "line": 37,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fruitcake\\Cors\\HandleCors",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 140,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 109,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 322,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 304,
+            "function": "callLaravelOrLumenRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 76,
+            "function": "makeApiCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 51,
+            "function": "makeResponseCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 41,
+            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 229,
+            "function": "__invoke",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 167,
+            "function": "iterateThroughStrategies",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 125,
+            "function": "fetchResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 118,
+            "function": "processRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 73,
+            "function": "processRoutes",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "function": "handle",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 37,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+            "line": 37,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 95,
+            "function": "unwrapIfClosure",
+            "class": "Illuminate\\Container\\Util",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 39,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+            "line": 596,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 134,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Command\\Command.php",
+            "line": 258,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 121,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 911,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 264,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 140,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
+            "line": 93,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+            "line": 129,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "-&gt;"
+        }
+    ]
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>_debugbar/clockwork/{id}</code></strong></p>
+<h2>_debugbar/telescope/{id}</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/_debugbar/telescope/{id}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/_debugbar/telescope/{id}"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php",
+    "line": 1064,
+    "trace": [
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php",
+            "line": 44,
+            "function": "abort",
+            "class": "Illuminate\\Foundation\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\DebugbarEnabled.php",
+            "line": 38,
+            "function": "abort"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\DebugbarEnabled",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 687,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 662,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 628,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 617,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 165,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php",
+            "line": 60,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\InjectDebugbar",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php",
+            "line": 63,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
+            "line": 37,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fruitcake\\Cors\\HandleCors",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 140,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 109,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 322,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 304,
+            "function": "callLaravelOrLumenRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 76,
+            "function": "makeApiCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 51,
+            "function": "makeResponseCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 41,
+            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 229,
+            "function": "__invoke",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 167,
+            "function": "iterateThroughStrategies",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 125,
+            "function": "fetchResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 118,
+            "function": "processRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 73,
+            "function": "processRoutes",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "function": "handle",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 37,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+            "line": 37,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 95,
+            "function": "unwrapIfClosure",
+            "class": "Illuminate\\Container\\Util",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 39,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+            "line": 596,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 134,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Command\\Command.php",
+            "line": 258,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 121,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 911,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 264,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 140,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
+            "line": 93,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+            "line": 129,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "-&gt;"
+        }
+    ]
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>_debugbar/telescope/{id}</code></strong></p>
+<h2>Return the stylesheets for the Debugbar</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/_debugbar/assets/stylesheets" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/_debugbar/assets/stylesheets"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php",
+    "line": 1064,
+    "trace": [
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php",
+            "line": 44,
+            "function": "abort",
+            "class": "Illuminate\\Foundation\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\DebugbarEnabled.php",
+            "line": 38,
+            "function": "abort"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\DebugbarEnabled",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 687,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 662,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 628,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 617,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 165,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php",
+            "line": 60,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\InjectDebugbar",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php",
+            "line": 63,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
+            "line": 37,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fruitcake\\Cors\\HandleCors",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 140,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 109,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 322,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 304,
+            "function": "callLaravelOrLumenRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 76,
+            "function": "makeApiCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 51,
+            "function": "makeResponseCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 41,
+            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 229,
+            "function": "__invoke",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 167,
+            "function": "iterateThroughStrategies",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 125,
+            "function": "fetchResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 118,
+            "function": "processRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 73,
+            "function": "processRoutes",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "function": "handle",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 37,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+            "line": 37,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 95,
+            "function": "unwrapIfClosure",
+            "class": "Illuminate\\Container\\Util",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 39,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+            "line": 596,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 134,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Command\\Command.php",
+            "line": 258,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 121,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 911,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 264,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 140,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
+            "line": 93,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+            "line": 129,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "-&gt;"
+        }
+    ]
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>_debugbar/assets/stylesheets</code></strong></p>
+<h2>Return the javascript for the Debugbar</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/_debugbar/assets/javascript" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/_debugbar/assets/javascript"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php",
+    "line": 1064,
+    "trace": [
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php",
+            "line": 44,
+            "function": "abort",
+            "class": "Illuminate\\Foundation\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\DebugbarEnabled.php",
+            "line": 38,
+            "function": "abort"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\DebugbarEnabled",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 687,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 662,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 628,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 617,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 165,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php",
+            "line": 60,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\InjectDebugbar",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php",
+            "line": 63,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
+            "line": 37,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fruitcake\\Cors\\HandleCors",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 140,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 109,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 322,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 304,
+            "function": "callLaravelOrLumenRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 76,
+            "function": "makeApiCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 51,
+            "function": "makeResponseCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 41,
+            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 229,
+            "function": "__invoke",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 167,
+            "function": "iterateThroughStrategies",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 125,
+            "function": "fetchResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 118,
+            "function": "processRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 73,
+            "function": "processRoutes",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "function": "handle",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 37,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+            "line": 37,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 95,
+            "function": "unwrapIfClosure",
+            "class": "Illuminate\\Container\\Util",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 39,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+            "line": 596,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 134,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Command\\Command.php",
+            "line": 258,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 121,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 911,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 264,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 140,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
+            "line": 93,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+            "line": 129,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "-&gt;"
+        }
+    ]
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>_debugbar/assets/javascript</code></strong></p>
+<h2>Forget a cache key</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "http://localhost/_debugbar/cache/{key}/{tags?}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/_debugbar/cache/{key}/{tags?}"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-red">DELETE</small>
+<strong><code>_debugbar/cache/{key}/{tags?}</code></strong></p>
+<h2>api/user</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/user" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/user"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "Unauthorized"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/user</code></strong></p>
+<h2>api/search</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/search" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/search"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.\r\n (SQL: select * from `user_friends` where `user_id` = 1 or `friend_id` = 1 limit 1)",
+    "exception": "Illuminate\\Database\\QueryException",
+    "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php",
+    "line": 671,
+    "trace": [
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php",
+            "line": 631,
+            "function": "runQueryCallback",
+            "class": "Illuminate\\Database\\Connection",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php",
+            "line": 339,
+            "function": "run",
+            "class": "Illuminate\\Database\\Connection",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php",
+            "line": 2260,
+            "function": "select",
+            "class": "Illuminate\\Database\\Connection",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php",
+            "line": 2248,
+            "function": "runSelect",
+            "class": "Illuminate\\Database\\Query\\Builder",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php",
+            "line": 2743,
+            "function": "Illuminate\\Database\\Query\\{closure}",
+            "class": "Illuminate\\Database\\Query\\Builder",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php",
+            "line": 2249,
+            "function": "onceWithColumns",
+            "class": "Illuminate\\Database\\Query\\Builder",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php",
+            "line": 539,
+            "function": "get",
+            "class": "Illuminate\\Database\\Query\\Builder",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php",
+            "line": 523,
+            "function": "getModels",
+            "class": "Illuminate\\Database\\Eloquent\\Builder",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Concerns\\BuildsQueries.php",
+            "line": 143,
+            "function": "get",
+            "class": "Illuminate\\Database\\Eloquent\\Builder",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\app\\Http\\Controllers\\WebApi\\SearchController.php",
+            "line": 17,
+            "function": "first",
+            "class": "Illuminate\\Database\\Eloquent\\Builder",
+            "type": "-&gt;"
+        },
+        {
+            "function": "index",
+            "class": "App\\Http\\Controllers\\WebApi\\SearchController",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php",
+            "line": 54,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php",
+            "line": 45,
+            "function": "callAction",
+            "class": "Illuminate\\Routing\\Controller",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php",
+            "line": 239,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\ControllerDispatcher",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php",
+            "line": 196,
+            "function": "runController",
+            "class": "Illuminate\\Routing\\Route",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 685,
+            "function": "run",
+            "class": "Illuminate\\Routing\\Route",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php",
+            "line": 41,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+            "line": 59,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 687,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 662,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 628,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 617,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 165,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php",
+            "line": 60,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\InjectDebugbar",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php",
+            "line": 63,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fruitcake\\Cors\\HandleCors",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 140,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 109,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 322,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 304,
+            "function": "callLaravelOrLumenRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 76,
+            "function": "makeApiCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 51,
+            "function": "makeResponseCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 41,
+            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 229,
+            "function": "__invoke",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 167,
+            "function": "iterateThroughStrategies",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 125,
+            "function": "fetchResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 118,
+            "function": "processRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 73,
+            "function": "processRoutes",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "function": "handle",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 37,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+            "line": 37,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 95,
+            "function": "unwrapIfClosure",
+            "class": "Illuminate\\Container\\Util",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 39,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+            "line": 596,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 134,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Command\\Command.php",
+            "line": 258,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 121,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 911,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 264,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 140,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
+            "line": 93,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+            "line": 129,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "-&gt;"
+        }
+    ]
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/search</code></strong></p>
+<h2>Get user details</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/web/auth/user" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/web/auth/user"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Trying to get property 'id' of non-object",
+    "exception": "ErrorException",
+    "file": "C:\\xampp\\htdocs\\WorkSite\\app\\Http\\Controllers\\WebApi\\AuthController.php",
+    "line": 97,
+    "trace": [
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\app\\Http\\Controllers\\WebApi\\AuthController.php",
+            "line": 97,
+            "function": "handleError",
+            "class": "Illuminate\\Foundation\\Bootstrap\\HandleExceptions",
+            "type": "-&gt;"
+        },
+        {
+            "function": "user",
+            "class": "App\\Http\\Controllers\\WebApi\\AuthController",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php",
+            "line": 54,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php",
+            "line": 45,
+            "function": "callAction",
+            "class": "Illuminate\\Routing\\Controller",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php",
+            "line": 239,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\ControllerDispatcher",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php",
+            "line": 196,
+            "function": "runController",
+            "class": "Illuminate\\Routing\\Route",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 685,
+            "function": "run",
+            "class": "Illuminate\\Routing\\Route",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php",
+            "line": 41,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+            "line": 59,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 687,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 662,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 628,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 617,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 165,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php",
+            "line": 60,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\InjectDebugbar",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php",
+            "line": 63,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fruitcake\\Cors\\HandleCors",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 140,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 109,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 322,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 304,
+            "function": "callLaravelOrLumenRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 76,
+            "function": "makeApiCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 51,
+            "function": "makeResponseCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 41,
+            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 229,
+            "function": "__invoke",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 167,
+            "function": "iterateThroughStrategies",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 125,
+            "function": "fetchResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 118,
+            "function": "processRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 73,
+            "function": "processRoutes",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "function": "handle",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 37,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+            "line": 37,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 95,
+            "function": "unwrapIfClosure",
+            "class": "Illuminate\\Container\\Util",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 39,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+            "line": 596,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 134,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Command\\Command.php",
+            "line": 258,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 121,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 911,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 264,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 140,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
+            "line": 93,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+            "line": 129,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "-&gt;"
+        }
+    ]
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/web/auth/user</code></strong></p>
+<h2>Refresh JWT Token</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/web/auth/refresh" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/web/auth/refresh"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Token could not be parsed from the request.",
+    "exception": "Tymon\\JWTAuth\\Exceptions\\JWTException",
+    "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\tymon\\jwt-auth\\src\\JWTGuard.php",
+    "line": 419,
+    "trace": [
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\tymon\\jwt-auth\\src\\JWTGuard.php",
+            "line": 173,
+            "function": "requireToken",
+            "class": "Tymon\\JWTAuth\\JWTGuard",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\app\\Http\\Controllers\\WebApi\\AuthController.php",
+            "line": 109,
+            "function": "refresh",
+            "class": "Tymon\\JWTAuth\\JWTGuard",
+            "type": "-&gt;"
+        },
+        {
+            "function": "refresh",
+            "class": "App\\Http\\Controllers\\WebApi\\AuthController",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php",
+            "line": 54,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php",
+            "line": 45,
+            "function": "callAction",
+            "class": "Illuminate\\Routing\\Controller",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php",
+            "line": 239,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\ControllerDispatcher",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php",
+            "line": 196,
+            "function": "runController",
+            "class": "Illuminate\\Routing\\Route",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 685,
+            "function": "run",
+            "class": "Illuminate\\Routing\\Route",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php",
+            "line": 41,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+            "line": 59,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 687,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 662,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 628,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 617,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 165,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php",
+            "line": 60,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\InjectDebugbar",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php",
+            "line": 63,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fruitcake\\Cors\\HandleCors",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 140,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 109,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 322,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 304,
+            "function": "callLaravelOrLumenRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 76,
+            "function": "makeApiCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 51,
+            "function": "makeResponseCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 41,
+            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 229,
+            "function": "__invoke",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 167,
+            "function": "iterateThroughStrategies",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 125,
+            "function": "fetchResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 118,
+            "function": "processRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 73,
+            "function": "processRoutes",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "function": "handle",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 37,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+            "line": 37,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 95,
+            "function": "unwrapIfClosure",
+            "class": "Illuminate\\Container\\Util",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 39,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+            "line": 596,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 134,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Command\\Command.php",
+            "line": 258,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 121,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 911,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 264,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 140,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
+            "line": 93,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+            "line": 129,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "-&gt;"
+        }
+    ]
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/web/auth/refresh</code></strong></p>
+<h2>api/web/auth/login</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/web/auth/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/web/auth/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/web/auth/login</code></strong></p>
+<h2>api/web/auth/register</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/web/auth/register" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/web/auth/register"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/web/auth/register</code></strong></p>
+<h2>api/web/auth/logout</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/web/auth/logout" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/web/auth/logout"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/web/auth/logout</code></strong></p>
+<h2>api/web/friends</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/web/friends" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/web/friends"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "Unauthorized"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/web/friends</code></strong></p>
+<h2>api/web/friends/decline</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/web/friends/decline" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/web/friends/decline"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/web/friends/decline</code></strong></p>
+<h2>api/web/friends/accept</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/web/friends/accept" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/web/friends/accept"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/web/friends/accept</code></strong></p>
+<h2>Show the application dashboard.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+    &lt;!-- CSRF Token --&gt;
+    &lt;meta name="csrf-token" content="lUCjpVVTVtC6tLf5MWeTQyIHRwEMjSHEFtUMcguo"&gt;
+
+    &lt;title&gt;LiveChat&lt;/title&gt;
+    &lt;link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.6/dist/semantic.min.css"&gt;
+    &lt;link href="http://localhost/css/app.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="app"&gt;
+        &lt;App&gt;&lt;/App&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://localhost/js/app.js" defer&gt;&lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>/</code></strong></p>
+<h2>broadcast</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/broadcast" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/broadcast"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>broadcast</code></strong></p>
+<h2>notify</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/notify" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/notify"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>notify</code></strong></p>
+<h2>doc</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/doc" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/doc"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Route [apidoc.json] not defined. (View: C:\\xampp\\htdocs\\WorkSite\\resources\\views\\apidoc\\index.blade.php)",
+    "exception": "Facade\\Ignition\\Exceptions\\ViewException",
+    "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php",
+    "line": 420,
+    "trace": [
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php",
+            "line": 768,
+            "function": "route",
+            "class": "Illuminate\\Routing\\UrlGenerator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\resources\\views\/apidoc\/index.blade.php",
+            "line": 49,
+            "function": "route"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php",
+            "line": 41,
+            "function": "include"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php",
+            "line": 57,
+            "function": "evaluatePath",
+            "class": "Illuminate\\View\\Engines\\PhpEngine",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php",
+            "line": 37,
+            "function": "get",
+            "class": "Illuminate\\View\\Engines\\CompilerEngine",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php",
+            "line": 139,
+            "function": "get",
+            "class": "Facade\\Ignition\\Views\\Engines\\CompilerEngine",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php",
+            "line": 122,
+            "function": "getContents",
+            "class": "Illuminate\\View\\View",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php",
+            "line": 91,
+            "function": "renderContents",
+            "class": "Illuminate\\View\\View",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php",
+            "line": 62,
+            "function": "render",
+            "class": "Illuminate\\View\\View",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php",
+            "line": 34,
+            "function": "setContent",
+            "class": "Illuminate\\Http\\Response",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 759,
+            "function": "__construct",
+            "class": "Illuminate\\Http\\Response",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 731,
+            "function": "toResponse",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 685,
+            "function": "prepareResponse",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Routing\\{closure}",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php",
+            "line": 41,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php",
+            "line": 77,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php",
+            "line": 49,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\View\\Middleware\\ShareErrorsFromSession",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php",
+            "line": 116,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php",
+            "line": 62,
+            "function": "handleStatefulRequest",
+            "class": "Illuminate\\Session\\Middleware\\StartSession",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Session\\Middleware\\StartSession",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php",
+            "line": 37,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php",
+            "line": 67,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Cookie\\Middleware\\EncryptCookies",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 687,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 662,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 628,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 617,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 165,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php",
+            "line": 60,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\InjectDebugbar",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php",
+            "line": 63,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
+            "line": 37,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fruitcake\\Cors\\HandleCors",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 140,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 109,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 322,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 304,
+            "function": "callLaravelOrLumenRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 76,
+            "function": "makeApiCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 51,
+            "function": "makeResponseCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 41,
+            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 229,
+            "function": "__invoke",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 167,
+            "function": "iterateThroughStrategies",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 125,
+            "function": "fetchResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 118,
+            "function": "processRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 73,
+            "function": "processRoutes",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "function": "handle",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 37,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+            "line": 37,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 95,
+            "function": "unwrapIfClosure",
+            "class": "Illuminate\\Container\\Util",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 39,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+            "line": 596,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 134,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Command\\Command.php",
+            "line": 258,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 121,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 911,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 264,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 140,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
+            "line": 93,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+            "line": 129,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "-&gt;"
+        }
+    ]
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>doc</code></strong></p>
+<h2>{any?}</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/{any?}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/{any?}"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
+    "line": 43,
+    "trace": [
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteCollection.php",
+            "line": 162,
+            "function": "handleMatchedRoute",
+            "class": "Illuminate\\Routing\\AbstractRouteCollection",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 639,
+            "function": "match",
+            "class": "Illuminate\\Routing\\RouteCollection",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 628,
+            "function": "findRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 617,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 165,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php",
+            "line": 60,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\InjectDebugbar",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php",
+            "line": 63,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
+            "line": 37,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fruitcake\\Cors\\HandleCors",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 140,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 109,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 322,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 304,
+            "function": "callLaravelOrLumenRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 76,
+            "function": "makeApiCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 51,
+            "function": "makeResponseCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 41,
+            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 229,
+            "function": "__invoke",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 167,
+            "function": "iterateThroughStrategies",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 125,
+            "function": "fetchResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 118,
+            "function": "processRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 73,
+            "function": "processRoutes",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "function": "handle",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 37,
+            "function": "call_user_func_array"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+            "line": 37,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 95,
+            "function": "unwrapIfClosure",
+            "class": "Illuminate\\Container\\Util",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 39,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+            "line": 596,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 134,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Command\\Command.php",
+            "line": 258,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 121,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 911,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 264,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\symfony\\console\\Application.php",
+            "line": 140,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
+            "line": 93,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+            "line": 129,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\xampp\\htdocs\\WorkSite\\artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "-&gt;"
+        }
+    ]
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>{any?}</code></strong></p>
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+            </div>
+</div>
+<script>
+    $(function () {
+        var languages = ["bash","javascript"];
+        setupLanguages(languages);
+    });
+</script>
+</body>
+</html>
