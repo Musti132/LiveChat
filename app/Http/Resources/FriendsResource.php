@@ -14,9 +14,11 @@ class FriendsResource extends JsonResource
      */
     public function toArray($request)
     {
+        
         return [
+            'id' => $this->id,
             'name' => $this->name,
-            'added' => $this->created_at->diffForHumans(),
+            'addedAt' => $this->created_at->diffForHumans(),
         ];
     }
 }

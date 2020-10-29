@@ -52,9 +52,9 @@ Route::group([
      * Friends routes
      */
     Route::group(['as' => 'friends'], function(){
-        Route::get('friends', 'FriendController@get');
+        Route::get('friends', 'FriendController@index');
         Route::get('friends/requests', 'FriendController@getFriendRequest');
-        Route::post('friends/decline', 'FriendController@decline');
+        Route::delete('friends/decline', 'FriendController@decline');
         Route::post('friends/accept', 'FriendController@accept');
     });
 

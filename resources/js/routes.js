@@ -11,14 +11,14 @@ import Register from './Pages/Auth/Register.vue'
 import topbar from 'topbar'
 
 const routes = [
-    { path: '/', name: 'Home', component: Home, meta: { auth: true } },
-    { path: '/chat', name: 'ChatHome', component: ChatHome, meta: { auth: true } },
-    { path: '/login', name: 'Login', component: Login, meta: { auth: false } },
-    { path: '/register', name: 'Register', component: Register, meta: { auth: false } },
-    { path: '/friends', name: 'Friends', component: Friends, meta: { auth: true } },
-    { path: '/friends/request', name: 'FriendRequests', component: FriendRequests, meta: { auth: true } },
-    { path: '/profile', name: 'Profile', component: Profile, meta: { auth: true } },
-    { path: '/profile/:id', name: 'ProfileShow', component: ProfileShow, meta: { auth: true } },
+    { path: '/', name: 'Home', component: Home, meta: { auth: true, keepAlive: true } },
+    { path: '/chat', name: 'ChatHome', component: ChatHome, meta: { auth: true, keepAlive: true } },
+    { path: '/login', name: 'Login', component: Login, meta: { auth: false, keepAlive: true } },
+    { path: '/register', name: 'Register', component: Register, meta: { auth: false, keepAlive: true } },
+    { path: '/friends', name: 'Friends', component: Friends, meta: { auth: true, keepAlive: true } },
+    { path: '/friends/request', name: 'FriendRequests', component: FriendRequests, meta: { auth: true, keepAlive: false } },
+    { path: '/profile', name: 'Profile', component: Profile, meta: { auth: true, keepAlive: true } },
+    { path: '/profile/:userId', name: 'ProfileShow', component: ProfileShow, meta: { auth: true, keepAlive: false } },
 ]
 
 const router = new VueRouter({

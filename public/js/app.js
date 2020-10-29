@@ -3955,6 +3955,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -4437,7 +4438,7 @@ __webpack_require__.r(__webpack_exports__);
       errors: {},
       empty: false,
       loading: true,
-      friendRequests: null
+      friends: null
     };
   },
   mounted: function mounted() {
@@ -4445,8 +4446,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getFriends: function getFriends() {
+      var _this = this;
+
       axios.get('friends').then(function (resp) {
-        console.log(resp);
+        _this.friends = resp.data;
+        _this.loading = false;
+        console.log(resp.data);
       });
     }
   }
@@ -4665,6 +4670,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4676,7 +4691,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.id = this.$route.params.id;
+    this.id = this.$route.params.userId;
     this.getProfile();
   },
   methods: {
@@ -48522,7 +48537,15 @@ var render = function() {
       _c(
         "div",
         { attrs: { id: "content" } },
-        [_c("keep-alive", [_c("router-view")], 1)],
+        [
+          _c(
+            "keep-alive",
+            [_vm.$route.meta.keepAlive ? _c("router-view") : _vm._e()],
+            1
+          ),
+          _vm._v(" "),
+          !_vm.$route.meta.keepAlive ? _c("router-view") : _vm._e()
+        ],
         1
       )
     ],
@@ -49201,12 +49224,12 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      !_vm.friendRequests
+      !_vm.friends && !_vm.loading
         ? _c("div", { staticClass: "ui inverted segment" }, [_vm._m(1)])
         : _c(
             "div",
             { staticClass: "ui centered inverted cards" },
-            _vm._l(_vm.friendRequests, function(value, key) {
+            _vm._l(_vm.friends, function(value, key) {
               return _c("div", { key: key, staticClass: "flat-green card" }, [
                 _c("div", { staticClass: "content" }, [
                   _c("img", {
@@ -49215,29 +49238,35 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("a", { staticClass: "header" }, [
-                    _vm._v(_vm._s(value.received_by))
+                    _vm._v(_vm._s(value.name))
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "description" }, [
-                    _vm._v(_vm._s(value.received_at))
+                    _vm._v(_vm._s(value.addedAt))
                   ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "extra content" }, [
-                  _c("div", { staticClass: "ui two bottom attached buttons" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "ui red button",
-                        on: {
-                          click: function($event) {
-                            return _vm.decline(value, key)
+                  _c(
+                    "div",
+                    { staticClass: "ui bottom attached buttons" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "ui button",
+                          attrs: {
+                            to: {
+                              name: "ProfileShow",
+                              params: { userId: value.id }
+                            }
                           }
-                        }
-                      },
-                      [_vm._v("Decline")]
-                    )
-                  ])
+                        },
+                        [_vm._v("Profile")]
+                      )
+                    ],
+                    1
+                  )
                 ])
               ])
             }),
@@ -49253,7 +49282,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "ui segment inverted" }, [
       _c("p", [
-        _c("span", { staticClass: "ui huge text" }, [_vm._v("Friend requests")])
+        _c("span", { staticClass: "ui huge text" }, [_vm._v("Your Friends")])
       ])
     ])
   },
@@ -49262,7 +49291,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "ui info large text" }, [
-      _vm._v("No friend requests "),
+      _vm._v("No friends "),
       _c("em", { attrs: { "data-emoji": ":broken_heart:" } })
     ])
   }
@@ -49482,7 +49511,13 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "ui center aligned container" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "ui segment inverted" }, [
+      _c("p", [
+        _c("span", { staticClass: "ui huge text" }, [
+          _vm._v(_vm._s(_vm.data.username) + "'s Profile")
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _vm.loading
       ? _c("div", { staticClass: "ui active dimmer" }, [
@@ -49493,7 +49528,7 @@ var render = function() {
     !_vm.loading
       ? _c("div", [
           _c("div", { staticClass: "ui card inverted" }, [
-            _vm._m(1),
+            _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "content" }, [
               _c("div", { staticClass: "header" }, [
@@ -49503,6 +49538,19 @@ var render = function() {
               _c("div", { staticClass: "meta" }, [
                 _c("span", { staticClass: "date" }, [
                   _vm._v("Joined " + _vm._s(_vm.data.joinedAt))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "description" }, [
+                _c("span", { staticClass: "date" }, [
+                  _vm._v("Friendship status: \n                        "),
+                  _vm.data.isFriend
+                    ? _c("div", { staticClass: "ui inverted segment" }, [
+                        _vm._m(1)
+                      ])
+                    : _c("div", { staticClass: "ui inverted segment" }, [
+                        _vm._m(2)
+                      ])
                 ])
               ])
             ]),
@@ -49525,9 +49573,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ui segment inverted" }, [
-      _c("p", [
-        _c("span", { staticClass: "ui huge text" }, [_vm._v("Your Profile")])
+    return _c("div", { staticClass: "image" }, [
+      _c("img", {
+        staticClass: "visible content",
+        attrs: { src: "/images/male.png" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("span", { staticClass: "ui green text" }, [
+        _vm._v("Friends "),
+        _c("em", { attrs: { "data-emoji": ":clap:" } })
       ])
     ])
   },
@@ -49535,11 +49595,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "image" }, [
-      _c("img", {
-        staticClass: "visible content",
-        attrs: { src: "images/male.png" }
-      })
+    return _c("p", [
+      _c("span", { staticClass: "ui red text" }, [
+        _vm._v("Not friends "),
+        _c("em", { attrs: { "data-emoji": ":broken_heart:" } })
+      ])
     ])
   }
 ]
@@ -66932,56 +66992,64 @@ var routes = [{
   name: 'Home',
   component: _Pages_Dashboard_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
   meta: {
-    auth: true
+    auth: true,
+    keepAlive: true
   }
 }, {
   path: '/chat',
   name: 'ChatHome',
   component: _Pages_Chat_Chat_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
   meta: {
-    auth: true
+    auth: true,
+    keepAlive: true
   }
 }, {
   path: '/login',
   name: 'Login',
   component: _Pages_Auth_Login_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
   meta: {
-    auth: false
+    auth: false,
+    keepAlive: true
   }
 }, {
   path: '/register',
   name: 'Register',
   component: _Pages_Auth_Register_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
   meta: {
-    auth: false
+    auth: false,
+    keepAlive: true
   }
 }, {
   path: '/friends',
   name: 'Friends',
   component: _Pages_Friends_Friends_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
   meta: {
-    auth: true
+    auth: true,
+    keepAlive: true
   }
 }, {
   path: '/friends/request',
   name: 'FriendRequests',
   component: _Pages_Friends_FriendsRequest_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
   meta: {
-    auth: true
+    auth: true,
+    keepAlive: false
   }
 }, {
   path: '/profile',
   name: 'Profile',
   component: _Pages_Profile_Profile_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
   meta: {
-    auth: true
+    auth: true,
+    keepAlive: true
   }
 }, {
-  path: '/profile/:id',
+  path: '/profile/:userId',
   name: 'ProfileShow',
   component: _Pages_Profile_ProfileShow_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
   meta: {
-    auth: true
+    auth: true,
+    keepAlive: false
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({

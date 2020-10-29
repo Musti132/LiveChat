@@ -15,6 +15,14 @@ class ProfileController extends Controller
     }
 
     public function show($id){
-        return new ProfileResource(User::find($id));
+
+        $friends = \Auth::user()->friends;
+        $friendShipStatus = (bool)$friends->where('id', $id)->count();
+        $friends->friendShipStatus = $friendShipStatus;
+
+        $user = User::find($id);
+        $user->friendShipStatus = $friendShipStatus;
+        
+        return new ProfileResource($user);
     }
 }

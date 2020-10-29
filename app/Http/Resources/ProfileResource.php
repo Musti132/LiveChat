@@ -18,7 +18,7 @@ class ProfileResource extends JsonResource
             'userId' => $this->id,
             'username' => ucwords($this->name),
             'joinedAt' => $this->created_at->diffForHumans(),
-            'isFriend' => 0,
+            'isFriend' => $this->friendShipStatus,
             'friendsCount' => $this->friends->count(),
         ];
     }

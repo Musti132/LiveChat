@@ -58,14 +58,13 @@ class User extends Authenticatable implements JWTSubject
     public function replies(){
         return $this->hasMany(ChatReply::class);
     }
-
-    public function friend(){
+    /*
+    public function friends(){
         return $this->belongsToMany(User::class, Friends::class);
-    }
+    }*/
 
-    public function isFriend(){
-        $test = $this->friends()->where('friend_id', '=', 1)->orWhere('friend_id', '=', 1)->first();
-        dd($test);
+    public function isFriend($id){
+        return (bool) $this->getFriendsAttribute()->where('id', $id)->count();
     }
 
     /**

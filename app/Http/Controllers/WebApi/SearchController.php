@@ -5,6 +5,7 @@ namespace App\Http\Controllers\WebApi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use CollectionHelper;
 use App\FriendRequest;
 use App\Friends;
 use App\Http\Resources\UserResource;
@@ -20,9 +21,9 @@ class SearchController extends Controller
         //$user = User::find(1)->whereHas('friendsOf', function($query){
         //    $query->where('user_id', 8);
         //})->count();
-        $user = User::find(1);
-        dd($user->friend);
-        return User::find(1)->friends;
+        $friends = User::find(38)->isFriend(1);
+        dd($friends);
+        return json_response(FriendsResource::collection(CollectionHelper::paginate($friends, 10)));
     }
 
     public function search(Request $request){
