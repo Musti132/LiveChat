@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class FriendsResource extends JsonResource
+class ShowProfileResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,11 +14,6 @@ class FriendsResource extends JsonResource
      */
     public function toArray($request)
     {
-        
-        return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'addedAt' => $this->created_at->diffForHumans(),
-        ];
+        return parent::toArray($request);
     }
 }

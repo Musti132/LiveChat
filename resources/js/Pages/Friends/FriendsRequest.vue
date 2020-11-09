@@ -9,7 +9,7 @@
             <div class="ui text loader">Loading</div>
         </div>
         <div v-if="!friendRequests" class="ui inverted segment">
-            <span class="ui info large text">No friend requsts <em data-emoji=":broken_heart:"></em></span>
+            <span class="ui info large text">No friend requests <em data-emoji=":broken_heart:"></em></span>
         </div>
         
         <div v-else class="ui centered inverted cards">
@@ -22,7 +22,7 @@
                 <div class="extra content">
                       <div class="ui two bottom attached buttons">
                           <button v-on:click="decline(value, key)" class="ui button">Decline</button>
-                          <button v-on:click="accept(value, key)" class="ui friend-accept button">Save</button>
+                          <button v-on:click="accept(value, key)" class="ui friend-accept button">Accept</button>
                       </div>
                 </div>
            </div>
@@ -47,14 +47,15 @@
         },
         methods: {
             getFriendRequests(){
-                axios.get('friends/requests').then( (res) => {
+                axios.get('friends/requests').then((res) => {
                     this.loading = false;
                     if(!res.data.length == 0){
-                        this.friendRequests = res.data; 
+                        this.friendRequests = res.data;
                     }
                 }).catch((error) => {
                     console.log(error);
-                });
+                    tihs.loading = false;
+                })
             },
 
             accept(request, key){
@@ -84,7 +85,6 @@
                         classProgress: 'red'
                     });
                 })
-                
             },
         },
     }

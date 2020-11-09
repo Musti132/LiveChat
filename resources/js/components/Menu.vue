@@ -13,14 +13,16 @@
                         ></autocomplete>
                 </div>
             </div>
-            <router-link :to="{ name : routes.public[0].path }" :key="0" class="item">
-                <div class="ui animated button inverted">
-                    <div class="visible content">Profile</div>
+                
+            <router-link v-for="route in routes.rightMenuAuthenticated" :key="route.key" :to="{ name : route.path }" class="item">
+                <div v-bind:class=" { teal: route.color }" class="{route.color} ui animated inverted button ">
+                    <div class="visible content">{{route.name}}</div>
                     <div class="hidden content">
-                        <i class="right user icon"></i>
+                        <i class="user icon"></i>
                     </div>
                 </div>
             </router-link>
+
             <a class="item" href="#" @click.prevent="$auth.logout()">
                 <div class="ui animated inverted red button">
                     <div class="visible content">Logout</div>
@@ -31,22 +33,16 @@
             </a>
         </div>
         <div class="right inverted menu" v-if="!$auth.check()">
-            <router-link :to="{ name : routes.public[0].path }" :key="0" class="item">
-                <div class="ui animated button inverted">
-                    <div class="visible content">Login</div>
-                    <div class="hidden content">
-                        <i class="sign in alternate icon"></i>
+            <div v-for="route in routes.public" :key="route.key">
+                <router-link :to="{ name : route.path }" :key="route.key" class="item">
+                    <div class="ui animated button inverted">
+                        <div v-bind:class=" {teal: route.color }" class="visible content">{{route.name}}</div>
+                        <div class="hidden content">
+                            <i class="sign in alternate icon"></i>
+                        </div>
                     </div>
-                </div>
-            </router-link>
-            <router-link :to="{ name : routes.public[1].path }" :key="1" class="item">
-                <div class="ui animated inverted teal button">
-                    <div class="visible content">Register</div>
-                    <div class="hidden content">
-                        <i class="user plus icon"></i>
-                    </div>
-                </div>
-            </router-link>
+                </router-link>
+            </div>
         </div>
     </div>
 </template>
@@ -54,8 +50,6 @@
 <script>
     import Autocomplete from '@trevoreyre/autocomplete-vue'
 
-    const wikiUrl = 'https://en.wikipedia.org'
-    const params = 'action=query&list=search&format=json&origin=*'
 
     export default {
         data() {
@@ -65,11 +59,15 @@
                         { name: 'Home', path: 'Home' },
                         { name: 'Chat', path: 'ChatHome' },
                         { name: 'Friends', path: 'Friends' },
+                        { name: 'Profile', path: 'Profile' },
                     ],
-                public: [
-                    { name: "Login", path: 'Login' },
-                    { name: "Register", path: 'Register' },
-                ],
+                    rightMenuAuthenticated: [
+                        { name: 'Profile', path: 'Profile', color: true, class: "red" },
+                    ],
+                    public: [
+                        { name: "Login", path: 'Login' },
+                        { name: "Register", path: 'Register' },
+                    ],
                 }
             }
         },
@@ -77,33 +75,33 @@
             Autocomplete,
         },
         mounted(){
+            console.log(this.routes.authenticated);
         },
         methods: {
             search(term){
-                const url = `${wikiUrl}/w/api.php?${
-                    params
-                    }&srsearch=${encodeURI(term)}`
-
+                const url = `search?term=${encodeURI(term)}`
                 return new Promise(resolve => {
-                    if (term.length < 3) {
-                      return resolve([])
-                    }
-
+                    /*
                     fetch(url)
                         .then(response => response.json())
                         .then(data => {
-                          resolve(data.query.search)
-                        })
+                          resolve(data.data)
+                        })*/
+                    axios.get(url)
+                    .then((resp) => {
+                        
+                        resolve(resp.data.data);
+                    })
                 })
             },
 
             getResultValue(result) {
-                return result.title
+                return result.name
             },
 
             handleSubmit(result) {
-                window.open(`${wikiUrl}/wiki/${
-                encodeURI(result.title)
+                window.open(`/profile/${
+                encodeURI(result.id)
                 }`)
             },
         },

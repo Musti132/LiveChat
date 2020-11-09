@@ -22,7 +22,12 @@
                          <div class="content">
                             <a class="header">Friend requests</a>
                             <div class="description">
-                               0
+                                <div v-if="loading">
+                                    0
+                                </div>
+                                <div v-if="!loading">
+                                    {{ this.friendRequestsCount }}
+                                </div>
                             </div>
                          </div>
                       </div>
@@ -69,15 +74,25 @@ export default {
         return {
             fields: {},
             errors: {},
+            friendRequestsCount: 0,
+            loading: true,
         }
     },
     mounted() {
+        this.details();
         Echo.private('chat.channel')
             .listen('SendMessage', (e) => {
             console.log(e);
         });
     },
     methods: {
+       details(){
+           axios.get('details').then(resp => {
+               console.log(resp);
+               this.loading = false;
+               this.friendRequestsCount = resp.data.data;
+           })
+       }
     }
 }
 </script>

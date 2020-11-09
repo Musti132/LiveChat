@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('search', 'WebApi\SearchController@index');
+Route::get('search', 'WebApi\\SearchController@index');
 
 /**
  * Authentication routes
@@ -40,19 +40,53 @@ Route::group([
 });
 
 /**
- * Friends routes
+ * Authenticated user routes
  */
 Route::group([
     'prefix' => 'web',
     'namespace' => 'WebApi\\',
     'middleware' => 'auth:api',
 ], function(){;
+
+    /**
+     * Friends routes
+     */
     Route::group(['as' => 'friends'], function(){
-        Route::get('friends', 'FriendController@get');
+        Route::get('friends', 'FriendController@index');
         Route::get('friends/requests', 'FriendController@getFriendRequest');
-        Route::post('friends/decline', 'FriendController@decline');
+        Route::delete('friends/decline', 'FriendController@decline');
         Route::post('friends/accept', 'FriendController@accept');
     });
+
+    /**
+     * Search routes
+     */
+    Route::group(['as' => 'search'], function(){
+        Route::get('search', 'SearchController@search');
+    });
+
+    /**
+     * Dashboard routes
+     */
+    Route::group(['as' => 'dashboard'], function(){
+        Route::get('details', 'HomeController@details');
+    });
+
+    /**
+     * Profile routes
+     */
+    Route::group(['as' => 'profile'], function(){
+        Route::get('profile', 'ProfileController@get');
+        Route::get('profile/{id}', 'ProfileController@show');
+    });
+
+    /**
+     * Chat routes
+     */
+    Route::group(['as' => 'chat'], function(){
+        Route::get('chat', 'SearchController@search');
+    });
+    
 });
 
 /*

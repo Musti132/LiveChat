@@ -39,16 +39,32 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
     ];
 
+    // Search data manipulation
+    public function toSearchableArray(){
+
+        $array = [
+            'id' => ucwords($this->id),
+            'name' => $this->name,
+        ];
+
+        return $array;
+    }
+
     public function chats(){
         return $this->hasMany(Chat::class);
     }
 
+
     public function replies(){
         return $this->hasMany(ChatReply::class);
     }
-
+    /*
     public function friends(){
-        return $this->hasMany(Friends::class);
+        return $this->belongsToMany(User::class, Friends::class);
+    }*/
+
+    public function isFriend($id){
+        return (bool) $this->getFriendsAttribute()->where('id', $id)->count();
     }
 
     /**
