@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Events\SendMessage;
+use App\Events\MessageChannel;
 use Event;
+use Pusher;
 
 class HomeController extends Controller
 {
@@ -36,7 +38,8 @@ class HomeController extends Controller
     }
     
     public function notify(){
-        event(new SendMessage("Hello", 1, 2));
-        return Event::dispatch("Hello", 1, 2);
+        event(new MessageChannel(1, 2, 3));
+        Event::dispatch("TEST");
+        return true;
     }
 }

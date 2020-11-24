@@ -1,8 +1,10 @@
 <template>
     <div class="ui secondary inverted pointing menu">
         <router-link :to="{ name : routes.authenticated[0].path }" :key="0" class="item" exact>{{routes.authenticated[0].name}}</router-link>
-        <router-link :to="{ name : routes.authenticated[1].path }" :key="1" class="item" exact>{{routes.authenticated[1].name}}</router-link>
+        <router-link :to="{ name: 'ChatHome', params: { chatId: 1 }}" class="item">Channel</router-link>
         <router-link :to="{ name : routes.authenticated[2].path }" :key="2" class="item" exact>{{routes.authenticated[2].name}}</router-link>
+        <router-link :to="{ name : routes.authenticated[3].path }" :key="3" class="item" exact>{{routes.authenticated[3].name}}</router-link>
+        
         <div class="right inverted menu" v-if="$auth.check()">
             <div class="ui search">
                 <div class="item">
@@ -10,6 +12,7 @@
                         :search="search"
                         :get-result-value="getResultValue"
                         @submit="handleSubmit"
+                        placeholder="Search for friends"
                         ></autocomplete>
                 </div>
             </div>
@@ -59,6 +62,7 @@
                         { name: 'Home', path: 'Home' },
                         { name: 'Chat', path: 'ChatHome' },
                         { name: 'Friends', path: 'Friends' },
+                        { name: 'Requests', path: 'FriendRequests' },
                         { name: 'Profile', path: 'Profile' },
                     ],
                     rightMenuAuthenticated: [
@@ -107,3 +111,9 @@
         },
     }
 </script>
+
+<style scoped>
+.autocomplete-input{
+    background-color: red !important;
+}
+</style>

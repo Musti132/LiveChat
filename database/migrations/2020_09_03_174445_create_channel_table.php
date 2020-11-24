@@ -17,7 +17,7 @@ class CreateChannelTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('topic');
-            $table->foreignId('owner')->references('id')->on('users');
+            $table->foreignId('owner_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

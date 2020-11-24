@@ -96,58 +96,58 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(global) {function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
+    if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+    }
 }
 
 function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
+    if (key in obj) {
+        Object.defineProperty(obj, key, {
+            value: value,
+            enumerable: true,
+            configurable: true,
+            writable: true
+        });
+    } else {
+        obj[key] = value;
+    }
 
-  return obj;
+    return obj;
 }
 
 function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
+    var keys = Object.keys(object);
 
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly) symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    });
-    keys.push.apply(keys, symbols);
-  }
+    if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        if (enumerableOnly) symbols = symbols.filter(function(sym) {
+            return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        });
+        keys.push.apply(keys, symbols);
+    }
 
-  return keys;
+    return keys;
 }
 
 function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
+    for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i] != null ? arguments[i] : {};
 
-    if (i % 2) {
-      ownKeys(Object(source), true).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
+        if (i % 2) {
+            ownKeys(Object(source), true).forEach(function(key) {
+                _defineProperty(target, key, source[key]);
+            });
+        } else if (Object.getOwnPropertyDescriptors) {
+            Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+        } else {
+            ownKeys(Object(source)).forEach(function(key) {
+                Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+            });
+        }
     }
-  }
 
-  return target;
+    return target;
 }
 
 // Polyfill for element.matches, to support Internet Explorer. It's a relatively
@@ -155,256 +155,256 @@ function _objectSpread2(target) {
 // include the polyfill themselves. Adapted from
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/matches#Polyfill
 var matches = function matches(element, selector) {
-  return element.matches ? element.matches(selector) : element.msMatchesSelector ? element.msMatchesSelector(selector) : element.webkitMatchesSelector ? element.webkitMatchesSelector(selector) : null;
+    return element.matches ? element.matches(selector) : element.msMatchesSelector ? element.msMatchesSelector(selector) : element.webkitMatchesSelector ? element.webkitMatchesSelector(selector) : null;
 };
 
 // Polyfill for element.closest, to support Internet Explorer. It's a relatively
 
 var closestPolyfill = function closestPolyfill(el, selector) {
-  var element = el;
+    var element = el;
 
-  while (element && element.nodeType === 1) {
-    if (matches(element, selector)) {
-      return element;
+    while (element && element.nodeType === 1) {
+        if (matches(element, selector)) {
+            return element;
+        }
+
+        element = element.parentNode;
     }
 
-    element = element.parentNode;
-  }
-
-  return null;
+    return null;
 };
 
 var closest = function closest(element, selector) {
-  return element.closest ? element.closest(selector) : closestPolyfill(element, selector);
+    return element.closest ? element.closest(selector) : closestPolyfill(element, selector);
 };
 
 // Returns true if the value has a "then" function. Adapted from
 // https://github.com/graphql/graphql-js/blob/499a75939f70c4863d44149371d6a99d57ff7c35/src/jsutils/isPromise.js
 var isPromise = function isPromise(value) {
-  return Boolean(value && typeof value.then === 'function');
+    return Boolean(value && typeof value.then === 'function');
 };
 
 var AutocompleteCore = function AutocompleteCore() {
-  var _this = this;
+    var _this = this;
 
-  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-      search = _ref.search,
-      _ref$autoSelect = _ref.autoSelect,
-      autoSelect = _ref$autoSelect === void 0 ? false : _ref$autoSelect,
-      _ref$setValue = _ref.setValue,
-      setValue = _ref$setValue === void 0 ? function () {} : _ref$setValue,
-      _ref$setAttribute = _ref.setAttribute,
-      setAttribute = _ref$setAttribute === void 0 ? function () {} : _ref$setAttribute,
-      _ref$onUpdate = _ref.onUpdate,
-      onUpdate = _ref$onUpdate === void 0 ? function () {} : _ref$onUpdate,
-      _ref$onSubmit = _ref.onSubmit,
-      onSubmit = _ref$onSubmit === void 0 ? function () {} : _ref$onSubmit,
-      _ref$onShow = _ref.onShow,
-      onShow = _ref$onShow === void 0 ? function () {} : _ref$onShow,
-      _ref$onHide = _ref.onHide,
-      onHide = _ref$onHide === void 0 ? function () {} : _ref$onHide,
-      _ref$onLoading = _ref.onLoading,
-      onLoading = _ref$onLoading === void 0 ? function () {} : _ref$onLoading,
-      _ref$onLoaded = _ref.onLoaded,
-      onLoaded = _ref$onLoaded === void 0 ? function () {} : _ref$onLoaded;
+    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+        search = _ref.search,
+        _ref$autoSelect = _ref.autoSelect,
+        autoSelect = _ref$autoSelect === void 0 ? false : _ref$autoSelect,
+        _ref$setValue = _ref.setValue,
+        setValue = _ref$setValue === void 0 ? function() {} : _ref$setValue,
+        _ref$setAttribute = _ref.setAttribute,
+        setAttribute = _ref$setAttribute === void 0 ? function() {} : _ref$setAttribute,
+        _ref$onUpdate = _ref.onUpdate,
+        onUpdate = _ref$onUpdate === void 0 ? function() {} : _ref$onUpdate,
+        _ref$onSubmit = _ref.onSubmit,
+        onSubmit = _ref$onSubmit === void 0 ? function() {} : _ref$onSubmit,
+        _ref$onShow = _ref.onShow,
+        onShow = _ref$onShow === void 0 ? function() {} : _ref$onShow,
+        _ref$onHide = _ref.onHide,
+        onHide = _ref$onHide === void 0 ? function() {} : _ref$onHide,
+        _ref$onLoading = _ref.onLoading,
+        onLoading = _ref$onLoading === void 0 ? function() {} : _ref$onLoading,
+        _ref$onLoaded = _ref.onLoaded,
+        onLoaded = _ref$onLoaded === void 0 ? function() {} : _ref$onLoaded;
 
-  _classCallCheck(this, AutocompleteCore);
+    _classCallCheck(this, AutocompleteCore);
 
-  _defineProperty(this, "value", '');
+    _defineProperty(this, "value", '');
 
-  _defineProperty(this, "searchCounter", 0);
+    _defineProperty(this, "searchCounter", 0);
 
-  _defineProperty(this, "results", []);
+    _defineProperty(this, "results", []);
 
-  _defineProperty(this, "selectedIndex", -1);
+    _defineProperty(this, "selectedIndex", -1);
 
-  _defineProperty(this, "handleInput", function (event) {
-    var value = event.target.value;
+    _defineProperty(this, "handleInput", function(event) {
+        var value = event.target.value;
 
-    _this.updateResults(value);
+        _this.updateResults(value);
 
-    _this.value = value;
-  });
-
-  _defineProperty(this, "handleKeyDown", function (event) {
-    var key = event.key;
-
-    switch (key) {
-      case 'Up': // IE/Edge
-
-      case 'Down': // IE/Edge
-
-      case 'ArrowUp':
-      case 'ArrowDown':
-        {
-          var selectedIndex = key === 'ArrowUp' || key === 'Up' ? _this.selectedIndex - 1 : _this.selectedIndex + 1;
-          event.preventDefault();
-
-          _this.handleArrows(selectedIndex);
-
-          break;
-        }
-
-      case 'Tab':
-        {
-          _this.selectResult();
-
-          break;
-        }
-
-      case 'Enter':
-        {
-          var selectedResult = _this.results[_this.selectedIndex];
-
-          _this.selectResult();
-
-          _this.onSubmit(selectedResult);
-
-          break;
-        }
-
-      case 'Esc': // IE/Edge
-
-      case 'Escape':
-        {
-          _this.hideResults();
-
-          _this.setValue();
-
-          break;
-        }
-
-      default:
-        return;
-    }
-  });
-
-  _defineProperty(this, "handleFocus", function (event) {
-    var value = event.target.value;
-
-    _this.updateResults(value);
-
-    _this.value = value;
-  });
-
-  _defineProperty(this, "handleBlur", function () {
-    _this.hideResults();
-  });
-
-  _defineProperty(this, "handleResultMouseDown", function (event) {
-    event.preventDefault();
-  });
-
-  _defineProperty(this, "handleResultClick", function (event) {
-    var target = event.target;
-    var result = closest(target, '[data-result-index]');
-
-    if (result) {
-      _this.selectedIndex = parseInt(result.dataset.resultIndex, 10);
-      var selectedResult = _this.results[_this.selectedIndex];
-
-      _this.selectResult();
-
-      _this.onSubmit(selectedResult);
-    }
-  });
-
-  _defineProperty(this, "handleArrows", function (selectedIndex) {
-    // Loop selectedIndex back to first or last result if out of bounds
-    var resultsCount = _this.results.length;
-    _this.selectedIndex = (selectedIndex % resultsCount + resultsCount) % resultsCount; // Update results and aria attributes
-
-    _this.onUpdate(_this.results, _this.selectedIndex);
-  });
-
-  _defineProperty(this, "selectResult", function () {
-    var selectedResult = _this.results[_this.selectedIndex];
-
-    if (selectedResult) {
-      _this.setValue(selectedResult);
-    }
-
-    _this.hideResults();
-  });
-
-  _defineProperty(this, "updateResults", function (value) {
-    var currentSearch = ++_this.searchCounter;
-
-    _this.onLoading();
-
-    _this.search(value).then(function (results) {
-      if (currentSearch !== _this.searchCounter) {
-        return;
-      }
-
-      _this.results = results;
-
-      _this.onLoaded();
-
-      if (_this.results.length === 0) {
-        _this.hideResults();
-
-        return;
-      }
-
-      _this.selectedIndex = _this.autoSelect ? 0 : -1;
-
-      _this.onUpdate(_this.results, _this.selectedIndex);
-
-      _this.showResults();
+        _this.value = value;
     });
-  });
 
-  _defineProperty(this, "showResults", function () {
-    _this.setAttribute('aria-expanded', true);
+    _defineProperty(this, "handleKeyDown", function(event) {
+        var key = event.key;
 
-    _this.onShow();
-  });
+        switch (key) {
+            case 'Up': // IE/Edge
 
-  _defineProperty(this, "hideResults", function () {
-    _this.selectedIndex = -1;
-    _this.results = [];
+            case 'Down': // IE/Edge
 
-    _this.setAttribute('aria-expanded', false);
+            case 'ArrowUp':
+            case 'ArrowDown':
+                {
+                    var selectedIndex = key === 'ArrowUp' || key === 'Up' ? _this.selectedIndex - 1 : _this.selectedIndex + 1;
+                    event.preventDefault();
 
-    _this.setAttribute('aria-activedescendant', '');
+                    _this.handleArrows(selectedIndex);
 
-    _this.onUpdate(_this.results, _this.selectedIndex);
+                    break;
+                }
 
-    _this.onHide();
-  });
+            case 'Tab':
+                {
+                    _this.selectResult();
 
-  _defineProperty(this, "checkSelectedResultVisible", function (resultsElement) {
-    var selectedResultElement = resultsElement.querySelector("[data-result-index=\"".concat(_this.selectedIndex, "\"]"));
+                    break;
+                }
 
-    if (!selectedResultElement) {
-      return;
-    }
+            case 'Enter':
+                {
+                    var selectedResult = _this.results[_this.selectedIndex];
 
-    var resultsPosition = resultsElement.getBoundingClientRect();
-    var selectedPosition = selectedResultElement.getBoundingClientRect();
+                    _this.selectResult();
 
-    if (selectedPosition.top < resultsPosition.top) {
-      // Element is above viewable area
-      resultsElement.scrollTop -= resultsPosition.top - selectedPosition.top;
-    } else if (selectedPosition.bottom > resultsPosition.bottom) {
-      // Element is below viewable area
-      resultsElement.scrollTop += selectedPosition.bottom - resultsPosition.bottom;
-    }
-  });
+                    _this.onSubmit(selectedResult);
 
-  this.search = isPromise(search) ? search : function (value) {
-    return Promise.resolve(search(value));
-  };
-  this.autoSelect = autoSelect;
-  this.setValue = setValue;
-  this.setAttribute = setAttribute;
-  this.onUpdate = onUpdate;
-  this.onSubmit = onSubmit;
-  this.onShow = onShow;
-  this.onHide = onHide;
-  this.onLoading = onLoading;
-  this.onLoaded = onLoaded;
+                    break;
+                }
+
+            case 'Esc': // IE/Edge
+
+            case 'Escape':
+                {
+                    _this.hideResults();
+
+                    _this.setValue();
+
+                    break;
+                }
+
+            default:
+                return;
+        }
+    });
+
+    _defineProperty(this, "handleFocus", function(event) {
+        var value = event.target.value;
+
+        _this.updateResults(value);
+
+        _this.value = value;
+    });
+
+    _defineProperty(this, "handleBlur", function() {
+        _this.hideResults();
+    });
+
+    _defineProperty(this, "handleResultMouseDown", function(event) {
+        event.preventDefault();
+    });
+
+    _defineProperty(this, "handleResultClick", function(event) {
+        var target = event.target;
+        var result = closest(target, '[data-result-index]');
+
+        if (result) {
+            _this.selectedIndex = parseInt(result.dataset.resultIndex, 10);
+            var selectedResult = _this.results[_this.selectedIndex];
+
+            _this.selectResult();
+
+            _this.onSubmit(selectedResult);
+        }
+    });
+
+    _defineProperty(this, "handleArrows", function(selectedIndex) {
+        // Loop selectedIndex back to first or last result if out of bounds
+        var resultsCount = _this.results.length;
+        _this.selectedIndex = (selectedIndex % resultsCount + resultsCount) % resultsCount; // Update results and aria attributes
+
+        _this.onUpdate(_this.results, _this.selectedIndex);
+    });
+
+    _defineProperty(this, "selectResult", function() {
+        var selectedResult = _this.results[_this.selectedIndex];
+
+        if (selectedResult) {
+            _this.setValue(selectedResult);
+        }
+
+        _this.hideResults();
+    });
+
+    _defineProperty(this, "updateResults", function(value) {
+        var currentSearch = ++_this.searchCounter;
+
+        _this.onLoading();
+
+        _this.search(value).then(function(results) {
+            if (currentSearch !== _this.searchCounter) {
+                return;
+            }
+
+            _this.results = results;
+
+            _this.onLoaded();
+
+            if (_this.results.length === 0) {
+                _this.hideResults();
+
+                return;
+            }
+
+            _this.selectedIndex = _this.autoSelect ? 0 : -1;
+
+            _this.onUpdate(_this.results, _this.selectedIndex);
+
+            _this.showResults();
+        });
+    });
+
+    _defineProperty(this, "showResults", function() {
+        _this.setAttribute('aria-expanded', true);
+
+        _this.onShow();
+    });
+
+    _defineProperty(this, "hideResults", function() {
+        _this.selectedIndex = -1;
+        _this.results = [];
+
+        _this.setAttribute('aria-expanded', false);
+
+        _this.setAttribute('aria-activedescendant', '');
+
+        _this.onUpdate(_this.results, _this.selectedIndex);
+
+        _this.onHide();
+    });
+
+    _defineProperty(this, "checkSelectedResultVisible", function(resultsElement) {
+        var selectedResultElement = resultsElement.querySelector("[data-result-index=\"".concat(_this.selectedIndex, "\"]"));
+
+        if (!selectedResultElement) {
+            return;
+        }
+
+        var resultsPosition = resultsElement.getBoundingClientRect();
+        var selectedPosition = selectedResultElement.getBoundingClientRect();
+
+        if (selectedPosition.top < resultsPosition.top) {
+            // Element is above viewable area
+            resultsElement.scrollTop -= resultsPosition.top - selectedPosition.top;
+        } else if (selectedPosition.bottom > resultsPosition.bottom) {
+            // Element is below viewable area
+            resultsElement.scrollTop += selectedPosition.bottom - resultsPosition.bottom;
+        }
+    });
+
+    this.search = isPromise(search) ? search : function(value) {
+        return Promise.resolve(search(value));
+    };
+    this.autoSelect = autoSelect;
+    this.setValue = setValue;
+    this.setAttribute = setAttribute;
+    this.onUpdate = onUpdate;
+    this.onSubmit = onSubmit;
+    this.onShow = onShow;
+    this.onHide = onHide;
+    this.onLoading = onLoading;
+    this.onLoaded = onLoaded;
 };
 
 // Generates a unique ID, with optional prefix. Adapted from
@@ -412,8 +412,8 @@ var AutocompleteCore = function AutocompleteCore() {
 var idCounter = 0;
 
 var uniqueId = function uniqueId() {
-  var prefix = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-  return "".concat(prefix).concat(++idCounter);
+    var prefix = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+    return "".concat(prefix).concat(++idCounter);
 };
 
 // Calculates whether element2 should be above or below element1. Always
@@ -422,16 +422,16 @@ var uniqueId = function uniqueId() {
 // 2. There is more room above element1 than there is below
 // 3. Placing elemen2 above 1 won't overflow window
 var getRelativePosition = function getRelativePosition(element1, element2) {
-  var position1 = element1.getBoundingClientRect();
-  var position2 = element2.getBoundingClientRect();
-  var positionAbove =
-  /* 1 */
-  position1.bottom + position2.height > window.innerHeight &&
-  /* 2 */
-  window.innerHeight - position1.bottom < position1.top &&
-  /* 3 */
-  window.pageYOffset + position1.top - position2.height > 0;
-  return positionAbove ? 'above' : 'below';
+    var position1 = element1.getBoundingClientRect();
+    var position2 = element2.getBoundingClientRect();
+    var positionAbove =
+        /* 1 */
+        position1.bottom + position2.height > window.innerHeight &&
+        /* 2 */
+        window.innerHeight - position1.bottom < position1.top &&
+        /* 3 */
+        window.pageYOffset + position1.top - position2.height > 0;
+    return positionAbove ? 'above' : 'below';
 };
 
 // Credit David Walsh (https://davidwalsh.name/javascript-debounce-function)
@@ -440,213 +440,213 @@ var getRelativePosition = function getRelativePosition(element1, element2) {
 // N milliseconds. If `immediate` is passed, trigger the function on the
 // leading edge, instead of the trailing.
 var debounce = function debounce(func, wait, immediate) {
-  var timeout;
-  return function executedFunction() {
-    var context = this;
-    var args = arguments;
+    var timeout;
+    return function executedFunction() {
+        var context = this;
+        var args = arguments;
 
-    var later = function later() {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
+        var later = function later() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
     };
-
-    var callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
 };
 
 var script = {
-  name: 'Autocomplete',
-  inheritAttrs: false,
-  props: {
-    search: {
-      type: Function,
-      required: true
-    },
-    baseClass: {
-      type: String,
-      "default": 'autocomplete'
-    },
-    autoSelect: {
-      type: Boolean,
-      "default": false
-    },
-    getResultValue: {
-      type: Function,
-      "default": function _default(result) {
-        return result;
-      }
-    },
-    defaultValue: {
-      type: String,
-      "default": ''
-    },
-    debounceTime: {
-      type: Number,
-      "default": 0
-    }
-  },
-  data: function data() {
-    var core = new AutocompleteCore({
-      search: this.search,
-      autoSelect: this.autoSelect,
-      setValue: this.setValue,
-      onUpdate: this.handleUpdate,
-      onSubmit: this.handleSubmit,
-      onShow: this.handleShow,
-      onHide: this.handleHide,
-      onLoading: this.handleLoading,
-      onLoaded: this.handleLoaded
-    });
-
-    if (this.debounceTime > 0) {
-      core.handleInput = debounce(core.handleInput, this.debounceTime);
-    }
-
-    return {
-      core: core,
-      value: this.defaultValue,
-      resultListId: uniqueId("".concat(this.baseClass, "-result-list-")),
-      results: [],
-      selectedIndex: -1,
-      expanded: false,
-      loading: false,
-      position: 'below',
-      resetPosition: true
-    };
-  },
-  computed: {
-    rootProps: function rootProps() {
-      return {
-        "class": this.baseClass,
-        style: {
-          position: 'relative'
+    name: 'Autocomplete',
+    inheritAttrs: false,
+    props: {
+        search: {
+            type: Function,
+            required: true
         },
-        'data-expanded': this.expanded,
-        'data-loading': this.loading,
-        'data-position': this.position
-      };
+        baseClass: {
+            type: String,
+            "default": 'autocomplete'
+        },
+        autoSelect: {
+            type: Boolean,
+            "default": false
+        },
+        getResultValue: {
+            type: Function,
+            "default": function _default(result) {
+                return result;
+            }
+        },
+        defaultValue: {
+            type: String,
+            "default": ''
+        },
+        debounceTime: {
+            type: Number,
+            "default": 0
+        }
     },
-    inputProps: function inputProps() {
-      return _objectSpread2({
-        "class": "".concat(this.baseClass, "-input"),
-        value: this.value,
-        role: 'combobox',
-        autocomplete: 'off',
-        autocapitalize: 'off',
-        autocorrect: 'off',
-        spellcheck: 'false',
-        'aria-autocomplete': 'list',
-        'aria-haspopup': 'listbox',
-        'aria-owns': this.resultListId,
-        'aria-expanded': this.expanded ? 'true' : 'false',
-        'aria-activedescendant': this.selectedIndex > -1 ? this.resultProps[this.selectedIndex].id : ''
-      }, this.$attrs);
-    },
-    inputListeners: function inputListeners() {
-      return {
-        input: this.handleInput,
-        keydown: this.core.handleKeyDown,
-        focus: this.core.handleFocus,
-        blur: this.core.handleBlur
-      };
-    },
-    resultListProps: function resultListProps() {
-      var yPosition = this.position === 'below' ? 'top' : 'bottom';
-      return {
-        id: this.resultListId,
-        "class": "".concat(this.baseClass, "-result-list"),
-        role: 'listbox',
-        style: _defineProperty({
-          position: 'absolute',
-          zIndex: 1,
-          width: '100%',
-          visibility: this.expanded ? 'visible' : 'hidden',
-          pointerEvents: this.expanded ? 'auto' : 'none'
-        }, yPosition, '100%')
-      };
-    },
-    resultListListeners: function resultListListeners() {
-      return {
-        mousedown: this.core.handleResultMouseDown,
-        click: this.core.handleResultClick
-      };
-    },
-    resultProps: function resultProps() {
-      var _this = this;
+    data: function data() {
+        var core = new AutocompleteCore({
+            search: this.search,
+            autoSelect: this.autoSelect,
+            setValue: this.setValue,
+            onUpdate: this.handleUpdate,
+            onSubmit: this.handleSubmit,
+            onShow: this.handleShow,
+            onHide: this.handleHide,
+            onLoading: this.handleLoading,
+            onLoaded: this.handleLoaded
+        });
 
-      return this.results.map(function (result, index) {
-        return _objectSpread2({
-          id: "".concat(_this.baseClass, "-result-").concat(index),
-          "class": "".concat(_this.baseClass, "-result"),
-          'data-result-index': index,
-          role: 'option'
-        }, _this.selectedIndex === index ? {
-          'aria-selected': 'true'
-        } : {});
-      });
-    }
-  },
-  mounted: function mounted() {
-    document.body.addEventListener('click', this.handleDocumentClick);
-  },
-  beforeDestroy: function beforeDestroy() {
-    document.body.removeEventListener('click', this.handleDocumentClick);
-  },
-  updated: function updated() {
-    if (!this.$refs.input || !this.$refs.resultList) {
-      return;
-    }
+        if (this.debounceTime > 0) {
+            core.handleInput = debounce(core.handleInput, this.debounceTime);
+        }
 
-    if (this.resetPosition && this.results.length > 0) {
-      this.resetPosition = false;
-      this.position = getRelativePosition(this.$refs.input, this.$refs.resultList);
-    }
+        return {
+            core: core,
+            value: this.defaultValue,
+            resultListId: uniqueId("".concat(this.baseClass, "-result-list-")),
+            results: [],
+            selectedIndex: -1,
+            expanded: false,
+            loading: false,
+            position: 'below',
+            resetPosition: true
+        };
+    },
+    computed: {
+        rootProps: function rootProps() {
+            return {
+                "class": this.baseClass,
+                style: {
+                    position: 'relative'
+                },
+                'data-expanded': this.expanded,
+                'data-loading': this.loading,
+                'data-position': this.position
+            };
+        },
+        inputProps: function inputProps() {
+            return _objectSpread2({
+                "class": "".concat(this.baseClass, "-input"),
+                value: this.value,
+                role: 'combobox',
+                autocomplete: 'off',
+                autocapitalize: 'off',
+                autocorrect: 'off',
+                spellcheck: 'false',
+                'aria-autocomplete': 'list',
+                'aria-haspopup': 'listbox',
+                'aria-owns': this.resultListId,
+                'aria-expanded': this.expanded ? 'true' : 'false',
+                'aria-activedescendant': this.selectedIndex > -1 ? this.resultProps[this.selectedIndex].id : ''
+            }, this.$attrs);
+        },
+        inputListeners: function inputListeners() {
+            return {
+                input: this.handleInput,
+                keydown: this.core.handleKeyDown,
+                focus: this.core.handleFocus,
+                blur: this.core.handleBlur
+            };
+        },
+        resultListProps: function resultListProps() {
+            var yPosition = this.position === 'below' ? 'top' : 'bottom';
+            return {
+                id: this.resultListId,
+                "class": "".concat(this.baseClass, "-result-list"),
+                role: 'listbox',
+                style: _defineProperty({
+                    position: 'absolute',
+                    zIndex: 1,
+                    width: '100%',
+                    visibility: this.expanded ? 'visible' : 'hidden',
+                    pointerEvents: this.expanded ? 'auto' : 'none'
+                }, yPosition, '100%')
+            };
+        },
+        resultListListeners: function resultListListeners() {
+            return {
+                mousedown: this.core.handleResultMouseDown,
+                click: this.core.handleResultClick
+            };
+        },
+        resultProps: function resultProps() {
+            var _this = this;
 
-    this.core.checkSelectedResultVisible(this.$refs.resultList);
-  },
-  methods: {
-    setValue: function setValue(result) {
-      this.value = result ? this.getResultValue(result) : '';
+            return this.results.map(function(result, index) {
+                return _objectSpread2({
+                    id: "".concat(_this.baseClass, "-result-").concat(index),
+                    "class": "".concat(_this.baseClass, "-result"),
+                    'data-result-index': index,
+                    role: 'option'
+                }, _this.selectedIndex === index ? {
+                    'aria-selected': 'true'
+                } : {});
+            });
+        }
     },
-    handleUpdate: function handleUpdate(results, selectedIndex) {
-      this.results = results;
-      this.selectedIndex = selectedIndex;
-      this.$emit('update', results, selectedIndex);
+    mounted: function mounted() {
+        document.body.addEventListener('click', this.handleDocumentClick);
     },
-    handleShow: function handleShow() {
-      this.expanded = true;
+    beforeDestroy: function beforeDestroy() {
+        document.body.removeEventListener('click', this.handleDocumentClick);
     },
-    handleHide: function handleHide() {
-      this.expanded = false;
-      this.resetPosition = true;
-    },
-    handleLoading: function handleLoading() {
-      this.loading = true;
-    },
-    handleLoaded: function handleLoaded() {
-      this.loading = false;
-    },
-    handleInput: function handleInput(event) {
-      this.value = event.target.value;
-      this.core.handleInput(event);
-    },
-    handleSubmit: function handleSubmit(selectedResult) {
-      this.$emit('submit', selectedResult);
-    },
-    handleDocumentClick: function handleDocumentClick(event) {
-      if (this.$refs.root.contains(event.target)) {
-        return;
-      }
+    updated: function updated() {
+        if (!this.$refs.input || !this.$refs.resultList) {
+            return;
+        }
 
-      this.core.hideResults();
+        if (this.resetPosition && this.results.length > 0) {
+            this.resetPosition = false;
+            this.position = getRelativePosition(this.$refs.input, this.$refs.resultList);
+        }
+
+        this.core.checkSelectedResultVisible(this.$refs.resultList);
+    },
+    methods: {
+        setValue: function setValue(result) {
+            this.value = result ? this.getResultValue(result) : '';
+        },
+        handleUpdate: function handleUpdate(results, selectedIndex) {
+            this.results = results;
+            this.selectedIndex = selectedIndex;
+            this.$emit('update', results, selectedIndex);
+        },
+        handleShow: function handleShow() {
+            this.expanded = true;
+        },
+        handleHide: function handleHide() {
+            this.expanded = false;
+            this.resetPosition = true;
+        },
+        handleLoading: function handleLoading() {
+            this.loading = true;
+        },
+        handleLoaded: function handleLoaded() {
+            this.loading = false;
+        },
+        handleInput: function handleInput(event) {
+            this.value = event.target.value;
+            this.core.handleInput(event);
+        },
+        handleSubmit: function handleSubmit(selectedResult) {
+            this.$emit('submit', selectedResult);
+        },
+        handleDocumentClick: function handleDocumentClick(event) {
+            if (this.$refs.root.contains(event.target)) {
+                return;
+            }
+
+            this.core.hideResults();
+        }
     }
-  }
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */ , shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
     if (typeof shadowMode !== 'boolean') {
         createInjectorSSR = createInjector;
         createInjector = shadowMode;
@@ -671,12 +671,12 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
     let hook;
     if (moduleIdentifier) {
         // server build
-        hook = function (context) {
+        hook = function(context) {
             // 2.3 injection
             context =
                 context || // cached call
-                    (this.$vnode && this.$vnode.ssrContext) || // stateful
-                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+                (this.$vnode && this.$vnode.ssrContext) || // stateful
+                (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
             // 2.2 with runInNewContext: true
             if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
                 context = __VUE_SSR_CONTEXT__;
@@ -693,13 +693,13 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
         // used by ssr in case component is cached and beforeCreate
         // never gets called
         options._ssrRegister = hook;
-    }
-    else if (style) {
-        hook = shadowMode
-            ? function (context) {
+    } else if (style) {
+        hook = shadowMode ?
+
+            function(context) {
                 style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
-            }
-            : function (context) {
+            } :
+            function(context) {
                 style.call(this, createInjector(context));
             };
     }
@@ -711,8 +711,7 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
                 hook.call(context);
                 return originalRender(h, context);
             };
-        }
-        else {
+        } else {
             // inject component registration as beforeCreate hook
             const existing = options.beforeCreate;
             options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
@@ -725,27 +724,26 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
 const __vue_script__ = script;
 
 /* template */
-var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"root"},[_vm._t("default",[_c('div',_vm._b({},'div',_vm.rootProps,false),[_c('input',_vm._g(_vm._b({ref:"input",on:{"input":_vm.handleInput,"keydown":_vm.core.handleKeyDown,"focus":_vm.core.handleFocus,"blur":_vm.core.handleBlur}},'input',_vm.inputProps,false),_vm.$listeners)),_vm._v(" "),_c('ul',_vm._g(_vm._b({ref:"resultList"},'ul',_vm.resultListProps,false),_vm.resultListListeners),[_vm._l((_vm.results),function(result,index){return [_vm._t("result",[_c('li',_vm._b({key:_vm.resultProps[index].id},'li',_vm.resultProps[index],false),[_vm._v("\n              "+_vm._s(_vm.getResultValue(result))+"\n            ")])],{"result":result,"props":_vm.resultProps[index]})]})],2)])],{"rootProps":_vm.rootProps,"inputProps":_vm.inputProps,"inputListeners":_vm.inputListeners,"resultListProps":_vm.resultListProps,"resultListListeners":_vm.resultListListeners,"results":_vm.results,"resultProps":_vm.resultProps})],2)};
+var __vue_render__ = function() { var _vm = this; var _h = _vm.$createElement; var _c = _vm._self._c || _h; return _c('div', { ref: "root" }, [_vm._t("default", [_c('div', _vm._b({}, 'div', _vm.rootProps, false), [_c('input', _vm._g(_vm._b({ ref: "input", on: { "input": _vm.handleInput, "keydown": _vm.core.handleKeyDown, "focus": _vm.core.handleFocus, "blur": _vm.core.handleBlur } }, 'input', _vm.inputProps, false), _vm.$listeners)), _vm._v(" "), _c('ul', _vm._g(_vm._b({ ref: "resultList" }, 'ul', _vm.resultListProps, false), _vm.resultListListeners), [_vm._l((_vm.results), function(result, index) { return [_vm._t("result", [_c('li', _vm._b({ key: _vm.resultProps[index].id }, 'li', _vm.resultProps[index], false), [_vm._v("\n              " + _vm._s(_vm.getResultValue(result)) + "\n            ")])], { "result": result, "props": _vm.resultProps[index] })] })], 2)])], { "rootProps": _vm.rootProps, "inputProps": _vm.inputProps, "inputListeners": _vm.inputListeners, "resultListProps": _vm.resultListProps, "resultListListeners": _vm.resultListListeners, "results": _vm.results, "resultProps": _vm.resultProps })], 2) };
 var __vue_staticRenderFns__ = [];
 
-  /* style */
-  const __vue_inject_styles__ = undefined;
-  /* scoped */
-  const __vue_scope_id__ = undefined;
-  /* module identifier */
-  const __vue_module_identifier__ = undefined;
-  /* functional template */
-  const __vue_is_functional_template__ = false;
-  /* style inject */
-  
-  /* style inject SSR */
-  
-  /* style inject shadow dom */
-  
+/* style */
+const __vue_inject_styles__ = undefined;
+/* scoped */
+const __vue_scope_id__ = undefined;
+/* module identifier */
+const __vue_module_identifier__ = undefined;
+/* functional template */
+const __vue_is_functional_template__ = false;
+/* style inject */
 
-  
-  const __vue_component__ = normalizeComponent(
-    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+
+
+const __vue_component__ = normalizeComponent({ render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
@@ -755,31 +753,31 @@ var __vue_staticRenderFns__ = [];
     undefined,
     undefined,
     undefined
-  );
+);
 
 function install(Vue) {
-  if (install.installed) {
-    return;
-  }
+    if (install.installed) {
+        return;
+    }
 
-  install.installed = true;
-  Vue.component('Autocomplete', __vue_component__);
+    install.installed = true;
+    Vue.component('Autocomplete', __vue_component__);
 }
 
 var plugin = {
-  install: install
+    install: install
 }; // Auto install if Vue is found
 
 var GlobalVue;
 
 if (typeof window !== 'undefined') {
-  GlobalVue = window.Vue;
+    GlobalVue = window.Vue;
 } else if (typeof global !== 'undefined') {
-  GlobalVue = global.Vue;
+    GlobalVue = global.Vue;
 }
 
 if (GlobalVue) {
-  GlobalVue.use(plugin);
+    GlobalVue.use(plugin);
 } // Inject install function into component. Allows component to be registered via
 // Vue.use() as well as Vue.component()
 
@@ -787,7 +785,6 @@ if (GlobalVue) {
 __vue_component__.install = install;
 
 /* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
-
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
 /***/ }),
@@ -3868,6 +3865,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3882,6 +3882,9 @@ __webpack_require__.r(__webpack_exports__);
         }, {
           name: 'Friends',
           path: 'Friends'
+        }, {
+          name: 'Requests',
+          path: 'FriendRequests'
         }, {
           name: 'Profile',
           path: 'Profile'
@@ -4013,7 +4016,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       fields: {},
-      errors: null,
+      error: null,
       has_error: false,
       loading: false,
       redirectTo: "Home"
@@ -4056,7 +4059,8 @@ __webpack_require__.r(__webpack_exports__);
         });
       })["catch"](function (error) {
         _this.loading = false;
-        _this.success = true;
+        _this.success = false;
+        _this.error = "login_error";
         console.log("Failed");
       });
       /*
@@ -4227,49 +4231,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       fields: {},
-      errors: {}
+      errors: {},
+      channelDetails: {},
+      channelMessages: {},
+      id: null
     };
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    this.id = this.$route.params.chatId;
+    this.channel();
+    Echo.channel('message.received').listen('MessageChannel', function (e) {
+      console.log("TEST" + e.message);
+    });
+  },
   methods: {
-    submit: function submit() {
+    channel: function channel() {
       var _this = this;
 
+      axios.get('channel/' + this.id + '/details').then(function (response) {
+        _this.channelDetails = response.data;
+      });
+    },
+    sendMessage: function sendMessage() {
+      var _this2 = this;
+
       this.errors = {};
-      axios.post('sendMessage', this.fields).then(function (response) {
+      axios.post('channel/' + this.id + '/message', this.fields).then(function (response) {
         var status = response.data.status;
         var message = response.data.message;
-
-        if (status == true) {
-          $('body').toast({
-            title: "Chat",
-            "class": "inverted",
-            position: 'bottom right',
-            message: "".concat(message),
-            showProgress: 'bottom',
-            classProgress: 'green'
-          });
-        }
+        $('body').toast({
+          title: "Chat",
+          "class": "inverted",
+          position: 'bottom right',
+          message: "".concat(message),
+          showProgress: 'bottom',
+          classProgress: 'green'
+        });
       })["catch"](function (error) {
         //console.log(error.response.status);
-        _this.errors = error.response.data.errors || {};
+        _this2.errors = error.response.data.errors || {};
         $('body').toast({
           title: "Chat",
           "class": "inverted",
@@ -4374,16 +4378,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.details();
-    Echo["private"]('chat.channel').listen('SendMessage', function (e) {
-      console.log(e);
-    });
   },
   methods: {
     details: function details() {
       var _this = this;
 
       axios.get('details').then(function (resp) {
-        console.log(resp);
         _this.loading = false;
         _this.friendRequestsCount = resp.data.data;
       });
@@ -4683,6 +4683,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4702,9 +4708,26 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("profile/" + this.id).then(function (resp) {
+        console.log("TEST:" + _this.id);
         _this.data = resp.data.data;
         _this.loading = false;
-        console.log(_this.data);
+      })["catch"](function (error) {
+        _this.loading = false;
+      });
+    },
+    add: function add() {
+      $('body').toast({
+        title: "Chat",
+        "class": "inverted",
+        position: 'bottom right',
+        message: "Sent friend request <em data-emoji=\":clap:\"></em>",
+        showProgress: 'bottom',
+        classProgress: 'green'
+      });
+      axios.post('friends/add', {
+        userId: this.id
+      }).then(function (resp) {
+        console.log(resp);
       });
     }
   }
@@ -9144,7 +9167,26 @@ exports = module.exports = __webpack_require__(/*! ../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".autocomplete-input {\r\n    border: 1px solid #1B1C1D;\r\n    border-radius: 8px;\r\n    width: 100%;\r\n    color: white;\r\n    padding: 5px 1px 1px 48px;\r\n    box-sizing: border-box;\r\n    position: relative;\r\n    font-size: 16px;\r\n    line-height: 1.5;\r\n    flex: 1;\r\n    background-color: #323334;\r\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjY2IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxwYXRoIGQ9Ik0yMSAyMWwtNC00Ii8+PC9zdmc+\");\r\n    background-repeat: no-repeat;\r\n    background-position: 12px\r\n}\r\n\r\n.autocomplete-input:focus,\r\n.autocomplete-input[aria-expanded=true] {\r\n    border-color: rgba(0, 0, 0, .12);\r\n    background-color: #323334;\r\n    outline: none;\r\n    box-shadow: 0 2px 2px rgba(0, 0, 0, .16)\r\n}\r\n\r\n[data-position=below] .autocomplete-input[aria-expanded=true] {\r\n    border-bottom-color: transparent;\r\n    border-radius: 8px 8px 0 0\r\n}\r\n\r\n[data-position=above] .autocomplete-input[aria-expanded=true] {\r\n    border-top-color: transparent;\r\n    border-radius: 0 0 8px 8px;\r\n    z-index: 2\r\n}\r\n\r\n.autocomplete[data-loading=true]:after {\r\n    content: \"\";\r\n    border: 3px solid rgba(0, 0, 0, .12);\r\n    border-right-color: rgba(0, 0, 0, .48);\r\n    border-radius: 100%;\r\n    width: 20px;\r\n    height: 20px;\r\n    position: absolute;\r\n    right: 12px;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n    -webkit-animation: rotate 1s linear infinite;\r\n            animation: rotate 1s linear infinite\r\n}\r\n\r\n.autocomplete-result-list {\r\n    margin: 0;\r\n    border: 1px solid rgba(0, 0, 0, .12);\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n    max-height: 296px;\r\n    overflow-y: auto;\r\n    background: blue;\r\n    list-style: none;\r\n    box-shadow: 0 2px 2px rgba(0, 0, 0, .16)\r\n}\r\n\r\n[data-position=below] .autocomplete-result-list {\r\n    margin-top: -1px;\r\n    border-top-color: transparent;\r\n    border-radius: 0 0 8px 8px;\r\n    padding-bottom: 8px\r\n}\r\n\r\n[data-position=above] .autocomplete-result-list {\r\n    margin-bottom: -1px;\r\n    border-bottom-color: transparent;\r\n    border-radius: 8px 8px 0 0;\r\n    padding-top: 8px\r\n}\r\n\r\n.autocomplete-result {\r\n    cursor: default;\r\n    padding: 12px 12px 12px 48px;\r\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2NjIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxwYXRoIGQ9Ik0yMSAyMWwtNC00Ii8+PC9zdmc+\");\r\n    background-repeat: no-repeat;\r\n    background-position: 12px\r\n}\r\n\r\n.autocomplete-result:hover,\r\n.autocomplete-result[aria-selected=true] {\r\n    background-color: rgba(0, 0, 0, .06)\r\n}\r\n\r\n@-webkit-keyframes rotat.autocomplete-input {\r\n    border: 1px solid #eee;\r\n    border-radius: 8px;\r\n    width: 100%;\r\n    padding: 12px 12px 12px 48px;\r\n    box-sizing: border-box;\r\n    position: relative;\r\n    font-size: 16px;\r\n    line-height: 1.5;\r\n    flex: 1;\r\n    background-color: #eee;\r\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjY2IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxwYXRoIGQ9Ik0yMSAyMWwtNC00Ii8+PC9zdmc+\");\r\n    background-repeat: no-repeat;\r\n    background-position: 12px;\r\n}\r\n\r\n@keyframes rotat.autocomplete-input {\r\n    border: 1px solid #eee;\r\n    border-radius: 8px;\r\n    width: 100%;\r\n    padding: 12px 12px 12px 48px;\r\n    box-sizing: border-box;\r\n    position: relative;\r\n    font-size: 16px;\r\n    line-height: 1.5;\r\n    flex: 1;\r\n    background-color: #eee;\r\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjY2IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxwYXRoIGQ9Ik0yMSAyMWwtNC00Ii8+PC9zdmc+\");\r\n    background-repeat: no-repeat;\r\n    background-position: 12px;\r\n}\r\n\r\n.autocomplete-input:focus,\r\n.autocomplete-input[aria-expanded=\"true\"] {\r\n    border-color: rgba(0, 0, 0, 0.12);\r\n    background-color: #323334;\r\n    outline: none;\r\n    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.16);\r\n}\r\n\r\n[data-position=\"below\"] .autocomplete-input[aria-expanded=\"true\"] {\r\n    border-bottom-color: transparent;\r\n    border-radius: 8px 8px 0 0;\r\n}\r\n\r\n[data-position=\"above\"] .autocomplete-input[aria-expanded=\"true\"] {\r\n    border-top-color: transparent;\r\n    border-radius: 0 0 8px 8px;\r\n    z-index: 2;\r\n}\r\n\r\n.autocomplete[data-loading=\"true\"]:after {\r\n    content: \"\";\r\n    border: 3px solid rgba(0, 0, 0, 0.12);\r\n    border-right-color: rgba(0, 0, 0, 0.48);\r\n    border-radius: 100%;\r\n    width: 20px;\r\n    height: 20px;\r\n    position: absolute;\r\n    right: 12px;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n    -webkit-animation: rotate 1s linear infinite;\r\n            animation: rotate 1s linear infinite;\r\n}\r\n\r\n.autocomplete-result-list {\r\n    margin: 0;\r\n    border: 1px solid rgba(0, 0, 0, 0.12);\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n    max-height: 296px;\r\n    overflow-y: auto;\r\n    background: #323334;\r\n    color: white;\r\n    list-style: none;\r\n    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.16);\r\n}\r\n\r\n[data-position=\"below\"] .autocomplete-result-list {\r\n    margin-top: -1px;\r\n    border-top-color: transparent;\r\n    border-radius: 0 0 8px 8px;\r\n    padding-bottom: 8px;\r\n}\r\n\r\n[data-position=\"above\"] .autocomplete-result-list {\r\n    margin-bottom: -1px;\r\n    border-bottom-color: transparent;\r\n    border-radius: 8px 8px 0 0;\r\n    padding-top: 8px;\r\n}\r\n\r\n.autocomplete-result {\r\n    cursor: default;\r\n    padding: 12px 12px 12px 48px;\r\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2NjIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxwYXRoIGQ9Ik0yMSAyMWwtNC00Ii8+PC9zdmc+\");\r\n    background-repeat: no-repeat;\r\n    background-position: 12px;\r\n}\r\n\r\n.autocomplete-result:hover,\r\n.autocomplete-result[aria-selected=\"true\"] {\r\n    background-color: rgba(0, 0, 0, 0.06);\r\n}\r\n\r\n@-webkit-keyframes rotate {\r\n    0% {\r\n        transform: translateY(-50%) rotate(0deg);\r\n    }\r\n    to {\r\n        transform: translateY(-50%) rotate(359deg);\r\n    }\r\n}\r\n\r\n@keyframes rotate {\r\n    0% {\r\n        transform: translateY(-50%) rotate(0deg);\r\n    }\r\n    to {\r\n        transform: translateY(-50%) rotate(359deg);\r\n    }\r\n}", ""]);
+exports.push([module.i, ".autocomplete-input {\r\n    border: 1px solid #eee;\r\n    border-radius: 8px;\r\n    width: 100%;\r\n    height: 30px;\r\n    padding: 12px 12px 12px 48px;\r\n    box-sizing: border-box;\r\n    position: relative;\r\n    font-size: 16px;\r\n    line-height: 1.5;\r\n    flex: 1;\r\n    background-color: #eee;\r\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjY2IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxwYXRoIGQ9Ik0yMSAyMWwtNC00Ii8+PC9zdmc+\");\r\n    background-repeat: no-repeat;\r\n    background-position: 12px\r\n}\r\n\r\n.autocomplete-input:focus,\r\n.autocomplete-input[aria-expanded=true] {\r\n    border-color: rgba(0, 0, 0, .12);\r\n    background-color: #fff;\r\n    outline: none;\r\n    box-shadow: 0 2px 2px rgba(0, 0, 0, .16)\r\n}\r\n\r\n[data-position=below] .autocomplete-input[aria-expanded=true] {\r\n    border-bottom-color: transparent;\r\n    border-radius: 8px 8px 0 0\r\n}\r\n\r\n[data-position=above] .autocomplete-input[aria-expanded=true] {\r\n    border-top-color: transparent;\r\n    border-radius: 0 0 8px 8px;\r\n    z-index: 2\r\n}\r\n\r\n.autocomplete[data-loading=true]:after {\r\n    content: \"\";\r\n    border: 3px solid rgba(0, 0, 0, .12);\r\n    border-right-color: white;\r\n    border-radius: 100%;\r\n    width: 20px;\r\n    height: 20px;\r\n    position: absolute;\r\n    right: 12px;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n    -webkit-animation: rotate 1s linear infinite;\r\n            animation: rotate 1s linear infinite\r\n}\r\n\r\n.autocomplete-result-list {\r\n    margin: 0;\r\n    border: 1px solid rgba(0, 0, 0, .12);\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n    max-height: 296px;\r\n    color: black;\r\n    overflow-y: auto;\r\n    background: #fff;\r\n    list-style: none;\r\n    box-shadow: 0 2px 2px rgba(0, 0, 0, .16)\r\n}\r\n\r\n[data-position=below] .autocomplete-result-list {\r\n    margin-top: -1px;\r\n    border-top-color: transparent;\r\n    border-radius: 0 0 8px 8px;\r\n    padding-bottom: 8px\r\n}\r\n\r\n[data-position=above] .autocomplete-result-list {\r\n    margin-bottom: -1px;\r\n    border-bottom-color: transparent;\r\n    border-radius: 8px 8px 0 0;\r\n    padding-top: 8px\r\n}\r\n\r\n.autocomplete-result {\r\n    cursor: default;\r\n    padding: 12px 12px 12px 48px;\r\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2NjIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxwYXRoIGQ9Ik0yMSAyMWwtNC00Ii8+PC9zdmc+\");\r\n    background-repeat: no-repeat;\r\n    background-position: 12px\r\n}\r\n\r\n.autocomplete-result:hover,\r\n.autocomplete-result[aria-selected=true] {\r\n    background-color: rgba(0, 0, 0, .06)\r\n}\r\n\r\n@-webkit-keyframes rotate {\r\n    0% {\r\n        transform: translateY(-50%) rotate(0deg)\r\n    }\r\n    to {\r\n        transform: translateY(-50%) rotate(359deg)\r\n    }\r\n}\r\n\r\n@keyframes rotate {\r\n    0% {\r\n        transform: translateY(-50%) rotate(0deg)\r\n    }\r\n    to {\r\n        transform: translateY(-50%) rotate(359deg)\r\n    }\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Menu.vue?vue&type=style&index=0&id=6b52e6ac&scoped=true&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/Menu.vue?vue&type=style&index=0&id=6b52e6ac&scoped=true&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.autocomplete-input[data-v-6b52e6ac]{\r\n    background-color: red !important;\n}\r\n", ""]);
 
 // exports
 
@@ -47579,6 +47621,36 @@ runtime.setup(pusher_Pusher);
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Menu.vue?vue&type=style&index=0&id=6b52e6ac&scoped=true&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/Menu.vue?vue&type=style&index=0&id=6b52e6ac&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Menu.vue?vue&type=style&index=0&id=6b52e6ac&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Menu.vue?vue&type=style&index=0&id=6b52e6ac&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/lib/addStyles.js":
 /*!****************************************************!*\
   !*** ./node_modules/style-loader/lib/addStyles.js ***!
@@ -48328,10 +48400,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Menu.vue?vue&type=template&id=6b52e6ac&":
-/*!*******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/Menu.vue?vue&type=template&id=6b52e6ac& ***!
-  \*******************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Menu.vue?vue&type=template&id=6b52e6ac&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/Menu.vue?vue&type=template&id=6b52e6ac&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -48360,11 +48432,10 @@ var render = function() {
       _c(
         "router-link",
         {
-          key: 1,
           staticClass: "item",
-          attrs: { to: { name: _vm.routes.authenticated[1].path }, exact: "" }
+          attrs: { to: { name: "ChatHome", params: { chatId: 1 } } }
         },
-        [_vm._v(_vm._s(_vm.routes.authenticated[1].name))]
+        [_vm._v("Channel")]
       ),
       _vm._v(" "),
       _c(
@@ -48375,6 +48446,16 @@ var render = function() {
           attrs: { to: { name: _vm.routes.authenticated[2].path }, exact: "" }
         },
         [_vm._v(_vm._s(_vm.routes.authenticated[2].name))]
+      ),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        {
+          key: 3,
+          staticClass: "item",
+          attrs: { to: { name: _vm.routes.authenticated[3].path }, exact: "" }
+        },
+        [_vm._v(_vm._s(_vm.routes.authenticated[3].name))]
       ),
       _vm._v(" "),
       _vm.$auth.check()
@@ -48390,7 +48471,8 @@ var render = function() {
                     _c("autocomplete", {
                       attrs: {
                         search: _vm.search,
-                        "get-result-value": _vm.getResultValue
+                        "get-result-value": _vm.getResultValue,
+                        placeholder: "Search for friends"
                       },
                       on: { submit: _vm.handleSubmit }
                     })
@@ -48581,13 +48663,13 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "ui container" }, [
-      _vm.has_error && !_vm.success
-        ? _c("div", { staticClass: "alert alert-danger" }, [
-            _vm.error == "login_error"
-              ? _c("p", [_vm._v("Validation Errors.")])
-              : _c("p", [
-                  _vm._v("Error, unable to connect with these credentials.")
-                ])
+      _vm.error && !_vm.success
+        ? _c("div", { staticClass: "ui error message" }, [
+            _c("div", { staticClass: "header" }, [_vm._v("Error")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v("Error, unable to connect with these credentials.")
+            ])
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -48903,9 +48985,17 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c("div", { staticClass: "ui center container" }, [
+      _c("div", { staticClass: "ui segment inverted" }, [
+        _c("p", [
+          _c("span", { staticClass: "ui huge text" }, [
+            _vm._v(_vm._s(_vm.channelDetails.name))
+          ])
+        ])
+      ])
+    ]),
     _vm._v(" "),
-    _vm._m(1),
+    _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "ui center aligned container" }, [
       _c("div", { staticClass: "ui equal width grid" }, [
@@ -48919,7 +49009,7 @@ var render = function() {
                   on: {
                     submit: function($event) {
                       $event.preventDefault()
-                      return _vm.submit($event)
+                      return _vm.sendMessage($event)
                     }
                   }
                 },
@@ -48973,16 +49063,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ui center container" }, [
-      _c("div", { staticClass: "ui segment inverted" }, [
-        _c("p", [_c("span", { staticClass: "ui huge text" }, [_vm._v("Chat")])])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "ui center container chat" }, [
       _c("div", { staticClass: "ui one column grid" }, [
         _c("div", { staticClass: "row" }, [
@@ -49002,33 +49082,6 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("div", { staticClass: "ui inverted segment green inverted" }, [
                 _c("span", [_vm._v("Send adjowid joiawd owadh uijawdhbui aw")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ui inverted segment green inverted" }, [
-                _c("span", [_vm._v("Send adjowid joiawd owadh uijawdhbui aw")])
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "div",
-            {
-              staticClass:
-                "right floated right aligned six wide column chat-box"
-            },
-            [
-              _c("div", { staticClass: "ui segment inverted" }, [
-                _c("p", [
-                  _c("span", { staticClass: "ui medium text" }, [
-                    _vm._v("User 2")
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ui inverted segment blue" }, [
-                _c("span", [_vm._v("Hello")])
               ])
             ]
           )
@@ -49334,27 +49387,42 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      !_vm.friendRequests
+      !_vm.friendRequests && !_vm.loading
         ? _c("div", { staticClass: "ui inverted segment" }, [_vm._m(1)])
         : _c(
             "div",
             { staticClass: "ui centered inverted cards" },
             _vm._l(_vm.friendRequests, function(value, key) {
               return _c("div", { key: key, staticClass: "flat-green card" }, [
-                _c("div", { staticClass: "content" }, [
-                  _c("img", {
-                    staticClass: "right floated avatar ui image",
-                    attrs: { src: "/images/male.png" }
-                  }),
-                  _vm._v(" "),
-                  _c("a", { staticClass: "header" }, [
-                    _vm._v(_vm._s(value.received_by))
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "description" }, [
-                    _vm._v(_vm._s(value.received_at))
-                  ])
-                ]),
+                _c(
+                  "div",
+                  { staticClass: "content" },
+                  [
+                    _c("img", {
+                      staticClass: "right floated avatar ui image",
+                      attrs: { src: "/images/male.png" }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "header",
+                        attrs: {
+                          to: {
+                            name: "ProfileShow",
+                            params: { userId: value.user_id }
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(value.received_by))]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "description" }, [
+                      _vm._v(_vm._s(value.received_at))
+                    ])
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c("div", { staticClass: "extra content" }, [
                   _c("div", { staticClass: "ui two bottom attached buttons" }, [
@@ -49445,7 +49513,7 @@ var render = function() {
     _vm._v(" "),
     !_vm.loading
       ? _c("div", [
-          _c("div", { staticClass: "ui card inverted" }, [
+          _c("div", { staticClass: "ui card centered inverted" }, [
             _vm._m(1),
             _vm._v(" "),
             _c("div", { staticClass: "content" }, [
@@ -49532,9 +49600,17 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    !_vm.loading
+    !_vm.loading && !_vm.data
+      ? _c("div", { staticClass: "ui active dimmer" }, [
+          _c("div", { staticClass: "ui text inverted" }, [
+            _vm._v("User not found")
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    !_vm.loading && _vm.data
       ? _c("div", [
-          _c("div", { staticClass: "ui card inverted" }, [
+          _c("div", { staticClass: "ui card centered inverted" }, [
             _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "content" }, [
@@ -49555,8 +49631,23 @@ var render = function() {
                     ? _c("div", { staticClass: "ui inverted segment" }, [
                         _vm._m(1)
                       ])
-                    : _c("div", { staticClass: "ui inverted segment" }, [
+                    : _vm.data.friendRequest
+                    ? _c("div", { staticClass: "ui inverted segment" }, [
                         _vm._m(2)
+                      ])
+                    : _c("div", { staticClass: "ui inverted segment" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "ui friend-accept button",
+                            on: {
+                              click: function($event) {
+                                return _vm.add()
+                              }
+                            }
+                          },
+                          [_vm._v("Send friend request")]
+                        )
                       ])
                 ])
               ])
@@ -49603,9 +49694,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [
-      _c("span", { staticClass: "ui red text" }, [
-        _vm._v("Not friends "),
-        _c("em", { attrs: { "data-emoji": ":broken_heart:" } })
+      _c("span", { staticClass: "ui green text" }, [
+        _vm._v("Friend request received/sent "),
+        _c("em", { attrs: { "data-emoji": ":clap:" } })
       ])
     ])
   }
@@ -66114,9 +66205,11 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Menu_vue_vue_type_template_id_6b52e6ac___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Menu.vue?vue&type=template&id=6b52e6ac& */ "./resources/js/Components/Menu.vue?vue&type=template&id=6b52e6ac&");
+/* harmony import */ var _Menu_vue_vue_type_template_id_6b52e6ac_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Menu.vue?vue&type=template&id=6b52e6ac&scoped=true& */ "./resources/js/Components/Menu.vue?vue&type=template&id=6b52e6ac&scoped=true&");
 /* harmony import */ var _Menu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Menu.vue?vue&type=script&lang=js& */ "./resources/js/Components/Menu.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _Menu_vue_vue_type_style_index_0_id_6b52e6ac_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Menu.vue?vue&type=style&index=0&id=6b52e6ac&scoped=true&lang=css& */ "./resources/js/Components/Menu.vue?vue&type=style&index=0&id=6b52e6ac&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -66124,13 +66217,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _Menu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Menu_vue_vue_type_template_id_6b52e6ac___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Menu_vue_vue_type_template_id_6b52e6ac___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Menu_vue_vue_type_template_id_6b52e6ac_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Menu_vue_vue_type_template_id_6b52e6ac_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "6b52e6ac",
   null
   
 )
@@ -66156,19 +66249,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Components/Menu.vue?vue&type=template&id=6b52e6ac&":
-/*!*************************************************************************!*\
-  !*** ./resources/js/Components/Menu.vue?vue&type=template&id=6b52e6ac& ***!
-  \*************************************************************************/
+/***/ "./resources/js/Components/Menu.vue?vue&type=style&index=0&id=6b52e6ac&scoped=true&lang=css&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/Components/Menu.vue?vue&type=style&index=0&id=6b52e6ac&scoped=true&lang=css& ***!
+  \***************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_style_index_0_id_6b52e6ac_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Menu.vue?vue&type=style&index=0&id=6b52e6ac&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Menu.vue?vue&type=style&index=0&id=6b52e6ac&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_style_index_0_id_6b52e6ac_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_style_index_0_id_6b52e6ac_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_style_index_0_id_6b52e6ac_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_style_index_0_id_6b52e6ac_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_style_index_0_id_6b52e6ac_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/Components/Menu.vue?vue&type=template&id=6b52e6ac&scoped=true&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/Components/Menu.vue?vue&type=template&id=6b52e6ac&scoped=true& ***!
+  \*************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_template_id_6b52e6ac___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Menu.vue?vue&type=template&id=6b52e6ac& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Menu.vue?vue&type=template&id=6b52e6ac&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_template_id_6b52e6ac___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_template_id_6b52e6ac_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Menu.vue?vue&type=template&id=6b52e6ac&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Menu.vue?vue&type=template&id=6b52e6ac&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_template_id_6b52e6ac_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_template_id_6b52e6ac___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_template_id_6b52e6ac_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -66951,9 +67060,9 @@ var token = localStorage.getItem('auth_token_default');
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
   authEndpoint: 'broadcast',
-  key: "",
+  key: "b4c4d95694eb10602ee8",
   cluster: "eu",
-  forceTLS: true,
+  encrypted: true,
   auth: {
     headers: {
       Authorization: "Bearer ".concat(token),
@@ -67003,12 +67112,15 @@ var routes = [{
     keepAlive: true
   }
 }, {
-  path: '/chat',
+  path: '/chat/:chatId',
   name: 'ChatHome',
   component: _Pages_Chat_Chat_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
   meta: {
     auth: true,
     keepAlive: true
+  },
+  props: {
+    "default": true
   }
 }, {
   path: '/login',
@@ -67057,6 +67169,9 @@ var routes = [{
   meta: {
     auth: true,
     keepAlive: false
+  },
+  props: {
+    "default": true
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
@@ -68889,8 +69004,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\WorkSite\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\WorkSite\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

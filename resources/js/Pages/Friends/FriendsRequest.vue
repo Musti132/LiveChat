@@ -8,7 +8,7 @@
         <div v-if="loading" class="ui active dimmer">
             <div class="ui text loader">Loading</div>
         </div>
-        <div v-if="!friendRequests" class="ui inverted segment">
+        <div v-if="!friendRequests && !loading" class="ui inverted segment">
             <span class="ui info large text">No friend requests <em data-emoji=":broken_heart:"></em></span>
         </div>
         
@@ -16,7 +16,7 @@
            <div v-for="(value, key) in friendRequests" :key="key" class="flat-green card">
                 <div class="content">
                     <img src="/images/male.png" class="right floated avatar ui image">
-                    <a class="header">{{ value.received_by }}</a>
+                    <router-link :to="{ name: 'ProfileShow', params: { userId: value.user_id }}" class="header">{{ value.received_by }}</router-link>
                     <div class="description">{{ value.received_at }}</div>
                 </div>
                 <div class="extra content">

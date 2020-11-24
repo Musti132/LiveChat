@@ -56,6 +56,7 @@ Route::group([
         Route::get('friends/requests', 'FriendController@getFriendRequest');
         Route::delete('friends/decline', 'FriendController@decline');
         Route::post('friends/accept', 'FriendController@accept');
+        Route::post('friends/add', 'FriendController@add');
     });
 
     /**
@@ -81,10 +82,11 @@ Route::group([
     });
 
     /**
-     * Chat routes
+     * Channel routes
      */
     Route::group(['as' => 'chat'], function(){
-        Route::get('chat', 'SearchController@search');
+        Route::get('channel/{id}/details', 'ChannelController@details');
+        Route::post('channel/{id}/message', 'ChannelController@sendMessage');
     });
     
 });

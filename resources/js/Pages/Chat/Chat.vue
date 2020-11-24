@@ -3,7 +3,7 @@
 <div>
     <div class="ui center container">
         <div class="ui segment inverted">
-            <p><span class="ui huge text">Chat</span></p>
+            <p><span class="ui huge text">{{channelDetails.name}}</span></p>
         </div>
     </div> 
     <div class="ui center container chat">
@@ -18,16 +18,6 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="right floated right aligned six wide column chat-box">
-                    <div class="ui segment inverted">
-                        <p><span class="ui medium text">User 2</span></p>
-                    </div>
-                    <div class="ui inverted segment blue">
-                        <span>Hello</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <div class="ui center aligned container">
@@ -35,7 +25,7 @@
             <div class="row">
                 <div class="column">
                     <div class="ui container">
-                        <form class="ui form" @submit.prevent="submit">
+                        <form class="ui form" @submit.prevent="sendMessage">
                             <div class="field inverted transparent">
                                 <textarea rows="2" name="message" v-model="fields.message" placeholder="Your message"></textarea>
                             </div>
@@ -57,27 +47,40 @@
             return {
                 fields: {},
                 errors: {},
+                channelDetails: {},
+                channelMessages: {},
+                id: null,
             }
         },
         mounted() {
+            this.id = this.$route.params.chatId;
+            this.channel();
+            Echo.channel('message.received')
+            .listen('MessageChannel', function(e) {
+            console.log("TEST" + e.message); 
+         });
         },
         methods: {
-            submit(){
+            channel(){
+                axios.get('channel/'+ this.id +'/details').then(response => {
+                    this.channelDetails = response.data;
+                });
+            },
+
+            sendMessage(){
                 this.errors = {};
                 
-                axios.post('sendMessage', this.fields).then((response) => {
+                axios.post('channel/'+ this.id +'/message', this.fields).then((response) => {
                     var status = response.data.status;
                     var message = response.data.message;
-                    if(status == true){
-                        $('body').toast({
-                            title: "Chat",
-                            class: "inverted",
-                            position: 'bottom right',
-                            message: `${message}`,
-                            showProgress: 'bottom',
-                            classProgress: 'green'
-                        });
-                    }
+                    $('body').toast({
+                        title: "Chat",
+                        class: "inverted",
+                        position: 'bottom right',
+                        message: `${message}`,
+                        showProgress: 'bottom',
+                        classProgress: 'green'
+                    });
                 }).catch((error) => {
                     //console.log(error.response.status);
                     this.errors = error.response.data.errors || {};

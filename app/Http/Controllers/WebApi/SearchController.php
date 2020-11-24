@@ -13,11 +13,28 @@ use App\Http\Resources\FriendRequestResource;
 use App\Http\Resources\FriendsResource;
 use App\Http\Resources\ProfileResource;
 use \Illuminate\Pagination\Paginator;
+use App\Channel;
+use App\ChannelMessage;
 
 class SearchController extends Controller
 {
     public function index(Request $request){
-        
+        $channel = Channel::findOrFail(1);
+
+        dd($channel->messages);
+        $user = User::find(1);
+        $friends = $user->friends;
+        $friendShipStatus = (bool)$friends->where('id', 1)->count();
+        $requestStatus =  (bool)$user->FriendRequests->where('status', 0)->where('id', 47)->count();
+        $friends->friendShipStatus = $friendShipStatus;
+
+        $user = User::find(1);
+        $user->friendShipStatus = $friendShipStatus;
+        $user->requestStatus = $requestStatus;
+        return new ProfileResource($user);
+
+        return $requestStatus;
+        //return $requestStatus = FriendRequest::where('to_user_id', $id)->where('user_id', \Auth::user()->id)->orWhere()->count();
         //$user = User::find(1)->whereHas('friendsOf', function($query){
         //    $query->where('user_id', 8);
         //})->count();

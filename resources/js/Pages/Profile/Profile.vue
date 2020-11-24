@@ -8,7 +8,7 @@
             <div class="ui text loader">Loading</div>
         </div>
         <div v-if="!loading">
-            <div class="ui card inverted">
+            <div class="ui card centered inverted">
                 <div class="image">
                     <img src="images/male.png" class="visible content">
                     

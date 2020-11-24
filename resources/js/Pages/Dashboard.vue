@@ -79,16 +79,11 @@ export default {
         }
     },
     mounted() {
-        this.details();
-        Echo.private('chat.channel')
-            .listen('SendMessage', (e) => {
-            console.log(e);
-        });
+         this.details()
     },
     methods: {
        details(){
            axios.get('details').then(resp => {
-               console.log(resp);
                this.loading = false;
                this.friendRequestsCount = resp.data.data;
            })

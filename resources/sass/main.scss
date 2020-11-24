@@ -22,3 +22,21 @@ body {
     webkit-box-shadow: 0 1px 3px 0 #555, 0 2px 0 0 #2ecc71, 0 0 0 1px #555 !important;
     box-shadow: 0 1px 3px 0 #555, 0 2px 0 0 #2ecc71, 0 0 0 1px #555 !important;
 }
+
+.autocomplete-input {
+    background-color: $base-color !important;
+    border-color: rgba(0, 0, 0, .12) !important;
+    outline: none !important;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .16) !important;
+    color: white !important;
+}
+
+.autocomplete[data-loading=true]:after {
+    border: 3px solid rgba(0, 0, 0, .12) !important;
+    border-right-color: white !important;
+}
+
+.autocomplete-result-list {
+    background: $base-color !important;
+    color: white !important;
+}

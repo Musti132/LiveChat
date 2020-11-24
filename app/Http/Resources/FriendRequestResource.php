@@ -16,6 +16,7 @@ class FriendRequestResource extends JsonResource
     {
         return [
             'request_id' => $this->id,
+            'user_id' => $this->sendBy->id,
             'received_by' => $this->sendBy->name,
             'received_at' => $this->created_at->diffForHumans(),
         ];

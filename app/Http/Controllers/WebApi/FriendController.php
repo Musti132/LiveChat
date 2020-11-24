@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\WebApi;
 
-use App\FriendRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\FriendRequestResource;
 use App\Http\Resources\FriendsResource;
 use CollectionHelper;
 use App\Friends;
+use App\FriendRequest;
 
 class FriendController extends Controller
 {
@@ -39,11 +39,33 @@ class FriendController extends Controller
             'status' => 'success',
         ]);
     }
+    
 
     function decline(Request $request){
         $requestId = $request->requestId;
 
         FriendRequest::find($requestId)->delete();
+
+        return json_response([
+            'status' => 'success',
+        ]);
+    }
+
+    function add(Request $request){
+        $userId = $request->userId;
+        $existFriendRequest = FriendRequest::where('to_user_id', $userId)->where('user_id', \Auth::user()->id)->first();
+        
+        if($existFriendRequest){
+            return json_response([
+                'status' => 'failed',
+                'message' => 'Already sent friend request',
+            ]);
+        }
+
+        FriendRequest::create([
+            'user_id' => \Auth::user()->id,
+            'to_user_id' => $userId,
+        ]);
 
         return json_response([
             'status' => 'success',

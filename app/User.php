@@ -50,6 +50,10 @@ class User extends Authenticatable implements JWTSubject
         return $array;
     }
 
+    public function channels(){
+        return $this->hasMany(Channel::class, 'owner_id');
+    }
+
     public function chats(){
         return $this->hasMany(Chat::class);
     }
@@ -82,13 +86,29 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsToMany(User::class, Friends::class, 'user_id', 'friend_id');
     }
 
-    public function friendRequests(){
-        return $this->hasMany(FriendRequest::class, 'to_user_id');
+    /**
+     * Friendship requests user sent
+     */
+
+    public function sentRequests(){
+        return $this->belongsToMany(User::class, FriendRequest::class, 'user_id', 'to_user_id');
+    }
+
+    /**
+     * Friendship requests user received
+     */
+    public function receivedRequests(){
+        return $this->belongsToMany(User::class, FriendRequest::class, 'to_user_id', 'user_id');
     }
 
     public function getFriendsAttribute()
     {
         return $this->friendsOfMine->merge($this->friendsOf);
+    }
+
+    public function getFriendRequestsAttribute()
+    {
+        return $this->sentRequests->merge($this->receivedRequests);
     }
 
     public function getFriendsPaginatedAttribute(){

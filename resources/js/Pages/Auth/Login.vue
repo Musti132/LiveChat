@@ -4,9 +4,9 @@
         <p><span class="ui huge text">Login </span></p>
     </div>
     <div class="ui container">
-        <div class="alert alert-danger" v-if="has_error && !success">
-            <p v-if="error == 'login_error'">Validation Errors.</p>
-            <p v-else>Error, unable to connect with these credentials.</p>
+        <div class="ui error message" v-if="error && !success">
+            <div class="header">Error</div>
+            <p>Error, unable to connect with these credentials.</p>
         </div>
         <form class="ui inverted form" @submit.prevent="login">
             <div class="ui one column grid centered">
@@ -34,7 +34,7 @@
         data() {
             return {
                 fields: {},
-                errors: null,
+                error: null,
                 has_error: false,
                 loading: false,
                 redirectTo: "Home",
@@ -76,7 +76,8 @@
                     this.$router.push({name: this.redirectTo})
                 }).catch((error) => {
                     this.loading = false;
-                    this.success = true;
+                    this.success = false;
+                    this.error = "login_error";
                     console.log("Failed");
                 });
                 /*
