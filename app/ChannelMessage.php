@@ -16,6 +16,10 @@ class ChannelMessage extends Model
     ];
 
     public function channel(){
-        $this->belongsTo(Channel::class, 'owner_id');
+        return $this->belongsTo(Channel::class, 'owner_id');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

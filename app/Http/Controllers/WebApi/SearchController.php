@@ -10,7 +10,7 @@ use App\FriendRequest;
 use App\Friends;
 use App\Http\Resources\UserResource;
 use App\Http\Resources\FriendRequestResource;
-use App\Http\Resources\FriendsResource;
+use App\Http\Resources\ChannelResource;
 use App\Http\Resources\ProfileResource;
 use \Illuminate\Pagination\Paginator;
 use App\Channel;
@@ -19,9 +19,8 @@ use App\ChannelMessage;
 class SearchController extends Controller
 {
     public function index(Request $request){
-        $channel = Channel::findOrFail(1);
+        return new ChannelResource(Channel::find(1));
 
-        dd($channel->messages);
         $user = User::find(1);
         $friends = $user->friends;
         $friendShipStatus = (bool)$friends->where('id', 1)->count();

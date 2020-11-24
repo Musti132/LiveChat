@@ -7,6 +7,7 @@ use App\User;
 use App\Events\SendMessage;
 use App\Events\MessageChannel;
 use Event;
+use App\ChannelMessage;
 use Pusher;
 
 class HomeController extends Controller
@@ -38,8 +39,6 @@ class HomeController extends Controller
     }
     
     public function notify(){
-        event(new MessageChannel(1, 2, 3));
-        Event::dispatch("TEST");
-        return true;
+        return "test";
     }
 }

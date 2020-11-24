@@ -14,19 +14,21 @@ class MessageChannel implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $channelId;
-    public $user;
+    public $sent_at;
+    public $from_id;
+    public $from_user;
     public $message;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($channelId, $user, $message)
+    public function __construct($resource)
     {
-        $this->message = $message;
-        $this->user = $user;
-        $this->channelId = $channelId;
+        $this->message = $resource['message'];
+        $this->from_id = $resource['user_id'];
+        $this->from_user = $resource['from_user']->name;
+        $this->sent_at = $resource['created_at'];
     }
     /**
      * Get the channels the event should broadcast on.

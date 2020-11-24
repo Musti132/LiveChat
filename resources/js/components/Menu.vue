@@ -79,7 +79,6 @@
             Autocomplete,
         },
         mounted(){
-            console.log(this.routes.authenticated);
         },
         methods: {
             search(term){

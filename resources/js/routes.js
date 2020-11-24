@@ -12,7 +12,7 @@ import topbar from 'topbar'
 
 const routes = [
     { path: '/', name: 'Home', component: Home, meta: { auth: true, keepAlive: true } },
-    { path: '/chat/:chatId', name: 'ChatHome', component: ChatHome, meta: { auth: true, keepAlive: true }, props: { default: true, }, },
+    { path: '/channel/:chatId', name: 'ChatHome', component: ChatHome, meta: { auth: true, keepAlive: true }, props: { default: true, }, },
     { path: '/login', name: 'Login', component: Login, meta: { auth: false, keepAlive: true } },
     { path: '/register', name: 'Register', component: Register, meta: { auth: false, keepAlive: true } },
     { path: '/friends', name: 'Friends', component: Friends, meta: { auth: true, keepAlive: true } },

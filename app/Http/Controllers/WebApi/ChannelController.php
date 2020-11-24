@@ -6,11 +6,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Channel;
 use App\ChannelMessage;
+use App\Http\Resources\ChannelResource;
+use App\Events\MessageChannel;
+use App\Http\Resources\ChannelMessageResource;
 
 class ChannelController extends Controller
 {
     public function details($id){
-        return Channel::find($id);
+        return new ChannelResource(Channel::find($id));
     }
 
     public function sendMessage(Request $request, $id){
@@ -23,6 +26,12 @@ class ChannelController extends Controller
         ]);
 
         $channel->messages()->save($message);
+        event(new MessageChannel(new ChannelMessageResource([
+            'user_id' => $message->user_id,
+            'message' => $message->message,
+            'created_at' => $message->created_at->diffForHumans(),
+            'from_user' => $message->user,
+        ])));
 
         return json_response([
             'status' => 'success',
