@@ -55,7 +55,7 @@
                 id: null,
             }
         },
-        mounted: function() {
+        mounted() {
             this.id = this.$route.params.chatId;
             this.channel()
                 
@@ -70,16 +70,17 @@
                 }
             });
         },
+        updated(){
+            let element = document.querySelector("#chat_box");
+            var scrollHeight = element.scrollHeight;
+            element.scrollTop = scrollHeight;
+        },
 
         methods: {
             channel(){
                 axios.get('channel/'+ this.id +'/details').then(response => {
                     this.channelDetails = response.data.data;
                     this.channelMessages = response.data.data.message;
-
-                    let element = document.querySelector("#chat_box");
-                    var scrollHeight = element.scrollHeight;
-                    element.scrollTop = scrollHeight;
                 });
             },
 
