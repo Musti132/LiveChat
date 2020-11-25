@@ -75,7 +75,7 @@
 
             decline(request, key){
                 Vue.delete(this.friendRequests, key);
-                axios.post('friends/decline', { requestId: request.request_id }).then( (resp) => {
+                axios.delete('friends/decline/' + request.request_id).then( (resp) => {
                     $('body').toast({
                         title: "Chat",
                         class: "inverted",

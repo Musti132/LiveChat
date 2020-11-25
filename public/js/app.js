@@ -4574,9 +4574,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     decline: function decline(request, key) {
       Vue["delete"](this.friendRequests, key);
-      axios.post('friends/decline', {
-        requestId: request.request_id
-      }).then(function (resp) {
+      axios["delete"]('friends/decline/' + request.request_id).then(function (resp) {
         $('body').toast({
           title: "Chat",
           "class": "inverted",

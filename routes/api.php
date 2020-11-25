@@ -54,7 +54,7 @@ Route::group([
     Route::group(['as' => 'friends'], function(){
         Route::get('friends', 'FriendController@index');
         Route::get('friends/requests', 'FriendController@getFriendRequest');
-        Route::delete('friends/decline', 'FriendController@decline');
+        Route::delete('friends/decline/{id}', 'FriendController@decline');
         Route::post('friends/accept', 'FriendController@accept');
         Route::post('friends/add', 'FriendController@add');
     });

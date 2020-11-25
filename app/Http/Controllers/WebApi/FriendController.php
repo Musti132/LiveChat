@@ -41,8 +41,8 @@ class FriendController extends Controller
     }
     
 
-    function decline(Request $request){
-        $requestId = $request->requestId;
+    function decline($id){
+        $requestId = $id;
 
         FriendRequest::find($requestId)->delete();
 
