@@ -25,7 +25,7 @@ class FriendController extends Controller
     function accept(Request $request){
         $requestId = $request->requestId;
         
-        $getRequest = FriendRequest::find($requestId);
+        $getRequest = FriendRequest::findOrFail($requestId);
         $getRequest->status = 1;
         $getRequest->save();
         

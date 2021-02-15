@@ -23,12 +23,12 @@ Route::post('broadcast', function (Request $request){
     return $pusher->socket_auth($request->channel_name, $request->socket_id);
 }); 
 
+
 Route::get('notify', "HomeController@notify");
 
 Route::get('doc', function(){
     return view('apidoc.index');
 });
-
 
 Route::get('/{any?}', function (){
     return view('welcome');

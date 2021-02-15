@@ -26,6 +26,7 @@ class ChannelController extends Controller
         ]);
 
         $channel->messages()->save($message);
+        
         event(new MessageChannel(new ChannelMessageResource([
             'user_id' => $message->user_id,
             'message' => $message->message,
