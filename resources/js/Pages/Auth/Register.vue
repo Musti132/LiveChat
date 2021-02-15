@@ -72,7 +72,7 @@
                             showProgress: 'bottom',
                             classProgress: 'green'
                         });
-                        this.$router.push({name: 'login', params: {successRegistrationRedirect: true}});
+                        this.$router.push({name: 'Login', params: {successRegistrationRedirect: true}});
                     }).catch((error) => {
                         console.log(error);
                         this.loading = false;

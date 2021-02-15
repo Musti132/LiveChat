@@ -1,8 +1,10 @@
 
 <template>
     <div class="ui center aligned container">
-        <div class="ui segment inverted">
-          <p><span class="ui huge text">{{data.username}}'s Profile</span></p>
+        <div class="ui segment inverted" v-if="!loading && data">
+            <p>
+                <span class="ui huge text">{{ data.username }}'s Profile</span>
+            </p>
         </div>
         <div v-if="loading" class="ui active dimmer">
             <div class="ui text loader">Loading</div>
@@ -13,31 +15,51 @@
         <div v-if="!loading && data">
             <div class="ui card centered inverted">
                 <div class="image">
-                    <img src="/images/male.png" class="visible content">
-                    
+                    <img src="/images/male.png" class="visible content" />
                 </div>
                 <div class="content">
-                    <div class="header">{{data.username}}</div>
+                    <div class="header">{{ data.username }}</div>
                     <div class="meta">
-                        <span class="date">Joined {{data.joinedAt}}</span>
+                        <span class="date">Joined {{ data.joinedAt }}</span>
                     </div>
                     <div class="description">
-                        <span class="date">Friendship status: 
-                            <div v-if="data.isFriend" class="ui inverted segment">
-                                <p><span class="ui green text">Friends <em data-emoji=":clap:"></em></span></p>
+                        <span class="date"
+                            >Friendship status:
+                            <div
+                                v-if="data.isFriend"
+                                class="ui inverted segment"
+                            >
+                                <p>
+                                    <span class="ui green text"
+                                        >Friends <em data-emoji=":clap:"></em
+                                    ></span>
+                                </p>
                             </div>
-                            <div v-else-if="data.friendRequest" class="ui inverted segment">
-                                <p><span class="ui green text">Friend request received/sent <em data-emoji=":clap:"></em></span></p>
+                            <div
+                                v-else-if="data.friendRequest"
+                                class="ui inverted segment"
+                            >
+                                <p>
+                                    <span class="ui green text"
+                                        >Friend request received/sent
+                                        <em data-emoji=":clap:"></em
+                                    ></span>
+                                </p>
                             </div>
                             <div v-else class="ui inverted segment">
-                                <button v-on:click="add()" class="ui friend-accept button">Send friend request</button>
+                                <button
+                                    v-on:click="add()"
+                                    class="ui friend-accept button"
+                                >
+                                    Send friend request
+                                </button>
                             </div>
                         </span>
                     </div>
                 </div>
                 <div class="extra content">
                     <i class="user icon"></i>
-                    {{data.friendsCount}} Friends
+                    {{ data.friendsCount }} Friends
                 </div>
             </div>
         </div>
@@ -50,7 +72,7 @@ export default {
         return {
             errors: {},
             data: false,
-            loading: true,
+            loading: null,
             friendRequests: null,
             id: null,
         };
@@ -59,26 +81,42 @@ export default {
         this.id = this.$route.params.userId;
         this.getProfile();
     },
+    async beforeRouteUpdate(to, from) {
+        if (from.params.userId) {
+            if (to.params.userId !== from.params.userId) {
+                this.data = await this.getProfile(to.params.userId);
+            }
+        }
+        
+    },
     methods: {
-        getProfile() {
-            axios.get("profile/" + this.id).then((resp) => {
-                console.log("TEST:" + this.id);
-                this.data = resp.data.data;
-                this.loading = false;
-            }).catch(error => {
-                this.loading = false;
-            });
+        async getProfile(id = null) {
+            if (id == null) {
+                id = this.id;
+            }
+            this.loading = true;
+
+            axios
+                .get("profile/" + id)
+                .then((resp) => {
+                    this.data = resp.data.data;
+                    this.username = this.data.username;
+                    this.loading = false;
+                })
+                .catch((error) => {
+                    this.loading = false;
+                });
         },
-        add(){
-            $('body').toast({
+        add() {
+            $("body").toast({
                 title: "Chat",
                 class: "inverted",
-                position: 'bottom right',
+                position: "bottom right",
                 message: `Sent friend request <em data-emoji=":clap:"></em>`,
-                showProgress: 'bottom',
-                classProgress: 'green'
+                showProgress: "bottom",
+                classProgress: "green",
             });
-            axios.post('friends/add', { userId: this.id }).then( resp => {
+            axios.post("friends/add", { userId: this.id }).then((resp) => {
                 console.log(resp);
             });
         },

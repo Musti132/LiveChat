@@ -4,9 +4,9 @@ namespace App\Http\Controllers\WebApi;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Chat;
-use App\ChatReply;
-use App\FriendRequest;
+use App\Models\Chat;
+use App\Models\ChatReply;
+use App\Models\FriendRequest;
 
 class HomeController extends Controller
 {

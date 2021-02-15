@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Resources\FriendRequestResource;
 use App\Http\Resources\FriendsResource;
 use CollectionHelper;
-use App\Friends;
-use App\FriendRequest;
+use App\Models\Friends;
+use App\Models\FriendRequest;
 
 class FriendController extends Controller
 {

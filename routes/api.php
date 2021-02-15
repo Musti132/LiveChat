@@ -2,6 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebApi\AuthController;
+use App\Http\Controllers\WebApi\ChannelController;
+use App\Http\Controllers\WebApi\SearchController;
+use App\Http\Controllers\WebApi\FriendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,17 +29,16 @@ Route::get('search', 'WebApi\\SearchController@index');
  */
 Route::group([
     'prefix' => 'web/auth',
-    'namespace' => 'WebApi\\',
     'as' => 'auth.',
 ], function(){;
 
-    Route::post('login', 'AuthController@login')->name('login');
-    Route::post('register', 'AuthController@register')->name('register');
+    Route::post('login', [AuthController::class, 'login'])->name('login');
+    Route::post('register', [AuthController::class, 'register'])->name('register');
 
     Route::middleware('auth:api')->group(function(){
-        Route::get('user', 'AuthController@user')->name('user');
-        Route::get('refresh', 'AuthController@refresh')->name('refresh');
-        Route::post('logout', 'AuthController@logout')->name('logout');
+        Route::get('user', [AuthController::class, 'user'])->name('user');
+        Route::get('refresh', [AuthController::class, 'refresh'])->name('refresh');
+        Route::post('logout', [AuthController::class, 'logout'])->name('logout');
     });
 });
 
@@ -84,16 +87,11 @@ Route::group([
     /**
      * Channel routes
      */
-    Route::group(['as' => 'chat'], function(){
-        Route::get('channel/{id}/details', 'ChannelController@details');
-        Route::post('channel/{id}/message', 'ChannelController@sendMessage');
+    Route::group(['as' => 'chat.'], function(){
+        Route::post('channel/create', 'ChannelController@store')->name('store');
+        Route::get('channel/{id}/details', 'ChannelController@details')->name('details');
+        Route::post('channel/{id}/message', 'ChannelController@sendMessage')->name('message');
+        Route::get('channel/list', [ChannelController::class, 'list'])->name('list');
     });
     
 });
-
-/*
-Route::get('users', 'ChatController@showUsers')->name('apiUsers');
-Route::post('post', 'ChatController@post')->name('testing');
-Route::post('sendMessage', 'ChatController@sendMessage')->name('sendChatMessage');
-Route::post('login', 'AuthController@login')->name('api_login');
-Route::get('logout', 'AuthController@logout')->name('api_logout');*/

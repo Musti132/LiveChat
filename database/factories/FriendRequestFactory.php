@@ -1,14 +1,30 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\FriendRequest;
-use App\User;
-use Faker\Generator as Faker;
+use App\Models\FriendRequest;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(FriendRequest::class, function (Faker $faker) {
-    return [
-        'user_id' => User::all()->random()->id,
-        'to_user_id' => 1,
-    ];
-});
+class FriendRequestFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = FriendRequest::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'user_id' => User::all()->random()->id,
+            'to_user_id' => 51,
+        ];
+    }
+}

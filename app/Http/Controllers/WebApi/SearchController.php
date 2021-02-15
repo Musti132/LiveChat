@@ -4,17 +4,17 @@ namespace App\Http\Controllers\WebApi;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\User;
 use CollectionHelper;
-use App\FriendRequest;
-use App\Friends;
+use App\Models\FriendRequest;
+use App\Models\Friends;
 use App\Http\Resources\UserResource;
 use App\Http\Resources\FriendRequestResource;
 use App\Http\Resources\ChannelResource;
 use App\Http\Resources\ProfileResource;
 use \Illuminate\Pagination\Paginator;
-use App\Channel;
-use App\ChannelMessage;
+use App\Models\Channel;
+use App\Models\ChannelMessage;
 
 class SearchController extends Controller
 {

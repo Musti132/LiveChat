@@ -17,9 +17,10 @@ class ChannelResource extends JsonResource
     {
         return [
             'channel_id' => $this->id,
+            'channel_topic' => $this->topic,
             'channel_name' => $this->name,
+            'channel_owner' => $this->owner->name,
             'message' => ChannelMessageResource::collection($this->messages),
-
         ];
     }
 }

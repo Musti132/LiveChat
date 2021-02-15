@@ -4,14 +4,19 @@ namespace App\Http\Controllers\WebApi;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Channel;
-use App\ChannelMessage;
+use App\Models\Channel;
+use App\Models\ChannelMessage;
 use App\Http\Resources\ChannelResource;
 use App\Events\MessageChannel;
+use App\Http\Resources\ChannelListResource;
 use App\Http\Resources\ChannelMessageResource;
 
 class ChannelController extends Controller
 {
+    public function list(){
+        return ChannelListResource::collection(Channel::with('owner')->orderBy('created_at', 'DESC')->get());
+    }
+
     public function details($id){
         return new ChannelResource(Channel::find($id));
     }
@@ -37,6 +42,22 @@ class ChannelController extends Controller
         return json_response([
             'status' => 'success',
             'message' => 'Message succesfully sent!',
+        ]);
+    }
+
+    public function store(Request $request){
+        $channel = Channel::create([
+            'name' => $request->name,
+            'topic' => $request->topic,
+            'owner_id' => $request->user()->id,
+        ]);
+
+        return json_response([
+            'status' => 'success',
+            'message' => 'Channel created',
+            'data' => [
+                'name' => $channel->name,
+            ],
         ]);
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\WebApi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\ProfileResource;
-use App\User;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
